@@ -1,0 +1,143 @@
+m255
+K4
+z2
+!s11e vcom 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/intelFPGA_lite/20.1
+Ealu
+Z0 w1733265004
+Z1 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z3 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 19
+Z4 dC:/Users/jditz/Desktop/Quartus/MIPS/MIPS_ms
+Z5 8C:/Users/jditz/Desktop/Quartus/MIPS/ALU.vhd
+Z6 FC:/Users/jditz/Desktop/Quartus/MIPS/ALU.vhd
+l0
+L5 1
+VEb6AUkgoaaHC:5OH9]Ql?2
+!s100 Tm<KMLQIk2TQzjzFlMzPF3
+Z7 OV;C;2020.1;71
+32
+Z8 !s110 1733266279
+!i10b 1
+Z9 !s108 1733266278.000000
+Z10 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/jditz/Desktop/Quartus/MIPS/ALU.vhd|
+Z11 !s107 C:/Users/jditz/Desktop/Quartus/MIPS/ALU.vhd|
+!i113 1
+Z12 o-work work -2002 -explicit
+Z13 tExplicit 1 CvgOpt 0
+Abhv
+R1
+R2
+R3
+DEx4 work 3 alu 0 22 Eb6AUkgoaaHC:5OH9]Ql?2
+!i122 19
+l28
+L17 70
+V<aoN<feJAQAgzc0zQ<BSo3
+!s100 @Jj`SHC6:gJT<]IH`L<<?1
+R7
+32
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+Palu_constants
+R1
+R2
+R3
+!i122 4
+w1733263207
+R4
+Z14 8C:/Users/jditz/Desktop/Quartus/MIPS/Constants.vhd
+Z15 FC:/Users/jditz/Desktop/Quartus/MIPS/Constants.vhd
+l0
+L5 1
+V`;5YBAbA_4<>`0nT1PJgf0
+!s100 b2>cCj<zNF^cfzD92Wacg1
+R7
+32
+!s110 1733263426
+!i10b 1
+!s108 1733263426.000000
+Z16 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/jditz/Desktop/Quartus/MIPS/Constants.vhd|
+Z17 !s107 C:/Users/jditz/Desktop/Quartus/MIPS/Constants.vhd|
+!i113 1
+R12
+R13
+Ealu_tb
+Z18 w1733266243
+R1
+R2
+R3
+!i122 20
+R4
+Z19 8C:/Users/jditz/Desktop/Quartus/MIPS/ALU_tb.vhd
+Z20 FC:/Users/jditz/Desktop/Quartus/MIPS/ALU_tb.vhd
+l0
+L5 1
+V?b32<PKcL3dFzF7=Wncd60
+!s100 n>hbB`=Z7V]ULhfmL4blo3
+R7
+32
+R8
+!i10b 1
+Z21 !s108 1733266279.000000
+Z22 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/jditz/Desktop/Quartus/MIPS/ALU_tb.vhd|
+Z23 !s107 C:/Users/jditz/Desktop/Quartus/MIPS/ALU_tb.vhd|
+!i113 1
+R12
+R13
+Atb
+R1
+R2
+R3
+Z24 DEx4 work 6 alu_tb 0 22 ?b32<PKcL3dFzF7=Wncd60
+!i122 20
+l25
+Z25 L8 106
+Z26 VMl8HkK[]]7bd_L[`[<Vb>0
+Z27 !s100 JEhhFhZzIj_87=[AmH4eZ2
+R7
+32
+R8
+!i10b 1
+R21
+R22
+R23
+!i113 1
+R12
+R13
+Pconstants
+R1
+R2
+R3
+!i122 5
+w1733263496
+R4
+R14
+R15
+l0
+L5 1
+VzMNI<Ie`e=Le6S7fJC5@P2
+!s100 j_a@9:C[CHO<ACiU]8eP[0
+R7
+32
+!s110 1733263501
+!i10b 1
+!s108 1733263500.000000
+R16
+R17
+!i113 1
+R12
+R13

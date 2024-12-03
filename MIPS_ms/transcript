@@ -1,0 +1,145 @@
+# Compile of ALU.vhd was successful.
+# Compile of ALU.vhd failed with 1 errors.
+# Compile of ALU.vhd failed with 1 errors.
+# Compile of ALU.vhd was successful.
+# Compile of ALU.vhd failed with 3 errors.
+# Compile of Constants.vhd was successful.
+# 2 compiles, 1 failed with 3 errors.
+# Compile of ALU.vhd failed with 3 errors.
+# Compile of Constants.vhd was successful.
+# 2 compiles, 1 failed with 3 errors.
+# Compile of ALU.vhd failed with 3 errors.
+# Compile of Constants.vhd was successful.
+# 2 compiles, 1 failed with 3 errors.
+# Compile of ALU.vhd failed with 3 errors.
+# Compile of Constants.vhd was successful.
+# 2 compiles, 1 failed with 3 errors.
+# Compile of ALU.vhd was successful.
+# Compile of ALU.vhd failed with 1 errors.
+# Compile of ALU.vhd was successful.
+# Compile of ALU.vhd was successful.
+# Compile of ALU.vhd was successful.
+# Compile of ALU.vhd was successful.
+# Compile of ALU_tb.vhd was successful.
+# 2 compiles, 0 failed with no errors.
+vsim -gui work.alu_tb
+# vsim -gui work.alu_tb 
+# Start time: 17:32:55 on Dec 03,2024
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.alu_tb(tb)
+# Loading work.alu(bhv)
+run -all
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /alu_tb/uut
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /alu_tb/uut
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 10 ns  Iteration: 1  Instance: /alu_tb/uut
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 20 ns  Iteration: 1  Instance: /alu_tb/uut
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 30 ns  Iteration: 1  Instance: /alu_tb/uut
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 40 ns  Iteration: 1  Instance: /alu_tb/uut
+add wave -position end  sim:/alu_tb/a
+add wave -position end  sim:/alu_tb/b
+add wave -position end  sim:/alu_tb/opsel
+add wave -position 2  sim:/alu_tb/shamt
+add wave -position end  sim:/alu_tb/result
+add wave -position end  sim:/alu_tb/result_hi
+add wave -position end  sim:/alu_tb/branch_taken
+run
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+run
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /alu_tb/uut
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /alu_tb/uut
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 10 ns  Iteration: 1  Instance: /alu_tb/uut
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 20 ns  Iteration: 1  Instance: /alu_tb/uut
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 30 ns  Iteration: 1  Instance: /alu_tb/uut
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 40 ns  Iteration: 1  Instance: /alu_tb/uut
+# WARNING: No extended dataflow license exists
+# Compile of ALU.vhd was successful.
+# Compile of ALU_tb.vhd was successful.
+# 2 compiles, 0 failed with no errors.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.alu_tb(tb)
+# Loading work.alu(bhv)
+run
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /alu_tb/uut
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /alu_tb/uut
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 10 ns  Iteration: 1  Instance: /alu_tb/uut
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 20 ns  Iteration: 1  Instance: /alu_tb/uut
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 30 ns  Iteration: 1  Instance: /alu_tb/uut
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 40 ns  Iteration: 1  Instance: /alu_tb/uut
+# Compile of ALU.vhd was successful.
+# Compile of ALU_tb.vhd was successful.
+# 2 compiles, 0 failed with no errors.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.alu_tb(tb)
+# Loading work.alu(bhv)
+run
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /alu_tb/uut
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /alu_tb/uut
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 10 ns  Iteration: 1  Instance: /alu_tb/uut
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 20 ns  Iteration: 1  Instance: /alu_tb/uut
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 30 ns  Iteration: 1  Instance: /alu_tb/uut
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 40 ns  Iteration: 1  Instance: /alu_tb/uut
+# Compile of ALU.vhd was successful.
+# Compile of ALU_tb.vhd was successful.
+# 2 compiles, 0 failed with no errors.
+# Compile of ALU.vhd was successful.
+# Compile of ALU_tb.vhd was successful.
+# 2 compiles, 0 failed with no errors.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.alu_tb(tb)
+# Loading work.alu(bhv)
+run
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /alu_tb/uut
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /alu_tb/uut
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 10 ns  Iteration: 1  Instance: /alu_tb/uut
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 20 ns  Iteration: 1  Instance: /alu_tb/uut
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 30 ns  Iteration: 1  Instance: /alu_tb/uut
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 40 ns  Iteration: 1  Instance: /alu_tb/uut
