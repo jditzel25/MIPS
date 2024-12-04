@@ -1,0 +1,64 @@
+vsim -gui work.alu
+# vsim -gui work.alu 
+# Start time: 18:50:14 on Dec 03,2024
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.alu(bhv)
+add wave -position end  sim:/alu/a
+add wave -position end  sim:/alu/b
+quit -sim
+# End time: 18:50:36 on Dec 03,2024, Elapsed time: 0:00:22
+# Errors: 0, Warnings: 1
+vsim -gui work.alu_tb
+# vsim -gui work.alu_tb 
+# Start time: 18:50:47 on Dec 03,2024
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.alu_tb(tb)
+# Loading work.alu(bhv)
+add wave -position end  sim:/alu_tb/a
+add wave -position end  sim:/alu_tb/b
+add wave -position end  sim:/alu_tb/opsel
+add wave -position end  sim:/alu_tb/shamt
+add wave -position end  sim:/alu_tb/result
+add wave -position end  sim:/alu_tb/result_hi
+add wave -position end  sim:/alu_tb/branch_taken
+restart
+run
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /alu_tb/uut
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /alu_tb/uut
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 10 ns  Iteration: 1  Instance: /alu_tb/uut
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 20 ns  Iteration: 1  Instance: /alu_tb/uut
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 30 ns  Iteration: 1  Instance: /alu_tb/uut
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 40 ns  Iteration: 1  Instance: /alu_tb/uut
+quit -sim
+# End time: 19:41:27 on Dec 03,2024, Elapsed time: 0:50:40
+# Errors: 0, Warnings: 7
+# Compile of ALU.vhd was successful.
+# Compile of ALU_tb.vhd was successful.
+# Compile of Memory.vhd failed with 2 errors.
+# Compile of RAM.vhd was successful.
+# 4 compiles, 1 failed with 2 errors.
+# Compile of ALU.vhd was successful.
+# Compile of ALU_tb.vhd was successful.
+# Compile of Memory.vhd failed with 1 errors.
+# Compile of RAM.vhd was successful.
+# 4 compiles, 1 failed with 1 error.
+# Compile of ALU.vhd was successful.
+# Compile of ALU_tb.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of RAM.vhd was successful.
+# 4 compiles, 0 failed with no errors.

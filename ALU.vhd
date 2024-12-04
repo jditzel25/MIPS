@@ -31,14 +31,13 @@ architecture bhv of ALU is
 begin
 
     process (a, b, opsel, shamt)
-        variable temp_result : std_logic_vector(63 downto 0); -- Changed to std_logic_vector
-        variable shift_amount : integer range 0 to 31; -- shamt
+        variable temp_result : std_logic_vector(63 downto 0); 
+        variable shift_amount : integer range 0 to 31;
     begin
         result <= (others => '0');
         result_hi <= (others => '0');
         branch_taken <= '0';
         
-        -- Extract shift amount from shamt
         shift_amount := to_integer(unsigned(shamt(4 downto 0)));
 
         case opsel is
@@ -80,7 +79,6 @@ begin
                     branch_taken <= '0';
                 end if;
             when others =>
-                -- Default case for invalid opsel
                 result <= (others => 'X');
                 result_hi <= (others => 'X');
                 branch_taken <= 'X';

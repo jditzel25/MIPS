@@ -1,0 +1,27 @@
+-- Jack Ditzel
+-- Section: 11610
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity Memory is
+    port (
+        baddr: in std_logic_vector(31 downto 0);
+        data_in: in std_logic_vector(31 downto 0);
+        mem_read: in std_logic;
+        mem_write: in std_logic;
+        data_out: out std_logic_vector(31 downto 0);
+        in_port0_in: in std_logic_vector(31 downto 0);
+        in_port0_en: in std_logic;
+        in_port1_in: in std_logic_vector(31 downto 0);
+        in_port1_en: in std_logic;
+        out_port: out std_logic_vector(31 downto 0);
+    );
+end Memory;
+
+architecture bhv of Memory is
+begin
+
+
+end bhv;
