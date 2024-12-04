@@ -162,13 +162,15 @@ end str;
 
 
 
-
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
 
 -- Zero Extend Entity
 entity ZeroExtend is
     port (
         switches : in std_logic_vector(9 downto 0);
-        inport : out std_logic_vector(31 downto 0);
+        inport : out std_logic_vector(31 downto 0)
     );
 end ZeroExtend;
 
@@ -177,12 +179,19 @@ begin
 
 end bhv;
 
+
+
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
 -- Sign Extend Entity
 entity SignExtend is
     port (
         input : in std_logic_vector(15 downto 0);
         is_signed : in std_logic;
-        output : out std_logic_vector(31 downto 0);
+        output : out std_logic_vector(31 downto 0)
     );
 end SignExtend;
 
@@ -191,11 +200,18 @@ begin
     
 end bhv;
 
+
+
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
 -- Shift Left Entity
 entity ShiftLeft is
     port (
         input : in std_logic_vector(31 downto 0);
-        output : out std_logic_vector(31 downto 0);
+        output : out std_logic_vector(31 downto 0)
     );
 end ShiftLeft;
 
@@ -203,6 +219,13 @@ architecture bhv of ShiftLeft is
 begin
         
 end bhv;
+
+
+
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
 
 -- ALU Control
 entity ALUControl is
@@ -212,7 +235,7 @@ entity ALUControl is
         opsel : out std_logic_vector(4 downto 0);
         alu_lo_hi : out std_logic_vector(1 downto 0);
         hi_en : out std_logic;
-        lo_en : out std_logic;
+        lo_en : out std_logic
     );
 end ALUControl;
 
@@ -221,12 +244,19 @@ architecture bhv of ALUControl is
             
 end bhv;
 
+
+
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
 -- Concat Entity
 entity Concat is
     port (
         input : in std_logic_vector(27 downto 0);
         pc : in std_logic_vector(3 downto 0);
-        output : out std_logic_vector(31 downto 0);
+        output : out std_logic_vector(31 downto 0)
     );
 end Concat;
 
