@@ -10,23 +10,23 @@ z2
 cModel Technology
 dC:/intelFPGA_lite/20.1
 Ealu
-Z0 w1733265004
+Z0 w1733284512
 Z1 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
 Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z3 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
-!i122 19
+!i122 116
 Z4 dC:/Users/jditz/Desktop/Quartus/MIPS/MIPS_ms
 Z5 8C:/Users/jditz/Desktop/Quartus/MIPS/ALU.vhd
 Z6 FC:/Users/jditz/Desktop/Quartus/MIPS/ALU.vhd
 l0
-L5 1
-VEb6AUkgoaaHC:5OH9]Ql?2
-!s100 Tm<KMLQIk2TQzjzFlMzPF3
+L8 1
+VW>G7RR?4<Q<Y>U^PT;MaP0
+!s100 aS?9T4A5Tl?Ek`19TJD0V1
 Z7 OV;C;2020.1;71
 32
-Z8 !s110 1733266279
+Z8 !s110 1733293126
 !i10b 1
-Z9 !s108 1733266278.000000
+Z9 !s108 1733293126.000000
 Z10 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/jditz/Desktop/Quartus/MIPS/ALU.vhd|
 Z11 !s107 C:/Users/jditz/Desktop/Quartus/MIPS/ALU.vhd|
 !i113 1
@@ -36,12 +36,12 @@ Abhv
 R1
 R2
 R3
-DEx4 work 3 alu 0 22 Eb6AUkgoaaHC:5OH9]Ql?2
-!i122 19
-l28
-L17 70
-V<aoN<feJAQAgzc0zQ<BSo3
-!s100 @Jj`SHC6:gJT<]IH`L<<?1
+DEx4 work 3 alu 0 22 W>G7RR?4<Q<Y>U^PT;MaP0
+!i122 116
+l31
+L20 68
+VDCLC[EPkIYHDe7[moDBAD0
+!s100 l7X7co]oXVRT^Xh`kG5_32
 R7
 32
 R8
@@ -76,25 +76,25 @@ Z17 !s107 C:/Users/jditz/Desktop/Quartus/MIPS/Constants.vhd|
 R12
 R13
 Ealu_tb
-Z18 w1733266243
+R0
 R1
 R2
 R3
-!i122 20
+!i122 117
 R4
-Z19 8C:/Users/jditz/Desktop/Quartus/MIPS/ALU_tb.vhd
-Z20 FC:/Users/jditz/Desktop/Quartus/MIPS/ALU_tb.vhd
+Z18 8C:/Users/jditz/Desktop/Quartus/MIPS/ALU_tb.vhd
+Z19 FC:/Users/jditz/Desktop/Quartus/MIPS/ALU_tb.vhd
 l0
-L5 1
-V?b32<PKcL3dFzF7=Wncd60
-!s100 n>hbB`=Z7V]ULhfmL4blo3
+L8 1
+VAMHC7X7z?;MSCged1E;7D3
+!s100 b@@Ac23M4X7dCb2d2mjnb0
 R7
 32
 R8
 !i10b 1
-Z21 !s108 1733266279.000000
-Z22 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/jditz/Desktop/Quartus/MIPS/ALU_tb.vhd|
-Z23 !s107 C:/Users/jditz/Desktop/Quartus/MIPS/ALU_tb.vhd|
+R9
+Z20 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/jditz/Desktop/Quartus/MIPS/ALU_tb.vhd|
+Z21 !s107 C:/Users/jditz/Desktop/Quartus/MIPS/ALU_tb.vhd|
 !i113 1
 R12
 R13
@@ -102,19 +102,19 @@ Atb
 R1
 R2
 R3
-Z24 DEx4 work 6 alu_tb 0 22 ?b32<PKcL3dFzF7=Wncd60
-!i122 20
-l25
-Z25 L8 106
-Z26 VMl8HkK[]]7bd_L[`[<Vb>0
-Z27 !s100 JEhhFhZzIj_87=[AmH4eZ2
+DEx4 work 6 alu_tb 0 22 AMHC7X7z?;MSCged1E;7D3
+!i122 117
+l28
+L11 106
+VBa;`T=:jfc2S538ZUFofY0
+!s100 ZeN>M5USXi>J4IVHEN9WL1
 R7
 32
 R8
 !i10b 1
+R9
+R20
 R21
-R22
-R23
 !i113 1
 R12
 R13
@@ -138,6 +138,221 @@ R7
 !s108 1733263500.000000
 R16
 R17
+!i113 1
+R12
+R13
+Edatapath
+Z22 w1733293122
+R1
+R2
+R3
+!i122 122
+R4
+Z23 8C:/Users/jditz/Desktop/Quartus/MIPS/Datapath.vhd
+Z24 FC:/Users/jditz/Desktop/Quartus/MIPS/Datapath.vhd
+l0
+L8 1
+V<YJKDfF3AHEHc:Ni@7]H21
+!s100 K65R1JS5?I1AhiD74k_R93
+R7
+32
+R8
+!i10b 1
+R9
+Z25 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/jditz/Desktop/Quartus/MIPS/Datapath.vhd|
+!s107 C:/Users/jditz/Desktop/Quartus/MIPS/Datapath.vhd|
+!i113 1
+R12
+R13
+Astr
+R1
+R2
+R3
+DEx4 work 8 datapath 0 22 <YJKDfF3AHEHc:Ni@7]H21
+!i122 122
+l35
+L33 6
+VTI3Ll[l=o9oHbhO_>4`W41
+!s100 oPoD4]9WAoDQ=f_:b`nZc1
+R7
+32
+R8
+!i10b 1
+R9
+R25
+Z26 !s107 C:/Users/jditz/Desktop/Quartus/MIPS/Datapath.vhd|
+!i113 1
+R12
+R13
+Ememory
+Z27 w1733290519
+R1
+R2
+R3
+!i122 118
+R4
+Z28 8C:/Users/jditz/Desktop/Quartus/MIPS/Memory.vhd
+Z29 FC:/Users/jditz/Desktop/Quartus/MIPS/Memory.vhd
+l0
+L8 1
+VK:VJ;EIc=LEfdG?M^aaoc2
+!s100 28DMjfkKX@Xn3W50]P78^1
+R7
+32
+R8
+!i10b 1
+R9
+Z30 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/jditz/Desktop/Quartus/MIPS/Memory.vhd|
+Z31 !s107 C:/Users/jditz/Desktop/Quartus/MIPS/Memory.vhd|
+!i113 1
+R12
+R13
+Abhv
+R1
+R2
+R3
+DEx4 work 6 memory 0 22 K:VJ;EIc=LEfdG?M^aaoc2
+!i122 118
+l56
+L24 86
+VNRSHAPlOjQTdU67>F@Xe]0
+!s100 gzfd_3=VA9:`=GK?i^ULN1
+R7
+32
+R8
+!i10b 1
+R9
+R30
+R31
+!i113 1
+R12
+R13
+Ememory_tb
+Z32 w1733290865
+R1
+R2
+R3
+!i122 121
+R4
+Z33 8C:/Users/jditz/Desktop/Quartus/MIPS/Memory_tb.vhd
+Z34 FC:/Users/jditz/Desktop/Quartus/MIPS/Memory_tb.vhd
+l0
+L8 1
+Vi4i?P_SGQA77X`;KC?^:`2
+!s100 3U>CZC5TFHbXn[kCf0oUB3
+R7
+32
+R8
+!i10b 1
+R9
+Z35 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/jditz/Desktop/Quartus/MIPS/Memory_tb.vhd|
+Z36 !s107 C:/Users/jditz/Desktop/Quartus/MIPS/Memory_tb.vhd|
+!i113 1
+R12
+R13
+Atest
+R1
+R2
+R3
+DEx4 work 9 memory_tb 0 22 i4i?P_SGQA77X`;KC?^:`2
+!i122 121
+l43
+L11 145
+VR0FIGz6afIL5G0I0oJh5Z1
+!s100 9Xo<[0R:9>`MkF:2z^S4o1
+R7
+32
+R8
+!i10b 1
+R9
+R35
+R36
+!i113 1
+R12
+R13
+Eram
+R0
+Z37 DPx9 altera_mf 20 altera_mf_components 0 22 BN6nPmY:UEbXa[^5b@FTW1
+R2
+R3
+!i122 119
+R4
+Z38 8C:/Users/jditz/Desktop/Quartus/MIPS/RAM.vhd
+Z39 FC:/Users/jditz/Desktop/Quartus/MIPS/RAM.vhd
+l0
+L43 1
+V0[bR@eMK46A>DXMQDf@kZ0
+!s100 :cQa6hIo_BcBGA^UjzmQE3
+R7
+32
+R8
+!i10b 1
+R9
+Z40 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/jditz/Desktop/Quartus/MIPS/RAM.vhd|
+Z41 !s107 C:/Users/jditz/Desktop/Quartus/MIPS/RAM.vhd|
+!i113 1
+R12
+R13
+Asyn
+R37
+R2
+R3
+DEx4 work 3 ram 0 22 0[bR@eMK46A>DXMQDf@kZ0
+!i122 119
+l60
+L56 37
+VHAk8R9MJ0TR7nkzm4Q=QY3
+!s100 URFW5ILW?d`DcKc02G]UN1
+R7
+32
+R8
+!i10b 1
+R9
+R40
+R41
+!i113 1
+R12
+R13
+Ereg
+R0
+R1
+R2
+R3
+!i122 120
+R4
+Z42 8C:/Users/jditz/Desktop/Quartus/MIPS/Reg.vhd
+Z43 FC:/Users/jditz/Desktop/Quartus/MIPS/Reg.vhd
+l0
+L8 1
+V?ichMgT4Hn]_mfVoA;?@W2
+!s100 LnR2`e6nX^HS[:c5GzaYK2
+R7
+32
+R8
+!i10b 1
+R9
+Z44 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/jditz/Desktop/Quartus/MIPS/Reg.vhd|
+Z45 !s107 C:/Users/jditz/Desktop/Quartus/MIPS/Reg.vhd|
+!i113 1
+R12
+R13
+Abhv
+R1
+R2
+R3
+DEx4 work 3 reg 0 22 ?ichMgT4Hn]_mfVoA;?@W2
+!i122 120
+l22
+L21 11
+Vc[n?PTR7Dn1;00Jb@LiD93
+!s100 e^EBJ;NO2_WzHENM>2;0@2
+R7
+32
+R8
+!i10b 1
+R9
+R44
+R45
 !i113 1
 R12
 R13
