@@ -1,37 +1,441 @@
-vsim -gui work.alu
-# vsim -gui work.alu 
-# Start time: 18:50:14 on Dec 03,2024
+# Compile of ALU.vhd was successful.
+# Compile of ALU_tb.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of RAM.vhd was successful.
+# Compile of Memory_tb.vhd was successful.
+# 5 compiles, 0 failed with no errors.
+vsim -gui work.memory_tb
+# vsim -gui work.memory_tb 
+# Start time: 16:49:54 on Dec 04,2024
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
 # Loading ieee.numeric_std(body)
-# Loading work.alu(bhv)
-add wave -position end  sim:/alu/a
-add wave -position end  sim:/alu/b
+# Loading work.memory_tb(test)
+# Loading work.memory(bhv)
+# Loading altera_mf.altera_mf_components
+# Loading work.ram(syn)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading altera_mf.altera_common_conversion(body)
+# Loading altera_mf.altera_device_families(body)
+# Loading altera_mf.altsyncram(translated)
+# ** Warning: (vsim-3473) Component instance "inport0_inst : Reg" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /memory_tb/DUT File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Memory.vhd
+# ** Warning: (vsim-3473) Component instance "inport1_inst : Reg" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /memory_tb/DUT File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Memory.vhd
+# ** Warning: (vsim-3473) Component instance "outport_inst : Reg" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /memory_tb/DUT File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Memory.vhd
+# ** Warning: (vsim-8684) No drivers exist on out port /memory_tb/DUT/outport, and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /memory_tb/outport.
+add wave -position end  sim:/memory_tb/outport
+add wave -position end  sim:/memory_tb/mem_write
+add wave -position end  sim:/memory_tb/mem_read
+add wave -position end  sim:/memory_tb/inport1_in
+add wave -position end  sim:/memory_tb/inport1_en
+add wave -position end  sim:/memory_tb/inport0_in
+add wave -position end  sim:/memory_tb/inport0_en
+add wave -position end  sim:/memory_tb/data_out
+add wave -position end  sim:/memory_tb/data_in
+add wave -position end  sim:/memory_tb/clk_period
+add wave -position end  sim:/memory_tb/clk
+add wave -position end  sim:/memory_tb/baddr
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Warning: (vsim-3473) Component instance "inport0_inst : Reg" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /memory_tb/DUT File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Memory.vhd
+# ** Warning: (vsim-3473) Component instance "inport1_inst : Reg" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /memory_tb/DUT File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Memory.vhd
+# ** Warning: (vsim-3473) Component instance "outport_inst : Reg" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /memory_tb/DUT File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Memory.vhd
+# ** Warning: (vsim-8684) No drivers exist on out port /memory_tb/DUT/outport, and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /memory_tb/outport.
+run
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Warning: (vsim-3473) Component instance "inport0_inst : Reg" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /memory_tb/DUT File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Memory.vhd
+# ** Warning: (vsim-3473) Component instance "inport1_inst : Reg" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /memory_tb/DUT File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Memory.vhd
+# ** Warning: (vsim-3473) Component instance "outport_inst : Reg" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /memory_tb/DUT File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Memory.vhd
+# ** Warning: (vsim-8684) No drivers exist on out port /memory_tb/DUT/outport, and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /memory_tb/outport.
+run
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Warning: (vsim-3473) Component instance "inport0_inst : Reg" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /memory_tb/DUT File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Memory.vhd
+# ** Warning: (vsim-3473) Component instance "inport1_inst : Reg" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /memory_tb/DUT File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Memory.vhd
+# ** Warning: (vsim-3473) Component instance "outport_inst : Reg" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /memory_tb/DUT File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Memory.vhd
+# ** Warning: (vsim-8684) No drivers exist on out port /memory_tb/DUT/outport, and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /memory_tb/outport.
+run
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Warning: (vsim-3473) Component instance "inport0_inst : Reg" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /memory_tb/DUT File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Memory.vhd
+# ** Warning: (vsim-3473) Component instance "inport1_inst : Reg" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /memory_tb/DUT File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Memory.vhd
+# ** Warning: (vsim-3473) Component instance "outport_inst : Reg" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /memory_tb/DUT File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Memory.vhd
+# ** Warning: (vsim-8684) No drivers exist on out port /memory_tb/DUT/outport, and its initial value is not used.
+# Therefore, simulation behavior may occur that is not in compliance with
+# the VHDL standard as the initial values come from the base signal /memory_tb/outport.
+run
+# WARNING: No extended dataflow license exists
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Compile of ALU.vhd was successful.
+# Compile of ALU_tb.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of RAM.vhd was successful.
+# Compile of Memory_tb.vhd was successful.
+# Compile of Reg.vhd was successful.
+# 6 compiles, 0 failed with no errors.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.memory_tb(test)
+# Loading work.memory(bhv)
+# Loading work.ram(syn)
+# Loading work.reg(bhv)
+run
+# Compile of ALU.vhd was successful.
+# Compile of ALU_tb.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of RAM.vhd was successful.
+# Compile of Memory_tb.vhd was successful.
+# Compile of Reg.vhd was successful.
+# Compile of Datapath.vhd failed with 4 errors.
+# Compile of Mux.vhd failed with 5 errors.
+# Compile of Registerfile.vhd was successful.
+# 9 compiles, 2 failed with 9 errors.
+# Compile of ALU.vhd was successful.
+# Compile of ALU_tb.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of RAM.vhd was successful.
+# Compile of Memory_tb.vhd was successful.
+# Compile of Reg.vhd was successful.
+# Compile of Datapath.vhd failed with 5 errors.
+# Compile of Mux.vhd failed with 5 errors.
+# Compile of Registerfile.vhd was successful.
+# 9 compiles, 2 failed with 10 errors.
+# Compile of ALU.vhd was successful.
+# Compile of ALU_tb.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of RAM.vhd was successful.
+# Compile of Memory_tb.vhd was successful.
+# Compile of Reg.vhd was successful.
+# Compile of Datapath.vhd failed with 5 errors.
+# Compile of Mux.vhd was successful.
+# Compile of Registerfile.vhd was successful.
+# 9 compiles, 1 failed with 5 errors.
+# Compile of ALU.vhd was successful.
+# Compile of ALU_tb.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of RAM.vhd was successful.
+# Compile of Memory_tb.vhd was successful.
+# Compile of Reg.vhd was successful.
+# Compile of Datapath.vhd failed with 4 errors.
+# Compile of Mux.vhd was successful.
+# Compile of Registerfile.vhd was successful.
+# 9 compiles, 1 failed with 4 errors.
+# Compile of ALU.vhd was successful.
+# Compile of ALU_tb.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of RAM.vhd was successful.
+# Compile of Memory_tb.vhd was successful.
+# Compile of Reg.vhd was successful.
+# Compile of Datapath.vhd failed with 4 errors.
+# Compile of Mux.vhd was successful.
+# Compile of Registerfile.vhd was successful.
+# 9 compiles, 1 failed with 4 errors.
+# Compile of ALU.vhd was successful.
+# Compile of ALU_tb.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of RAM.vhd was successful.
+# Compile of Memory_tb.vhd was successful.
+# Compile of Reg.vhd was successful.
+# Compile of Datapath.vhd failed with 3 errors.
+# Compile of Mux.vhd was successful.
+# Compile of Registerfile.vhd was successful.
+# 9 compiles, 1 failed with 3 errors.
+# Compile of ALU.vhd was successful.
+# Compile of ALU_tb.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of RAM.vhd was successful.
+# Compile of Memory_tb.vhd was successful.
+# Compile of Reg.vhd was successful.
+# Compile of Datapath.vhd failed with 3 errors.
+# Compile of Mux.vhd was successful.
+# Compile of Registerfile.vhd was successful.
+# 9 compiles, 1 failed with 3 errors.
+# Compile of ALU.vhd was successful.
+# Compile of ALU_tb.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of RAM.vhd was successful.
+# Compile of Memory_tb.vhd was successful.
+# Compile of Reg.vhd was successful.
+# Compile of Datapath.vhd failed with 3 errors.
+# Compile of Mux.vhd was successful.
+# Compile of Registerfile.vhd was successful.
+# 9 compiles, 1 failed with 3 errors.
+# Compile of ALU.vhd was successful.
+# Compile of ALU_tb.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of RAM.vhd was successful.
+# Compile of Memory_tb.vhd was successful.
+# Compile of Reg.vhd was successful.
+# Compile of Datapath.vhd failed with 1 errors.
+# Compile of Mux.vhd was successful.
+# Compile of Registerfile.vhd was successful.
+# 9 compiles, 1 failed with 1 error.
+# Compile of ALU.vhd was successful.
+# Compile of ALU_tb.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of RAM.vhd was successful.
+# Compile of Memory_tb.vhd was successful.
+# Compile of Reg.vhd was successful.
+# Compile of Datapath.vhd was successful.
+# Compile of Mux.vhd was successful.
+# Compile of Registerfile.vhd was successful.
+# 9 compiles, 0 failed with no errors.
+# Compile of ALU.vhd was successful.
+# Compile of ALU_tb.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of RAM.vhd was successful.
+# Compile of Memory_tb.vhd was successful.
+# Compile of Reg.vhd was successful.
+# Compile of Datapath.vhd failed with 8 errors.
+# Compile of Mux.vhd was successful.
+# Compile of Registerfile.vhd was successful.
+# 9 compiles, 1 failed with 8 errors.
+# Compile of ALU.vhd was successful.
+# Compile of ALU_tb.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of RAM.vhd was successful.
+# Compile of Memory_tb.vhd was successful.
+# Compile of Reg.vhd was successful.
+# Compile of Datapath.vhd failed with 5 errors.
+# Compile of Mux.vhd was successful.
+# Compile of Registerfile.vhd was successful.
+# 9 compiles, 1 failed with 5 errors.
+# Compile of ALU.vhd was successful.
+# Compile of ALU_tb.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of RAM.vhd was successful.
+# Compile of Memory_tb.vhd was successful.
+# Compile of Reg.vhd was successful.
+# Compile of Datapath.vhd was successful.
+# Compile of Mux.vhd was successful.
+# Compile of Registerfile.vhd was successful.
+# 9 compiles, 0 failed with no errors.
+# Compile of ALU.vhd was successful.
+# Compile of ALU_tb.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of RAM.vhd was successful.
+# Compile of Memory_tb.vhd was successful.
+# Compile of Reg.vhd was successful.
+# Compile of Datapath.vhd was successful.
+# Compile of Mux.vhd was successful.
+# Compile of Registerfile.vhd was successful.
+# 9 compiles, 0 failed with no errors.
+# Compile of ALU.vhd was successful.
+# Compile of ALU_tb.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of RAM.vhd was successful.
+# Compile of Memory_tb.vhd was successful.
+# Compile of Reg.vhd was successful.
+# Compile of Datapath.vhd failed with 2 errors.
+# Compile of Mux.vhd was successful.
+# Compile of Registerfile.vhd was successful.
+# 9 compiles, 1 failed with 2 errors.
+# Compile of ALU.vhd was successful.
+# Compile of ALU_tb.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of RAM.vhd was successful.
+# Compile of Memory_tb.vhd was successful.
+# Compile of Reg.vhd was successful.
+# Compile of Datapath.vhd failed with 2 errors.
+# Compile of Mux.vhd was successful.
+# Compile of Registerfile.vhd was successful.
+# 9 compiles, 1 failed with 2 errors.
+# Compile of ALU.vhd was successful.
+# Compile of ALU_tb.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of RAM.vhd was successful.
+# Compile of Memory_tb.vhd was successful.
+# Compile of Reg.vhd was successful.
+# Compile of Datapath.vhd failed with 2 errors.
+# Compile of Mux.vhd was successful.
+# Compile of Registerfile.vhd was successful.
+# 9 compiles, 1 failed with 2 errors.
+# Compile of ALU.vhd was successful.
+# Compile of ALU_tb.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of RAM.vhd was successful.
+# Compile of Memory_tb.vhd was successful.
+# Compile of Reg.vhd was successful.
+# Compile of Datapath.vhd failed with 1 errors.
+# Compile of Mux.vhd was successful.
+# Compile of Registerfile.vhd was successful.
+# 9 compiles, 1 failed with 1 error.
+# Compile of ALU.vhd was successful.
+# Compile of ALU_tb.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of RAM.vhd was successful.
+# Compile of Memory_tb.vhd was successful.
+# Compile of Reg.vhd was successful.
+# Compile of Datapath.vhd failed with 2 errors.
+# Compile of Mux.vhd was successful.
+# Compile of Registerfile.vhd was successful.
+# 9 compiles, 1 failed with 2 errors.
+# Compile of ALU.vhd was successful.
+# Compile of ALU_tb.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of RAM.vhd was successful.
+# Compile of Memory_tb.vhd was successful.
+# Compile of Reg.vhd was successful.
+# Compile of Datapath.vhd was successful.
+# Compile of Mux.vhd was successful.
+# Compile of Registerfile.vhd was successful.
+# 9 compiles, 0 failed with no errors.
+# Compile of ALU.vhd was successful.
+# Compile of ALU_tb.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of RAM.vhd was successful.
+# Compile of Memory_tb.vhd was successful.
+# Compile of Reg.vhd was successful.
+# Compile of Datapath.vhd failed with 1 errors.
+# Compile of Mux.vhd was successful.
+# Compile of Registerfile.vhd was successful.
+# 9 compiles, 1 failed with 1 error.
+# Compile of ALU.vhd was successful.
+# Compile of ALU_tb.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of RAM.vhd was successful.
+# Compile of Memory_tb.vhd was successful.
+# Compile of Reg.vhd was successful.
+# Compile of Datapath.vhd failed with 1 errors.
+# Compile of Mux.vhd was successful.
+# Compile of Registerfile.vhd was successful.
+# 9 compiles, 1 failed with 1 error.
+# Compile of ALU.vhd was successful.
+# Compile of ALU_tb.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of RAM.vhd was successful.
+# Compile of Memory_tb.vhd was successful.
+# Compile of Reg.vhd was successful.
+# Compile of Datapath.vhd was successful.
+# Compile of Mux.vhd was successful.
+# Compile of Registerfile.vhd was successful.
+# 9 compiles, 0 failed with no errors.
+# Compile of ALU.vhd was successful.
+# Compile of ALU_tb.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of RAM.vhd was successful.
+# Compile of Memory_tb.vhd was successful.
+# Compile of Reg.vhd was successful.
+# Compile of Datapath.vhd failed with 1 errors.
+# Compile of Mux.vhd was successful.
+# Compile of Registerfile.vhd was successful.
+# 9 compiles, 1 failed with 1 error.
+# Compile of ALU.vhd was successful.
+# Compile of ALU_tb.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of RAM.vhd was successful.
+# Compile of Memory_tb.vhd was successful.
+# Compile of Reg.vhd was successful.
+# Compile of Datapath.vhd failed with 1 errors.
+# Compile of Mux.vhd was successful.
+# Compile of Registerfile.vhd was successful.
+# 9 compiles, 1 failed with 1 error.
+# Compile of ALU.vhd was successful.
+# Compile of ALU_tb.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of RAM.vhd was successful.
+# Compile of Memory_tb.vhd was successful.
+# Compile of Reg.vhd was successful.
+# Compile of Datapath.vhd failed with 1 errors.
+# Compile of Mux.vhd was successful.
+# Compile of Registerfile.vhd was successful.
+# 9 compiles, 1 failed with 1 error.
+# Compile of ALU.vhd was successful.
+# Compile of ALU_tb.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of RAM.vhd was successful.
+# Compile of Memory_tb.vhd was successful.
+# Compile of Reg.vhd was successful.
+# Compile of Datapath.vhd failed with 2 errors.
+# Compile of Mux.vhd was successful.
+# Compile of Registerfile.vhd was successful.
+# 9 compiles, 1 failed with 2 errors.
+# Compile of ALU.vhd was successful.
+# Compile of ALU_tb.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of RAM.vhd was successful.
+# Compile of Memory_tb.vhd was successful.
+# Compile of Reg.vhd was successful.
+# Compile of Datapath.vhd failed with 2 errors.
+# Compile of Mux.vhd was successful.
+# Compile of Registerfile.vhd was successful.
+# 9 compiles, 1 failed with 2 errors.
+# Compile of ALU.vhd was successful.
+# Compile of ALU_tb.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of RAM.vhd was successful.
+# Compile of Memory_tb.vhd was successful.
+# Compile of Reg.vhd was successful.
+# Compile of Datapath.vhd failed with 1 errors.
+# Compile of Mux.vhd was successful.
+# Compile of Registerfile.vhd was successful.
+# 9 compiles, 1 failed with 1 error.
+# Compile of ALU.vhd was successful.
+# Compile of ALU_tb.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of RAM.vhd was successful.
+# Compile of Memory_tb.vhd was successful.
+# Compile of Reg.vhd was successful.
+# Compile of Datapath.vhd failed with 1 errors.
+# Compile of Mux.vhd was successful.
+# Compile of Registerfile.vhd was successful.
+# 9 compiles, 1 failed with 1 error.
+# Compile of ALU.vhd was successful.
+# Compile of ALU_tb.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of RAM.vhd was successful.
+# Compile of Memory_tb.vhd was successful.
+# Compile of Reg.vhd was successful.
+# Compile of Datapath.vhd was successful.
+# Compile of Mux.vhd was successful.
+# Compile of Registerfile.vhd was successful.
+# 9 compiles, 0 failed with no errors.
 quit -sim
-# End time: 18:50:36 on Dec 03,2024, Elapsed time: 0:00:22
-# Errors: 0, Warnings: 1
+# End time: 23:13:06 on Dec 04,2024, Elapsed time: 6:23:12
+# Errors: 0, Warnings: 33
 vsim -gui work.alu_tb
 # vsim -gui work.alu_tb 
-# Start time: 18:50:47 on Dec 03,2024
+# Start time: 23:13:18 on Dec 04,2024
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
 # Loading ieee.numeric_std(body)
 # Loading work.alu_tb(tb)
 # Loading work.alu(bhv)
+add wave -position end  sim:/alu_tb/opsel
 add wave -position end  sim:/alu_tb/a
 add wave -position end  sim:/alu_tb/b
-add wave -position end  sim:/alu_tb/opsel
-add wave -position end  sim:/alu_tb/shamt
 add wave -position end  sim:/alu_tb/result
 add wave -position end  sim:/alu_tb/result_hi
+add wave -position 1  sim:/alu_tb/shamt
 add wave -position end  sim:/alu_tb/branch_taken
-restart
 run
-# GetModuleFileName: The specified module could not be found.
-# 
-# 
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 0 ps  Iteration: 0  Instance: /alu_tb/uut
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
@@ -44,21 +448,5 @@ run
 #    Time: 30 ns  Iteration: 1  Instance: /alu_tb/uut
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 40 ns  Iteration: 1  Instance: /alu_tb/uut
-quit -sim
-# End time: 19:41:27 on Dec 03,2024, Elapsed time: 0:50:40
+# End time: 23:24:37 on Dec 04,2024, Elapsed time: 0:11:19
 # Errors: 0, Warnings: 7
-# Compile of ALU.vhd was successful.
-# Compile of ALU_tb.vhd was successful.
-# Compile of Memory.vhd failed with 2 errors.
-# Compile of RAM.vhd was successful.
-# 4 compiles, 1 failed with 2 errors.
-# Compile of ALU.vhd was successful.
-# Compile of ALU_tb.vhd was successful.
-# Compile of Memory.vhd failed with 1 errors.
-# Compile of RAM.vhd was successful.
-# 4 compiles, 1 failed with 1 error.
-# Compile of ALU.vhd was successful.
-# Compile of ALU_tb.vhd was successful.
-# Compile of Memory.vhd was successful.
-# Compile of RAM.vhd was successful.
-# 4 compiles, 0 failed with no errors.

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for MIPS
-Tue Dec 03 19:36:49 2024
+Wed Dec 04 20:42:49 2024
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -13,15 +13,52 @@ Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. Analysis & Synthesis DSP Block Usage Summary
-  9. General Register Statistics
- 10. Multiplexer Restructuring Statistics (Restructuring Performed)
- 11. Parameter Settings for Inferred Entity Instance: lpm_mult:Mult0
- 12. Parameter Settings for Inferred Entity Instance: lpm_mult:Mult1
- 13. lpm_mult Parameter Settings by Entity Instance
- 14. Post-Synthesis Netlist Statistics for Top Partition
- 15. Elapsed Time Per Partition
- 16. Analysis & Synthesis Messages
+  8. Analysis & Synthesis RAM Summary
+  9. Analysis & Synthesis IP Cores Summary
+ 10. User-Specified and Inferred Latches
+ 11. Registers Removed During Synthesis
+ 12. Removed Registers Triggering Further Register Optimizations
+ 13. General Register Statistics
+ 14. Inverted Register Statistics
+ 15. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 16. Source assignments for Memory:mem_module|RAM:RAM_inst|altsyncram:altsyncram_component|altsyncram_50s3:auto_generated|altsyncram_kcp2:altsyncram1
+ 17. Parameter Settings for User Entity Instance: Reg:pc
+ 18. Parameter Settings for User Entity Instance: Mux2to1:mem_mux
+ 19. Parameter Settings for User Entity Instance: Memory:mem_module|RAM:RAM_inst|altsyncram:altsyncram_component
+ 20. Parameter Settings for User Entity Instance: Memory:mem_module|Reg:inport0_inst
+ 21. Parameter Settings for User Entity Instance: Memory:mem_module|Reg:inport1_inst
+ 22. Parameter Settings for User Entity Instance: Memory:mem_module|Reg:outport_inst
+ 23. Parameter Settings for User Entity Instance: Reg:ir
+ 24. Parameter Settings for User Entity Instance: Reg:mem_data_reg
+ 25. Parameter Settings for User Entity Instance: Mux2to1:regfile_writereg_mux
+ 26. Parameter Settings for User Entity Instance: Mux2to1:regfile_writedata_mux
+ 27. Parameter Settings for User Entity Instance: Reg:reg_a
+ 28. Parameter Settings for User Entity Instance: Reg:reg_b
+ 29. Parameter Settings for User Entity Instance: Mux2to1:alu_mux0
+ 30. Parameter Settings for User Entity Instance: Mux4to1:alu_mux1
+ 31. Parameter Settings for User Entity Instance: Reg:alu_out_reg
+ 32. Parameter Settings for User Entity Instance: Reg:lo_reg
+ 33. Parameter Settings for User Entity Instance: Reg:hi_reg
+ 34. Parameter Settings for User Entity Instance: Mux3to1:alu_out_mux
+ 35. Parameter Settings for User Entity Instance: Mux3to1:pc_mux
+ 36. Parameter Settings for User Entity Instance: ShiftLeft2:sign_ext_sl
+ 37. Parameter Settings for User Entity Instance: ShiftLeft2:ir_sl
+ 38. altsyncram Parameter Settings by Entity Instance
+ 39. Port Connectivity Checks: "ShiftLeft2:ir_sl"
+ 40. Port Connectivity Checks: "Reg:alu_out_reg"
+ 41. Port Connectivity Checks: "Mux4to1:alu_mux1"
+ 42. Port Connectivity Checks: "Reg:reg_b"
+ 43. Port Connectivity Checks: "Reg:reg_a"
+ 44. Port Connectivity Checks: "Registerfile:regfile"
+ 45. Port Connectivity Checks: "Reg:mem_data_reg"
+ 46. Port Connectivity Checks: "Reg:ir"
+ 47. Port Connectivity Checks: "Memory:mem_module|Reg:outport_inst"
+ 48. Port Connectivity Checks: "Memory:mem_module|Reg:inport1_inst"
+ 49. Port Connectivity Checks: "Memory:mem_module|Reg:inport0_inst"
+ 50. In-System Memory Content Editor Settings
+ 51. Post-Synthesis Netlist Statistics for Top Partition
+ 52. Elapsed Time Per Partition
+ 53. Analysis & Synthesis Messages
 
 
 
@@ -48,19 +85,19 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Dec 03 19:36:49 2024       ;
+; Analysis & Synthesis Status        ; Successful - Wed Dec 04 20:42:49 2024       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; MIPS                                        ;
-; Top-level Entity Name              ; ALU                                         ;
+; Top-level Entity Name              ; Datapath                                    ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 667                                         ;
-;     Total combinational functions  ; 667                                         ;
-;     Dedicated logic registers      ; 0                                           ;
-; Total registers                    ; 0                                           ;
-; Total pins                         ; 139                                         ;
+; Total logic elements               ; 2,038                                       ;
+;     Total combinational functions  ; 1,005                                       ;
+;     Dedicated logic registers      ; 1,248                                       ;
+; Total registers                    ; 1248                                        ;
+; Total pins                         ; 118                                         ;
 ; Total virtual pins                 ; 0                                           ;
-; Total memory bits                  ; 0                                           ;
-; Embedded Multiplier 9-bit elements ; 16                                          ;
+; Total memory bits                  ; 8,192                                       ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
 ; Total PLLs                         ; 0                                           ;
 ; UFM blocks                         ; 0                                           ;
 ; ADC blocks                         ; 0                                           ;
@@ -73,7 +110,7 @@ https://fpgasoftware.intel.com/eula.
 ; Option                                                           ; Setting            ; Default Value      ;
 +------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                           ; 10M50DAF484C6GES   ;                    ;
-; Top-level entity name                                            ; ALU                ; MIPS               ;
+; Top-level entity name                                            ; Datapath           ; MIPS               ;
 ; Family name                                                      ; MAX 10             ; Cyclone V          ;
 ; Use smart compilation                                            ; Off                ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
@@ -174,85 +211,488 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                               ;
-+----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                           ; Library ;
-+----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------+---------+
-; ALU.vhd                          ; yes             ; User VHDL File               ; C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/ALU.vhd                   ;         ;
-; lpm_mult.tdf                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_mult.tdf    ;         ;
-; aglobal201.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/aglobal201.inc  ;         ;
-; lpm_add_sub.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_add_sub.inc ;         ;
-; multcore.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/multcore.inc    ;         ;
-; bypassff.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/bypassff.inc    ;         ;
-; altshift.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altshift.inc    ;         ;
-; db/mult_qgs.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/db/mult_qgs.tdf           ;         ;
-; db/mult_tns.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/db/mult_tns.tdf           ;         ;
-+----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------+---------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                                                              ;
++--------------------------------------------------------------------+-----------------+----------------------------------------------+-----------------------------------------------------------------------------------------------------------------+-------------+
+; File Name with User-Entered Path                                   ; Used in Netlist ; File Type                                    ; File Name with Absolute Path                                                                                    ; Library     ;
++--------------------------------------------------------------------+-----------------+----------------------------------------------+-----------------------------------------------------------------------------------------------------------------+-------------+
+; Registerfile.vhd                                                   ; yes             ; User VHDL File                               ; C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Registerfile.vhd                                                   ;             ;
+; Reg.vhd                                                            ; yes             ; User VHDL File                               ; C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Reg.vhd                                                            ;             ;
+; Mux.vhd                                                            ; yes             ; User VHDL File                               ; C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Mux.vhd                                                            ;             ;
+; Datapath.vhd                                                       ; yes             ; User VHDL File                               ; C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd                                                       ;             ;
+; Memory.vhd                                                         ; yes             ; User VHDL File                               ; C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Memory.vhd                                                         ;             ;
+; ALU.vhd                                                            ; yes             ; User VHDL File                               ; C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/ALU.vhd                                                            ;             ;
+; RAM.vhd                                                            ; yes             ; User Wizard-Generated File                   ; C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/RAM.vhd                                                            ;             ;
+; altsyncram.tdf                                                     ; yes             ; Megafunction                                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf                                           ;             ;
+; stratix_ram_block.inc                                              ; yes             ; Megafunction                                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/stratix_ram_block.inc                                    ;             ;
+; lpm_mux.inc                                                        ; yes             ; Megafunction                                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_mux.inc                                              ;             ;
+; lpm_decode.inc                                                     ; yes             ; Megafunction                                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_decode.inc                                           ;             ;
+; aglobal201.inc                                                     ; yes             ; Megafunction                                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/aglobal201.inc                                           ;             ;
+; a_rdenreg.inc                                                      ; yes             ; Megafunction                                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/a_rdenreg.inc                                            ;             ;
+; altrom.inc                                                         ; yes             ; Megafunction                                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altrom.inc                                               ;             ;
+; altram.inc                                                         ; yes             ; Megafunction                                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altram.inc                                               ;             ;
+; altdpram.inc                                                       ; yes             ; Megafunction                                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altdpram.inc                                             ;             ;
+; db/altsyncram_50s3.tdf                                             ; yes             ; Auto-Generated Megafunction                  ; C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/db/altsyncram_50s3.tdf                                             ;             ;
+; db/altsyncram_kcp2.tdf                                             ; yes             ; Auto-Generated Megafunction                  ; C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/db/altsyncram_kcp2.tdf                                             ;             ;
+; sld_mod_ram_rom.vhd                                                ; yes             ; Encrypted Megafunction                       ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/sld_mod_ram_rom.vhd                                      ;             ;
+; sld_jtag_endpoint_adapter.vhd                                      ; yes             ; Encrypted Megafunction                       ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/sld_jtag_endpoint_adapter.vhd                            ;             ;
+; sld_jtag_endpoint_adapter_impl.sv                                  ; yes             ; Encrypted Megafunction                       ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/sld_jtag_endpoint_adapter_impl.sv                        ;             ;
+; sld_rom_sr.vhd                                                     ; yes             ; Encrypted Megafunction                       ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/sld_rom_sr.vhd                                           ;             ;
+; alucontrol.vhd                                                     ; yes             ; Auto-Found VHDL File                         ; C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/alucontrol.vhd                                                     ;             ;
+; sld_hub.vhd                                                        ; yes             ; Encrypted Megafunction                       ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/sld_hub.vhd                                              ; altera_sld  ;
+; db/ip/sld4b378a6e/alt_sld_fab.v                                    ; yes             ; Encrypted Auto-Found Verilog HDL File        ; C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/db/ip/sld4b378a6e/alt_sld_fab.v                                    ; alt_sld_fab ;
+; db/ip/sld4b378a6e/submodules/alt_sld_fab_alt_sld_fab.v             ; yes             ; Encrypted Auto-Found Verilog HDL File        ; C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/db/ip/sld4b378a6e/submodules/alt_sld_fab_alt_sld_fab.v             ; alt_sld_fab ;
+; db/ip/sld4b378a6e/submodules/alt_sld_fab_alt_sld_fab_ident.sv      ; yes             ; Auto-Found SystemVerilog HDL File            ; C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/db/ip/sld4b378a6e/submodules/alt_sld_fab_alt_sld_fab_ident.sv      ; alt_sld_fab ;
+; db/ip/sld4b378a6e/submodules/alt_sld_fab_alt_sld_fab_presplit.sv   ; yes             ; Encrypted Auto-Found SystemVerilog HDL File  ; C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/db/ip/sld4b378a6e/submodules/alt_sld_fab_alt_sld_fab_presplit.sv   ; alt_sld_fab ;
+; db/ip/sld4b378a6e/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd ; yes             ; Encrypted Auto-Found VHDL File               ; C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/db/ip/sld4b378a6e/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd ; alt_sld_fab ;
+; db/ip/sld4b378a6e/submodules/alt_sld_fab_alt_sld_fab_splitter.sv   ; yes             ; Encrypted Auto-Found SystemVerilog HDL File  ; C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/db/ip/sld4b378a6e/submodules/alt_sld_fab_alt_sld_fab_splitter.sv   ; alt_sld_fab ;
+; sld_jtag_hub.vhd                                                   ; yes             ; Encrypted Megafunction                       ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/sld_jtag_hub.vhd                                         ;             ;
++--------------------------------------------------------------------+-----------------+----------------------------------------------+-----------------------------------------------------------------------------------------------------------------+-------------+
 
 
-+--------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                  ;
-+---------------------------------------------+----------------+
-; Resource                                    ; Usage          ;
-+---------------------------------------------+----------------+
-; Estimated Total logic elements              ; 667            ;
-;                                             ;                ;
-; Total combinational functions               ; 667            ;
-; Logic element usage by number of LUT inputs ;                ;
-;     -- 4 input functions                    ; 248            ;
-;     -- 3 input functions                    ; 292            ;
-;     -- <=2 input functions                  ; 127            ;
-;                                             ;                ;
-; Logic elements by mode                      ;                ;
-;     -- normal mode                          ; 437            ;
-;     -- arithmetic mode                      ; 230            ;
-;                                             ;                ;
-; Total registers                             ; 0              ;
-;     -- Dedicated logic registers            ; 0              ;
-;     -- I/O registers                        ; 0              ;
-;                                             ;                ;
-; I/O pins                                    ; 139            ;
-;                                             ;                ;
-; Embedded Multiplier 9-bit elements          ; 16             ;
-;                                             ;                ;
-; Maximum fan-out node                        ; opsel[0]~input ;
-; Maximum fan-out                             ; 95             ;
-; Total fan-out                               ; 2585           ;
-; Average fan-out                             ; 2.69           ;
-+---------------------------------------------+----------------+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 2,038     ;
+;                                             ;           ;
+; Total combinational functions               ; 1005      ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 775       ;
+;     -- 3 input functions                    ; 134       ;
+;     -- <=2 input functions                  ; 96        ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 981       ;
+;     -- arithmetic mode                      ; 24        ;
+;                                             ;           ;
+; Total registers                             ; 1248      ;
+;     -- Dedicated logic registers            ; 1248      ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 118       ;
+; Total memory bits                           ; 8192      ;
+;                                             ;           ;
+; Embedded Multiplier 9-bit elements          ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 1130      ;
+; Total fan-out                               ; 9122      ;
+; Average fan-out                             ; 3.61      ;
++---------------------------------------------+-----------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                             ;
-+---------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------------+-------------+--------------+
-; Compilation Hierarchy Node      ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                         ; Entity Name ; Library Name ;
-+---------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------------+-------------+--------------+
-; |ALU                            ; 667 (496)           ; 0 (0)                     ; 0           ; 0          ; 16           ; 0       ; 8         ; 139  ; 0            ; 0          ; |ALU                                        ; ALU         ; work         ;
-;    |lpm_mult:Mult0|             ; 92 (0)              ; 0 (0)                     ; 0           ; 0          ; 8            ; 0       ; 4         ; 0    ; 0            ; 0          ; |ALU|lpm_mult:Mult0                         ; lpm_mult    ; work         ;
-;       |mult_qgs:auto_generated| ; 92 (92)             ; 0 (0)                     ; 0           ; 0          ; 8            ; 0       ; 4         ; 0    ; 0            ; 0          ; |ALU|lpm_mult:Mult0|mult_qgs:auto_generated ; mult_qgs    ; work         ;
-;    |lpm_mult:Mult1|             ; 79 (0)              ; 0 (0)                     ; 0           ; 0          ; 8            ; 0       ; 4         ; 0    ; 0            ; 0          ; |ALU|lpm_mult:Mult1                         ; lpm_mult    ; work         ;
-;       |mult_tns:auto_generated| ; 79 (79)             ; 0 (0)                     ; 0           ; 0          ; 8            ; 0       ; 4         ; 0    ; 0            ; 0          ; |ALU|lpm_mult:Mult1|mult_tns:auto_generated ; mult_tns    ; work         ;
-+---------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------------+-------------+--------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ;
++-----------------------------------------------------------------------------------------------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+--------------+
+; Compilation Hierarchy Node                                                                                                              ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                                                                                                                                                                                                                                                                                  ; Entity Name                       ; Library Name ;
++-----------------------------------------------------------------------------------------------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+--------------+
+; |Datapath                                                                                                                               ; 1005 (1)            ; 1248 (0)                  ; 8192        ; 0          ; 0            ; 0       ; 0         ; 118  ; 0            ; 0          ; |Datapath                                                                                                                                                                                                                                                                                                                                            ; Datapath                          ; work         ;
+;    |Memory:mem_module|                                                                                                                  ; 124 (32)            ; 64 (0)                    ; 8192        ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Datapath|Memory:mem_module                                                                                                                                                                                                                                                                                                                          ; Memory                            ; work         ;
+;       |RAM:RAM_inst|                                                                                                                    ; 92 (0)              ; 64 (0)                    ; 8192        ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Datapath|Memory:mem_module|RAM:RAM_inst                                                                                                                                                                                                                                                                                                             ; RAM                               ; work         ;
+;          |altsyncram:altsyncram_component|                                                                                              ; 92 (0)              ; 64 (0)                    ; 8192        ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Datapath|Memory:mem_module|RAM:RAM_inst|altsyncram:altsyncram_component                                                                                                                                                                                                                                                                             ; altsyncram                        ; work         ;
+;             |altsyncram_50s3:auto_generated|                                                                                            ; 92 (0)              ; 64 (0)                    ; 8192        ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Datapath|Memory:mem_module|RAM:RAM_inst|altsyncram:altsyncram_component|altsyncram_50s3:auto_generated                                                                                                                                                                                                                                              ; altsyncram_50s3                   ; work         ;
+;                |altsyncram_kcp2:altsyncram1|                                                                                            ; 0 (0)               ; 0 (0)                     ; 8192        ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Datapath|Memory:mem_module|RAM:RAM_inst|altsyncram:altsyncram_component|altsyncram_50s3:auto_generated|altsyncram_kcp2:altsyncram1                                                                                                                                                                                                                  ; altsyncram_kcp2                   ; work         ;
+;                |sld_mod_ram_rom:mgl_prim2|                                                                                              ; 92 (70)             ; 64 (55)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Datapath|Memory:mem_module|RAM:RAM_inst|altsyncram:altsyncram_component|altsyncram_50s3:auto_generated|sld_mod_ram_rom:mgl_prim2                                                                                                                                                                                                                    ; sld_mod_ram_rom                   ; work         ;
+;                   |sld_rom_sr:\ram_rom_logic_gen:name_gen:info_rom_sr|                                                                  ; 22 (22)             ; 9 (9)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Datapath|Memory:mem_module|RAM:RAM_inst|altsyncram:altsyncram_component|altsyncram_50s3:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_rom_sr:\ram_rom_logic_gen:name_gen:info_rom_sr                                                                                                                                                                 ; sld_rom_sr                        ; work         ;
+;    |Mux2to1:regfile_writedata_mux|                                                                                                      ; 32 (32)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Datapath|Mux2to1:regfile_writedata_mux                                                                                                                                                                                                                                                                                                              ; Mux2to1                           ; work         ;
+;    |Mux2to1:regfile_writereg_mux|                                                                                                       ; 4 (4)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Datapath|Mux2to1:regfile_writereg_mux                                                                                                                                                                                                                                                                                                               ; Mux2to1                           ; work         ;
+;    |Reg:ir|                                                                                                                             ; 0 (0)               ; 10 (10)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Datapath|Reg:ir                                                                                                                                                                                                                                                                                                                                     ; Reg                               ; work         ;
+;    |Reg:mem_data_reg|                                                                                                                   ; 0 (0)               ; 32 (32)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Datapath|Reg:mem_data_reg                                                                                                                                                                                                                                                                                                                           ; Reg                               ; work         ;
+;    |Reg:reg_b|                                                                                                                          ; 0 (0)               ; 32 (32)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Datapath|Reg:reg_b                                                                                                                                                                                                                                                                                                                                  ; Reg                               ; work         ;
+;    |Registerfile:regfile|                                                                                                               ; 722 (722)           ; 1024 (1024)               ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Datapath|Registerfile:regfile                                                                                                                                                                                                                                                                                                                       ; Registerfile                      ; work         ;
+;    |sld_hub:auto_hub|                                                                                                                   ; 122 (1)             ; 86 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Datapath|sld_hub:auto_hub                                                                                                                                                                                                                                                                                                                           ; sld_hub                           ; altera_sld   ;
+;       |alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric| ; 121 (0)             ; 86 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Datapath|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric                                                                                                                                                                                           ; alt_sld_fab_with_jtag_input       ; altera_sld   ;
+;          |alt_sld_fab:instrumentation_fabric|                                                                                           ; 121 (0)             ; 86 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Datapath|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric                                                                                                                                                        ; alt_sld_fab                       ; alt_sld_fab  ;
+;             |alt_sld_fab_alt_sld_fab:alt_sld_fab|                                                                                       ; 121 (1)             ; 86 (5)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Datapath|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab                                                                                                                    ; alt_sld_fab_alt_sld_fab           ; alt_sld_fab  ;
+;                |alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|                                                                            ; 120 (0)             ; 81 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Datapath|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric                                                                        ; alt_sld_fab_alt_sld_fab_sldfabric ; alt_sld_fab  ;
+;                   |sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|                                                                        ; 120 (84)            ; 81 (53)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Datapath|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub                           ; sld_jtag_hub                      ; work         ;
+;                      |sld_rom_sr:hub_info_reg|                                                                                          ; 18 (18)             ; 9 (9)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Datapath|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|sld_rom_sr:hub_info_reg   ; sld_rom_sr                        ; work         ;
+;                      |sld_shadow_jsm:shadow_jsm|                                                                                        ; 18 (18)             ; 19 (19)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Datapath|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|sld_shadow_jsm:shadow_jsm ; sld_shadow_jsm                    ; altera_sld   ;
++-----------------------------------------------------------------------------------------------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+-----------------------------------------------------+
-; Analysis & Synthesis DSP Block Usage Summary        ;
-+---------------------------------------+-------------+
-; Statistic                             ; Number Used ;
-+---------------------------------------+-------------+
-; Simple Multipliers (9-bit)            ; 0           ;
-; Simple Multipliers (18-bit)           ; 8           ;
-; Embedded Multiplier Blocks            ; --          ;
-; Embedded Multiplier 9-bit elements    ; 16          ;
-; Signed Embedded Multipliers           ; 1           ;
-; Unsigned Embedded Multipliers         ; 5           ;
-; Mixed Sign Embedded Multipliers       ; 2           ;
-; Variable Sign Embedded Multipliers    ; 0           ;
-; Dedicated Input Shift Register Chains ; 0           ;
-+---------------------------------------+-------------+
-Note: number of Embedded Multiplier Blocks used is only available after a successful fit.
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                                                       ;
++--------------------------------------------------------------------------------------------------------------------------------------+------+----------------+--------------+--------------+--------------+--------------+------+------+
+; Name                                                                                                                                 ; Type ; Mode           ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF  ;
++--------------------------------------------------------------------------------------------------------------------------------------+------+----------------+--------------+--------------+--------------+--------------+------+------+
+; Memory:mem_module|RAM:RAM_inst|altsyncram:altsyncram_component|altsyncram_50s3:auto_generated|altsyncram_kcp2:altsyncram1|ALTSYNCRAM ; AUTO ; True Dual Port ; 256          ; 32           ; 256          ; 32           ; 8192 ; None ;
++--------------------------------------------------------------------------------------------------------------------------------------+------+----------------+--------------+--------------+--------------+--------------+------+------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis IP Cores Summary                                                                                                                                                                                                                                                                                                                           ;
++--------+--------------+---------+--------------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------+
+; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance                                                                                                                                                                                                                                                               ; IP Include File ;
++--------+--------------+---------+--------------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------+
+; Altera ; Signal Tap   ; N/A     ; N/A          ; Licensed     ; |Datapath|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric                                                                                 ;                 ;
+; Altera ; Signal Tap   ; N/A     ; N/A          ; Licensed     ; |Datapath|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab                                             ;                 ;
+; Altera ; Signal Tap   ; N/A     ; N/A          ; Licensed     ; |Datapath|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_presplit:presplit   ;                 ;
+; Altera ; Signal Tap   ; N/A     ; N/A          ; Licensed     ; |Datapath|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric ;                 ;
+; Altera ; Signal Tap   ; N/A     ; N/A          ; Licensed     ; |Datapath|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_splitter:splitter   ;                 ;
+; Altera ; RAM: 1-PORT  ; 20.1    ; N/A          ; N/A          ; |Datapath|Memory:mem_module|RAM:RAM_inst                                                                                                                                                                                                                                      ; RAM.vhd         ;
++--------+--------------+---------+--------------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------+
+
+
++----------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                ;
++-----------------------------------------------------+---------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal ; Free of Timing Hazards ;
++-----------------------------------------------------+---------------------+------------------------+
+; Memory:mem_module|temp_data_out[16]                 ; MemRead             ; yes                    ;
+; Memory:mem_module|temp_data_out[20]                 ; MemRead             ; yes                    ;
+; Memory:mem_module|temp_data_out[18]                 ; MemRead             ; yes                    ;
+; Memory:mem_module|temp_data_out[19]                 ; MemRead             ; yes                    ;
+; Memory:mem_module|temp_data_out[17]                 ; MemRead             ; yes                    ;
+; Memory:mem_module|temp_data_out[0]                  ; MemRead             ; yes                    ;
+; Memory:mem_module|temp_data_out[15]                 ; MemRead             ; yes                    ;
+; Memory:mem_module|temp_data_out[14]                 ; MemRead             ; yes                    ;
+; Memory:mem_module|temp_data_out[13]                 ; MemRead             ; yes                    ;
+; Memory:mem_module|temp_data_out[12]                 ; MemRead             ; yes                    ;
+; Memory:mem_module|temp_data_out[11]                 ; MemRead             ; yes                    ;
+; Memory:mem_module|temp_data_out[1]                  ; MemRead             ; yes                    ;
+; Memory:mem_module|temp_data_out[2]                  ; MemRead             ; yes                    ;
+; Memory:mem_module|temp_data_out[3]                  ; MemRead             ; yes                    ;
+; Memory:mem_module|temp_data_out[4]                  ; MemRead             ; yes                    ;
+; Memory:mem_module|temp_data_out[5]                  ; MemRead             ; yes                    ;
+; Memory:mem_module|temp_data_out[6]                  ; MemRead             ; yes                    ;
+; Memory:mem_module|temp_data_out[7]                  ; MemRead             ; yes                    ;
+; Memory:mem_module|temp_data_out[8]                  ; MemRead             ; yes                    ;
+; Memory:mem_module|temp_data_out[21]                 ; MemRead             ; yes                    ;
+; Memory:mem_module|temp_data_out[9]                  ; MemRead             ; yes                    ;
+; Memory:mem_module|temp_data_out[22]                 ; MemRead             ; yes                    ;
+; Memory:mem_module|temp_data_out[10]                 ; MemRead             ; yes                    ;
+; Memory:mem_module|temp_data_out[23]                 ; MemRead             ; yes                    ;
+; Memory:mem_module|temp_data_out[24]                 ; MemRead             ; yes                    ;
+; Memory:mem_module|temp_data_out[25]                 ; MemRead             ; yes                    ;
+; Memory:mem_module|temp_data_out[26]                 ; MemRead             ; yes                    ;
+; Memory:mem_module|temp_data_out[27]                 ; MemRead             ; yes                    ;
+; Memory:mem_module|temp_data_out[28]                 ; MemRead             ; yes                    ;
+; Memory:mem_module|temp_data_out[29]                 ; MemRead             ; yes                    ;
+; Memory:mem_module|temp_data_out[30]                 ; MemRead             ; yes                    ;
+; Memory:mem_module|temp_data_out[31]                 ; MemRead             ; yes                    ;
+; Number of user-specified and inferred latches = 32  ;                     ;                        ;
++-----------------------------------------------------+---------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++-------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                        ;
++---------------------------------------------+---------------------------------------------+
+; Register name                               ; Reason for Removal                          ;
++---------------------------------------------+---------------------------------------------+
+; Registerfile:regfile|regs[0][31]            ; Stuck at GND due to stuck port data_in      ;
+; Registerfile:regfile|regs[0][30]            ; Stuck at GND due to stuck port data_in      ;
+; Registerfile:regfile|regs[0][29]            ; Stuck at GND due to stuck port data_in      ;
+; Registerfile:regfile|regs[0][28]            ; Stuck at GND due to stuck port data_in      ;
+; Registerfile:regfile|regs[0][27]            ; Stuck at GND due to stuck port data_in      ;
+; Registerfile:regfile|regs[0][26]            ; Stuck at GND due to stuck port data_in      ;
+; Registerfile:regfile|regs[0][25]            ; Stuck at GND due to stuck port data_in      ;
+; Registerfile:regfile|regs[0][24]            ; Stuck at GND due to stuck port data_in      ;
+; Registerfile:regfile|regs[0][23]            ; Stuck at GND due to stuck port data_in      ;
+; Registerfile:regfile|regs[0][22]            ; Stuck at GND due to stuck port data_in      ;
+; Registerfile:regfile|regs[0][21]            ; Stuck at GND due to stuck port data_in      ;
+; Registerfile:regfile|regs[0][20]            ; Stuck at GND due to stuck port data_in      ;
+; Registerfile:regfile|regs[0][19]            ; Stuck at GND due to stuck port data_in      ;
+; Registerfile:regfile|regs[0][18]            ; Stuck at GND due to stuck port data_in      ;
+; Registerfile:regfile|regs[0][17]            ; Stuck at GND due to stuck port data_in      ;
+; Registerfile:regfile|regs[0][16]            ; Stuck at GND due to stuck port data_in      ;
+; Registerfile:regfile|regs[0][15]            ; Stuck at GND due to stuck port data_in      ;
+; Registerfile:regfile|regs[0][14]            ; Stuck at GND due to stuck port data_in      ;
+; Registerfile:regfile|regs[0][13]            ; Stuck at GND due to stuck port data_in      ;
+; Registerfile:regfile|regs[0][12]            ; Stuck at GND due to stuck port data_in      ;
+; Registerfile:regfile|regs[0][11]            ; Stuck at GND due to stuck port data_in      ;
+; Registerfile:regfile|regs[0][10]            ; Stuck at GND due to stuck port data_in      ;
+; Registerfile:regfile|regs[0][9]             ; Stuck at GND due to stuck port data_in      ;
+; Registerfile:regfile|regs[0][8]             ; Stuck at GND due to stuck port data_in      ;
+; Registerfile:regfile|regs[0][7]             ; Stuck at GND due to stuck port data_in      ;
+; Registerfile:regfile|regs[0][6]             ; Stuck at GND due to stuck port data_in      ;
+; Registerfile:regfile|regs[0][5]             ; Stuck at GND due to stuck port data_in      ;
+; Registerfile:regfile|regs[0][4]             ; Stuck at GND due to stuck port data_in      ;
+; Registerfile:regfile|regs[0][3]             ; Stuck at GND due to stuck port data_in      ;
+; Registerfile:regfile|regs[0][2]             ; Stuck at GND due to stuck port data_in      ;
+; Registerfile:regfile|regs[0][1]             ; Stuck at GND due to stuck port data_in      ;
+; Registerfile:regfile|regs[0][0]             ; Stuck at GND due to stuck port data_in      ;
+; Reg:hi_reg|q[0..31]                         ; Stuck at GND due to stuck port clock_enable ;
+; Reg:lo_reg|q[0..31]                         ; Stuck at GND due to stuck port clock_enable ;
+; Reg:alu_out_reg|q[2..15,17..30]             ; Stuck at GND due to stuck port data_in      ;
+; Reg:pc|q[2..15,17..30]                      ; Stuck at GND due to stuck port data_in      ;
+; Memory:mem_module|Reg:inport0_inst|q[13]    ; Lost fanout                                 ;
+; Memory:mem_module|Reg:inport1_inst|q[13]    ; Lost fanout                                 ;
+; Memory:mem_module|Reg:inport0_inst|q[12]    ; Lost fanout                                 ;
+; Memory:mem_module|Reg:inport1_inst|q[12]    ; Lost fanout                                 ;
+; Memory:mem_module|Reg:inport0_inst|q[11]    ; Lost fanout                                 ;
+; Memory:mem_module|Reg:inport1_inst|q[11]    ; Lost fanout                                 ;
+; Memory:mem_module|Reg:inport0_inst|q[25]    ; Lost fanout                                 ;
+; Memory:mem_module|Reg:inport1_inst|q[25]    ; Lost fanout                                 ;
+; Memory:mem_module|Reg:inport0_inst|q[31]    ; Lost fanout                                 ;
+; Memory:mem_module|Reg:inport1_inst|q[31]    ; Lost fanout                                 ;
+; Memory:mem_module|Reg:inport0_inst|q[30]    ; Lost fanout                                 ;
+; Memory:mem_module|Reg:inport1_inst|q[30]    ; Lost fanout                                 ;
+; Memory:mem_module|Reg:inport0_inst|q[29]    ; Lost fanout                                 ;
+; Memory:mem_module|Reg:inport1_inst|q[29]    ; Lost fanout                                 ;
+; Memory:mem_module|Reg:inport0_inst|q[28]    ; Lost fanout                                 ;
+; Memory:mem_module|Reg:inport1_inst|q[28]    ; Lost fanout                                 ;
+; Memory:mem_module|Reg:inport0_inst|q[27]    ; Lost fanout                                 ;
+; Memory:mem_module|Reg:inport1_inst|q[27]    ; Lost fanout                                 ;
+; Memory:mem_module|Reg:inport0_inst|q[26]    ; Lost fanout                                 ;
+; Memory:mem_module|Reg:inport1_inst|q[26]    ; Lost fanout                                 ;
+; Memory:mem_module|Reg:inport0_inst|q[4]     ; Lost fanout                                 ;
+; Memory:mem_module|Reg:inport1_inst|q[4]     ; Lost fanout                                 ;
+; Memory:mem_module|Reg:inport0_inst|q[3]     ; Lost fanout                                 ;
+; Memory:mem_module|Reg:inport1_inst|q[3]     ; Lost fanout                                 ;
+; Memory:mem_module|Reg:inport0_inst|q[2]     ; Lost fanout                                 ;
+; Memory:mem_module|Reg:inport1_inst|q[2]     ; Lost fanout                                 ;
+; Memory:mem_module|Reg:inport0_inst|q[15]    ; Lost fanout                                 ;
+; Memory:mem_module|Reg:inport1_inst|q[15]    ; Lost fanout                                 ;
+; Memory:mem_module|Reg:inport0_inst|q[1]     ; Lost fanout                                 ;
+; Memory:mem_module|Reg:inport1_inst|q[1]     ; Lost fanout                                 ;
+; Memory:mem_module|Reg:inport0_inst|q[24]    ; Lost fanout                                 ;
+; Memory:mem_module|Reg:inport1_inst|q[24]    ; Lost fanout                                 ;
+; Memory:mem_module|Reg:inport0_inst|q[5]     ; Lost fanout                                 ;
+; Memory:mem_module|Reg:inport1_inst|q[5]     ; Lost fanout                                 ;
+; Memory:mem_module|Reg:inport0_inst|q[8]     ; Lost fanout                                 ;
+; Memory:mem_module|Reg:inport1_inst|q[8]     ; Lost fanout                                 ;
+; Memory:mem_module|Reg:inport0_inst|q[17]    ; Lost fanout                                 ;
+; Memory:mem_module|Reg:inport1_inst|q[17]    ; Lost fanout                                 ;
+; Memory:mem_module|Reg:inport0_inst|q[16]    ; Lost fanout                                 ;
+; Memory:mem_module|Reg:inport1_inst|q[16]    ; Lost fanout                                 ;
+; Memory:mem_module|Reg:inport0_inst|q[19]    ; Lost fanout                                 ;
+; Memory:mem_module|Reg:inport1_inst|q[19]    ; Lost fanout                                 ;
+; Memory:mem_module|Reg:inport0_inst|q[10]    ; Lost fanout                                 ;
+; Memory:mem_module|Reg:inport1_inst|q[10]    ; Lost fanout                                 ;
+; Memory:mem_module|Reg:inport0_inst|q[9]     ; Lost fanout                                 ;
+; Memory:mem_module|Reg:inport1_inst|q[9]     ; Lost fanout                                 ;
+; Memory:mem_module|Reg:inport0_inst|q[18]    ; Lost fanout                                 ;
+; Memory:mem_module|Reg:inport1_inst|q[18]    ; Lost fanout                                 ;
+; Memory:mem_module|Reg:inport0_inst|q[7]     ; Lost fanout                                 ;
+; Memory:mem_module|Reg:inport1_inst|q[7]     ; Lost fanout                                 ;
+; Memory:mem_module|Reg:inport0_inst|q[6]     ; Lost fanout                                 ;
+; Memory:mem_module|Reg:inport1_inst|q[6]     ; Lost fanout                                 ;
+; Memory:mem_module|Reg:inport0_inst|q[20]    ; Lost fanout                                 ;
+; Memory:mem_module|Reg:inport1_inst|q[20]    ; Lost fanout                                 ;
+; Memory:mem_module|Reg:inport0_inst|q[0]     ; Lost fanout                                 ;
+; Memory:mem_module|Reg:inport1_inst|q[0]     ; Lost fanout                                 ;
+; Memory:mem_module|Reg:inport0_inst|q[21]    ; Lost fanout                                 ;
+; Memory:mem_module|Reg:inport1_inst|q[21]    ; Lost fanout                                 ;
+; Memory:mem_module|Reg:inport0_inst|q[22]    ; Lost fanout                                 ;
+; Memory:mem_module|Reg:inport1_inst|q[22]    ; Lost fanout                                 ;
+; Memory:mem_module|Reg:inport0_inst|q[23]    ; Lost fanout                                 ;
+; Memory:mem_module|Reg:inport1_inst|q[23]    ; Lost fanout                                 ;
+; Memory:mem_module|Reg:inport0_inst|q[14]    ; Lost fanout                                 ;
+; Memory:mem_module|Reg:inport1_inst|q[14]    ; Lost fanout                                 ;
+; Memory:mem_module|Reg:outport_inst|q[0..31] ; Stuck at GND due to stuck port clock_enable ;
+; Reg:pc|q[0]                                 ; Lost fanout                                 ;
+; Reg:alu_out_reg|q[0]                        ; Lost fanout                                 ;
+; Reg:reg_a|q[0]                              ; Lost fanout                                 ;
+; Registerfile:regfile|rd_data0[0]            ; Lost fanout                                 ;
+; Reg:pc|q[1]                                 ; Lost fanout                                 ;
+; Reg:alu_out_reg|q[1]                        ; Lost fanout                                 ;
+; Reg:reg_a|q[1]                              ; Lost fanout                                 ;
+; Registerfile:regfile|rd_data0[1]            ; Lost fanout                                 ;
+; Reg:reg_a|q[2]                              ; Lost fanout                                 ;
+; Registerfile:regfile|rd_data0[2]            ; Lost fanout                                 ;
+; Reg:reg_a|q[3]                              ; Lost fanout                                 ;
+; Registerfile:regfile|rd_data0[3]            ; Lost fanout                                 ;
+; Reg:reg_a|q[4]                              ; Lost fanout                                 ;
+; Registerfile:regfile|rd_data0[4]            ; Lost fanout                                 ;
+; Reg:reg_a|q[5]                              ; Lost fanout                                 ;
+; Registerfile:regfile|rd_data0[5]            ; Lost fanout                                 ;
+; Reg:reg_a|q[6]                              ; Lost fanout                                 ;
+; Registerfile:regfile|rd_data0[6]            ; Lost fanout                                 ;
+; Reg:reg_a|q[7]                              ; Lost fanout                                 ;
+; Registerfile:regfile|rd_data0[7]            ; Lost fanout                                 ;
+; Reg:reg_a|q[8]                              ; Lost fanout                                 ;
+; Registerfile:regfile|rd_data0[8]            ; Lost fanout                                 ;
+; Reg:reg_a|q[9]                              ; Lost fanout                                 ;
+; Registerfile:regfile|rd_data0[9]            ; Lost fanout                                 ;
+; Reg:reg_a|q[10]                             ; Lost fanout                                 ;
+; Registerfile:regfile|rd_data0[10]           ; Lost fanout                                 ;
+; Reg:reg_a|q[11]                             ; Lost fanout                                 ;
+; Registerfile:regfile|rd_data0[11]           ; Lost fanout                                 ;
+; Reg:reg_a|q[12]                             ; Lost fanout                                 ;
+; Registerfile:regfile|rd_data0[12]           ; Lost fanout                                 ;
+; Reg:reg_a|q[13]                             ; Lost fanout                                 ;
+; Registerfile:regfile|rd_data0[13]           ; Lost fanout                                 ;
+; Reg:reg_a|q[14]                             ; Lost fanout                                 ;
+; Registerfile:regfile|rd_data0[14]           ; Lost fanout                                 ;
+; Reg:reg_a|q[15]                             ; Lost fanout                                 ;
+; Registerfile:regfile|rd_data0[15]           ; Lost fanout                                 ;
+; Reg:pc|q[16]                                ; Lost fanout                                 ;
+; Reg:reg_a|q[16]                             ; Lost fanout                                 ;
+; Registerfile:regfile|rd_data0[16]           ; Lost fanout                                 ;
+; Reg:reg_a|q[17]                             ; Lost fanout                                 ;
+; Registerfile:regfile|rd_data0[17]           ; Lost fanout                                 ;
+; Reg:reg_a|q[18]                             ; Lost fanout                                 ;
+; Registerfile:regfile|rd_data0[18]           ; Lost fanout                                 ;
+; Reg:reg_a|q[19]                             ; Lost fanout                                 ;
+; Registerfile:regfile|rd_data0[19]           ; Lost fanout                                 ;
+; Reg:reg_a|q[20]                             ; Lost fanout                                 ;
+; Registerfile:regfile|rd_data0[20]           ; Lost fanout                                 ;
+; Reg:reg_a|q[21]                             ; Lost fanout                                 ;
+; Registerfile:regfile|rd_data0[21]           ; Lost fanout                                 ;
+; Reg:reg_a|q[22]                             ; Lost fanout                                 ;
+; Registerfile:regfile|rd_data0[22]           ; Lost fanout                                 ;
+; Reg:reg_a|q[23]                             ; Lost fanout                                 ;
+; Registerfile:regfile|rd_data0[23]           ; Lost fanout                                 ;
+; Reg:reg_a|q[24]                             ; Lost fanout                                 ;
+; Registerfile:regfile|rd_data0[24]           ; Lost fanout                                 ;
+; Reg:reg_a|q[25]                             ; Lost fanout                                 ;
+; Registerfile:regfile|rd_data0[25]           ; Lost fanout                                 ;
+; Reg:reg_a|q[26]                             ; Lost fanout                                 ;
+; Registerfile:regfile|rd_data0[26]           ; Lost fanout                                 ;
+; Reg:reg_a|q[27]                             ; Lost fanout                                 ;
+; Registerfile:regfile|rd_data0[27]           ; Lost fanout                                 ;
+; Reg:reg_a|q[28]                             ; Lost fanout                                 ;
+; Registerfile:regfile|rd_data0[28]           ; Lost fanout                                 ;
+; Reg:reg_a|q[29]                             ; Lost fanout                                 ;
+; Registerfile:regfile|rd_data0[29]           ; Lost fanout                                 ;
+; Reg:reg_a|q[30]                             ; Lost fanout                                 ;
+; Registerfile:regfile|rd_data0[30]           ; Lost fanout                                 ;
+; Reg:ir|q[6..10]                             ; Lost fanout                                 ;
+; Reg:pc|q[31]                                ; Lost fanout                                 ;
+; Reg:reg_a|q[31]                             ; Lost fanout                                 ;
+; Registerfile:regfile|rd_data0[31]           ; Lost fanout                                 ;
+; Reg:ir|q[21..25]                            ; Lost fanout                                 ;
+; Reg:alu_out_reg|q[16,31]                    ; Lost fanout                                 ;
+; Total Number of Removed Registers = 330     ;                                             ;
++---------------------------------------------+---------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                             ;
++----------------------------------+--------------------------------+-------------------------------------------------------------------------------------+
+; Register name                    ; Reason for Removal             ; Registers Removed due to This Register                                              ;
++----------------------------------+--------------------------------+-------------------------------------------------------------------------------------+
+; Reg:alu_out_reg|q[30]            ; Stuck at GND                   ; Reg:pc|q[30], Memory:mem_module|Reg:inport0_inst|q[13],                             ;
+;                                  ; due to stuck port data_in      ; Memory:mem_module|Reg:inport1_inst|q[13], Memory:mem_module|Reg:inport0_inst|q[12], ;
+;                                  ;                                ; Memory:mem_module|Reg:inport1_inst|q[12], Memory:mem_module|Reg:inport0_inst|q[11], ;
+;                                  ;                                ; Memory:mem_module|Reg:inport1_inst|q[11], Memory:mem_module|Reg:inport0_inst|q[25], ;
+;                                  ;                                ; Memory:mem_module|Reg:inport1_inst|q[25], Memory:mem_module|Reg:inport0_inst|q[31], ;
+;                                  ;                                ; Memory:mem_module|Reg:inport1_inst|q[31], Memory:mem_module|Reg:inport0_inst|q[30], ;
+;                                  ;                                ; Memory:mem_module|Reg:inport1_inst|q[30], Memory:mem_module|Reg:inport0_inst|q[29], ;
+;                                  ;                                ; Memory:mem_module|Reg:inport1_inst|q[29], Memory:mem_module|Reg:inport0_inst|q[28], ;
+;                                  ;                                ; Memory:mem_module|Reg:inport1_inst|q[28], Memory:mem_module|Reg:inport0_inst|q[27], ;
+;                                  ;                                ; Memory:mem_module|Reg:inport1_inst|q[27], Memory:mem_module|Reg:inport0_inst|q[26], ;
+;                                  ;                                ; Memory:mem_module|Reg:inport1_inst|q[26], Memory:mem_module|Reg:inport0_inst|q[4],  ;
+;                                  ;                                ; Memory:mem_module|Reg:inport1_inst|q[4], Memory:mem_module|Reg:inport0_inst|q[3],   ;
+;                                  ;                                ; Memory:mem_module|Reg:inport1_inst|q[3], Memory:mem_module|Reg:inport0_inst|q[2],   ;
+;                                  ;                                ; Memory:mem_module|Reg:inport1_inst|q[2], Memory:mem_module|Reg:inport0_inst|q[15],  ;
+;                                  ;                                ; Memory:mem_module|Reg:inport1_inst|q[15], Memory:mem_module|Reg:inport0_inst|q[1],  ;
+;                                  ;                                ; Memory:mem_module|Reg:inport1_inst|q[1], Memory:mem_module|Reg:inport0_inst|q[24],  ;
+;                                  ;                                ; Memory:mem_module|Reg:inport1_inst|q[24], Memory:mem_module|Reg:inport0_inst|q[5],  ;
+;                                  ;                                ; Memory:mem_module|Reg:inport1_inst|q[5], Memory:mem_module|Reg:inport0_inst|q[8],   ;
+;                                  ;                                ; Memory:mem_module|Reg:inport1_inst|q[8], Memory:mem_module|Reg:inport0_inst|q[17],  ;
+;                                  ;                                ; Memory:mem_module|Reg:inport1_inst|q[17], Memory:mem_module|Reg:inport0_inst|q[16], ;
+;                                  ;                                ; Memory:mem_module|Reg:inport1_inst|q[16], Memory:mem_module|Reg:inport0_inst|q[19], ;
+;                                  ;                                ; Memory:mem_module|Reg:inport1_inst|q[19], Memory:mem_module|Reg:inport0_inst|q[10], ;
+;                                  ;                                ; Memory:mem_module|Reg:inport1_inst|q[10], Memory:mem_module|Reg:inport0_inst|q[9],  ;
+;                                  ;                                ; Memory:mem_module|Reg:inport1_inst|q[9], Memory:mem_module|Reg:inport0_inst|q[18],  ;
+;                                  ;                                ; Memory:mem_module|Reg:inport1_inst|q[18], Memory:mem_module|Reg:inport0_inst|q[7],  ;
+;                                  ;                                ; Memory:mem_module|Reg:inport1_inst|q[7], Memory:mem_module|Reg:inport0_inst|q[6],   ;
+;                                  ;                                ; Memory:mem_module|Reg:inport1_inst|q[6], Memory:mem_module|Reg:inport0_inst|q[20],  ;
+;                                  ;                                ; Memory:mem_module|Reg:inport1_inst|q[20], Memory:mem_module|Reg:inport0_inst|q[0],  ;
+;                                  ;                                ; Memory:mem_module|Reg:inport1_inst|q[0], Memory:mem_module|Reg:inport0_inst|q[21],  ;
+;                                  ;                                ; Memory:mem_module|Reg:inport1_inst|q[21], Memory:mem_module|Reg:inport0_inst|q[22], ;
+;                                  ;                                ; Memory:mem_module|Reg:inport1_inst|q[22], Memory:mem_module|Reg:inport0_inst|q[23], ;
+;                                  ;                                ; Memory:mem_module|Reg:inport1_inst|q[23], Memory:mem_module|Reg:inport0_inst|q[14], ;
+;                                  ;                                ; Memory:mem_module|Reg:inport1_inst|q[14], Memory:mem_module|Reg:outport_inst|q[0],  ;
+;                                  ;                                ; Memory:mem_module|Reg:outport_inst|q[1], Memory:mem_module|Reg:outport_inst|q[2],   ;
+;                                  ;                                ; Memory:mem_module|Reg:outport_inst|q[3], Memory:mem_module|Reg:outport_inst|q[4],   ;
+;                                  ;                                ; Memory:mem_module|Reg:outport_inst|q[5], Memory:mem_module|Reg:outport_inst|q[6],   ;
+;                                  ;                                ; Memory:mem_module|Reg:outport_inst|q[7], Memory:mem_module|Reg:outport_inst|q[8],   ;
+;                                  ;                                ; Memory:mem_module|Reg:outport_inst|q[9], Memory:mem_module|Reg:outport_inst|q[10],  ;
+;                                  ;                                ; Memory:mem_module|Reg:outport_inst|q[11], Memory:mem_module|Reg:outport_inst|q[12], ;
+;                                  ;                                ; Memory:mem_module|Reg:outport_inst|q[13], Memory:mem_module|Reg:outport_inst|q[14], ;
+;                                  ;                                ; Memory:mem_module|Reg:outport_inst|q[15], Memory:mem_module|Reg:outport_inst|q[16], ;
+;                                  ;                                ; Memory:mem_module|Reg:outport_inst|q[17], Memory:mem_module|Reg:outport_inst|q[18], ;
+;                                  ;                                ; Memory:mem_module|Reg:outport_inst|q[19], Memory:mem_module|Reg:outport_inst|q[20], ;
+;                                  ;                                ; Memory:mem_module|Reg:outport_inst|q[21], Memory:mem_module|Reg:outport_inst|q[22], ;
+;                                  ;                                ; Memory:mem_module|Reg:outport_inst|q[23], Memory:mem_module|Reg:outport_inst|q[24], ;
+;                                  ;                                ; Memory:mem_module|Reg:outport_inst|q[25], Memory:mem_module|Reg:outport_inst|q[26], ;
+;                                  ;                                ; Memory:mem_module|Reg:outport_inst|q[27], Memory:mem_module|Reg:outport_inst|q[28], ;
+;                                  ;                                ; Memory:mem_module|Reg:outport_inst|q[29], Memory:mem_module|Reg:outport_inst|q[30], ;
+;                                  ;                                ; Memory:mem_module|Reg:outport_inst|q[31], Reg:reg_a|q[31],                          ;
+;                                  ;                                ; Registerfile:regfile|rd_data0[31]                                                   ;
+; Reg:alu_out_reg|q[29]            ; Stuck at GND                   ; Reg:pc|q[29], Reg:reg_a|q[0], Registerfile:regfile|rd_data0[0], Reg:reg_a|q[1],     ;
+;                                  ; due to stuck port data_in      ; Registerfile:regfile|rd_data0[1], Reg:reg_a|q[2], Registerfile:regfile|rd_data0[2], ;
+;                                  ;                                ; Reg:reg_a|q[3], Registerfile:regfile|rd_data0[3], Reg:reg_a|q[4],                   ;
+;                                  ;                                ; Registerfile:regfile|rd_data0[4], Reg:reg_a|q[5], Registerfile:regfile|rd_data0[5], ;
+;                                  ;                                ; Reg:reg_a|q[6], Registerfile:regfile|rd_data0[6], Reg:reg_a|q[16],                  ;
+;                                  ;                                ; Registerfile:regfile|rd_data0[16], Reg:reg_a|q[24],                                 ;
+;                                  ;                                ; Registerfile:regfile|rd_data0[24], Reg:reg_a|q[26],                                 ;
+;                                  ;                                ; Registerfile:regfile|rd_data0[26], Reg:reg_a|q[27],                                 ;
+;                                  ;                                ; Registerfile:regfile|rd_data0[27], Reg:reg_a|q[28],                                 ;
+;                                  ;                                ; Registerfile:regfile|rd_data0[28], Reg:reg_a|q[29],                                 ;
+;                                  ;                                ; Registerfile:regfile|rd_data0[29]                                                   ;
+; Reg:alu_out_reg|q[15]            ; Stuck at GND                   ; Reg:pc|q[15], Reg:reg_a|q[8], Registerfile:regfile|rd_data0[8], Reg:reg_a|q[10],    ;
+;                                  ; due to stuck port data_in      ; Registerfile:regfile|rd_data0[10], Reg:reg_a|q[11],                                 ;
+;                                  ;                                ; Registerfile:regfile|rd_data0[11]                                                   ;
+; Registerfile:regfile|regs[0][31] ; Stuck at GND                   ; Reg:ir|q[21], Reg:ir|q[22], Reg:ir|q[23], Reg:ir|q[24], Reg:ir|q[25]                ;
+;                                  ; due to stuck port data_in      ;                                                                                     ;
+; Reg:alu_out_reg|q[27]            ; Stuck at GND                   ; Reg:pc|q[27], Reg:reg_a|q[22], Registerfile:regfile|rd_data0[22], Reg:reg_a|q[23],  ;
+;                                  ; due to stuck port data_in      ; Registerfile:regfile|rd_data0[23]                                                   ;
+; Reg:alu_out_reg|q[25]            ; Stuck at GND                   ; Reg:pc|q[25], Reg:reg_a|q[20], Registerfile:regfile|rd_data0[20], Reg:reg_a|q[25],  ;
+;                                  ; due to stuck port data_in      ; Registerfile:regfile|rd_data0[25]                                                   ;
+; Reg:alu_out_reg|q[20]            ; Stuck at GND                   ; Reg:pc|q[20], Reg:reg_a|q[15], Registerfile:regfile|rd_data0[15], Reg:pc|q[16]      ;
+;                                  ; due to stuck port data_in      ;                                                                                     ;
+; Reg:alu_out_reg|q[19]            ; Stuck at GND                   ; Reg:pc|q[19], Reg:reg_a|q[14], Registerfile:regfile|rd_data0[14]                    ;
+;                                  ; due to stuck port data_in      ;                                                                                     ;
+; Reg:alu_out_reg|q[18]            ; Stuck at GND                   ; Reg:pc|q[18], Reg:reg_a|q[13], Registerfile:regfile|rd_data0[13]                    ;
+;                                  ; due to stuck port data_in      ;                                                                                     ;
+; Reg:alu_out_reg|q[17]            ; Stuck at GND                   ; Reg:pc|q[17], Reg:reg_a|q[12], Registerfile:regfile|rd_data0[12]                    ;
+;                                  ; due to stuck port data_in      ;                                                                                     ;
+; Reg:alu_out_reg|q[14]            ; Stuck at GND                   ; Reg:pc|q[14], Reg:reg_a|q[9], Registerfile:regfile|rd_data0[9]                      ;
+;                                  ; due to stuck port data_in      ;                                                                                     ;
+; Reg:alu_out_reg|q[12]            ; Stuck at GND                   ; Reg:pc|q[12], Reg:reg_a|q[7], Registerfile:regfile|rd_data0[7]                      ;
+;                                  ; due to stuck port data_in      ;                                                                                     ;
+; Reg:alu_out_reg|q[26]            ; Stuck at GND                   ; Reg:pc|q[26], Reg:reg_a|q[21], Registerfile:regfile|rd_data0[21]                    ;
+;                                  ; due to stuck port data_in      ;                                                                                     ;
+; Reg:alu_out_reg|q[24]            ; Stuck at GND                   ; Reg:pc|q[24], Reg:reg_a|q[19], Registerfile:regfile|rd_data0[19]                    ;
+;                                  ; due to stuck port data_in      ;                                                                                     ;
+; Reg:alu_out_reg|q[23]            ; Stuck at GND                   ; Reg:pc|q[23], Reg:reg_a|q[18], Registerfile:regfile|rd_data0[18]                    ;
+;                                  ; due to stuck port data_in      ;                                                                                     ;
+; Reg:alu_out_reg|q[22]            ; Stuck at GND                   ; Reg:pc|q[22], Reg:reg_a|q[17], Registerfile:regfile|rd_data0[17]                    ;
+;                                  ; due to stuck port data_in      ;                                                                                     ;
+; Reg:alu_out_reg|q[6]             ; Stuck at GND                   ; Reg:pc|q[6], Reg:pc|q[1]                                                            ;
+;                                  ; due to stuck port data_in      ;                                                                                     ;
+; Reg:hi_reg|q[0]                  ; Stuck at GND                   ; Reg:alu_out_reg|q[0]                                                                ;
+;                                  ; due to stuck port clock_enable ;                                                                                     ;
+; Reg:hi_reg|q[1]                  ; Stuck at GND                   ; Reg:alu_out_reg|q[1]                                                                ;
+;                                  ; due to stuck port clock_enable ;                                                                                     ;
+; Reg:hi_reg|q[16]                 ; Stuck at GND                   ; Reg:alu_out_reg|q[16]                                                               ;
+;                                  ; due to stuck port clock_enable ;                                                                                     ;
+; Reg:hi_reg|q[31]                 ; Stuck at GND                   ; Reg:alu_out_reg|q[31]                                                               ;
+;                                  ; due to stuck port clock_enable ;                                                                                     ;
+; Reg:alu_out_reg|q[28]            ; Stuck at GND                   ; Reg:pc|q[28]                                                                        ;
+;                                  ; due to stuck port data_in      ;                                                                                     ;
+; Reg:alu_out_reg|q[13]            ; Stuck at GND                   ; Reg:pc|q[13]                                                                        ;
+;                                  ; due to stuck port data_in      ;                                                                                     ;
+; Reg:alu_out_reg|q[21]            ; Stuck at GND                   ; Reg:pc|q[21]                                                                        ;
+;                                  ; due to stuck port data_in      ;                                                                                     ;
+; Reg:alu_out_reg|q[11]            ; Stuck at GND                   ; Reg:pc|q[11]                                                                        ;
+;                                  ; due to stuck port data_in      ;                                                                                     ;
+; Reg:alu_out_reg|q[10]            ; Stuck at GND                   ; Reg:pc|q[10]                                                                        ;
+;                                  ; due to stuck port data_in      ;                                                                                     ;
+; Reg:alu_out_reg|q[9]             ; Stuck at GND                   ; Reg:pc|q[9]                                                                         ;
+;                                  ; due to stuck port data_in      ;                                                                                     ;
+; Reg:alu_out_reg|q[8]             ; Stuck at GND                   ; Reg:pc|q[8]                                                                         ;
+;                                  ; due to stuck port data_in      ;                                                                                     ;
+; Reg:alu_out_reg|q[7]             ; Stuck at GND                   ; Reg:pc|q[7]                                                                         ;
+;                                  ; due to stuck port data_in      ;                                                                                     ;
+; Reg:alu_out_reg|q[5]             ; Stuck at GND                   ; Reg:pc|q[5]                                                                         ;
+;                                  ; due to stuck port data_in      ;                                                                                     ;
+; Reg:alu_out_reg|q[4]             ; Stuck at GND                   ; Reg:pc|q[4]                                                                         ;
+;                                  ; due to stuck port data_in      ;                                                                                     ;
+; Reg:alu_out_reg|q[3]             ; Stuck at GND                   ; Reg:pc|q[3]                                                                         ;
+;                                  ; due to stuck port data_in      ;                                                                                     ;
+; Reg:alu_out_reg|q[2]             ; Stuck at GND                   ; Reg:pc|q[2]                                                                         ;
+;                                  ; due to stuck port data_in      ;                                                                                     ;
+; Reg:reg_a|q[30]                  ; Lost Fanouts                   ; Registerfile:regfile|rd_data0[30]                                                   ;
++----------------------------------+--------------------------------+-------------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -260,128 +700,447 @@ Note: number of Embedded Multiplier Blocks used is only available after a succes
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 0     ;
-; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 0     ;
+; Total registers                              ; 1248  ;
+; Number of registers using Synchronous Clear  ; 17    ;
+; Number of registers using Synchronous Load   ; 18    ;
+; Number of registers using Asynchronous Clear ; 1122  ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 1148  ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; 8:1                ; 32 bits   ; 160 LEs       ; 64 LEs               ; 96 LEs                 ; No         ; |ALU|Mux38                 ;
-; 12:1               ; 14 bits   ; 112 LEs       ; 70 LEs               ; 42 LEs                 ; No         ; |ALU|Mux10                 ;
-; 12:1               ; 8 bits    ; 64 LEs        ; 48 LEs               ; 16 LEs                 ; No         ; |ALU|Mux16                 ;
-; 13:1               ; 4 bits    ; 32 LEs        ; 24 LEs               ; 8 LEs                  ; No         ; |ALU|Mux27                 ;
-; 14:1               ; 2 bits    ; 18 LEs        ; 14 LEs               ; 4 LEs                  ; No         ; |ALU|Mux29                 ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Inverted Register Statistics                                                                                                                                                                                                                                                                                                              ;
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; Inverted Register                                                                                                                                                                                                                                                                                                               ; Fan out ;
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[2] ; 2       ;
+; sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[1] ; 3       ;
+; Total number of inverted registers = 2                                                                                                                                                                                                                                                                                          ;         ;
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
 
 
-+---------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: lpm_mult:Mult0                 ;
-+------------------------------------------------+----------+---------------------+
-; Parameter Name                                 ; Value    ; Type                ;
-+------------------------------------------------+----------+---------------------+
-; AUTO_CARRY_CHAINS                              ; ON       ; AUTO_CARRY          ;
-; IGNORE_CARRY_BUFFERS                           ; OFF      ; IGNORE_CARRY        ;
-; AUTO_CASCADE_CHAINS                            ; ON       ; AUTO_CASCADE        ;
-; IGNORE_CASCADE_BUFFERS                         ; OFF      ; IGNORE_CASCADE      ;
-; LPM_WIDTHA                                     ; 32       ; Untyped             ;
-; LPM_WIDTHB                                     ; 32       ; Untyped             ;
-; LPM_WIDTHP                                     ; 64       ; Untyped             ;
-; LPM_WIDTHR                                     ; 64       ; Untyped             ;
-; LPM_WIDTHS                                     ; 1        ; Untyped             ;
-; LPM_REPRESENTATION                             ; SIGNED   ; Untyped             ;
-; LPM_PIPELINE                                   ; 0        ; Untyped             ;
-; LATENCY                                        ; 0        ; Untyped             ;
-; INPUT_A_IS_CONSTANT                            ; NO       ; Untyped             ;
-; INPUT_B_IS_CONSTANT                            ; NO       ; Untyped             ;
-; USE_EAB                                        ; OFF      ; Untyped             ;
-; MAXIMIZE_SPEED                                 ; 5        ; Untyped             ;
-; DEVICE_FAMILY                                  ; MAX 10   ; Untyped             ;
-; CARRY_CHAIN                                    ; MANUAL   ; Untyped             ;
-; APEX20K_TECHNOLOGY_MAPPER                      ; LUT      ; TECH_MAPPER_APEX20K ;
-; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO     ; Untyped             ;
-; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0        ; Untyped             ;
-; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0        ; Untyped             ;
-; CBXI_PARAMETER                                 ; mult_qgs ; Untyped             ;
-; INPUT_A_FIXED_VALUE                            ; Bx       ; Untyped             ;
-; INPUT_B_FIXED_VALUE                            ; Bx       ; Untyped             ;
-; USE_AHDL_IMPLEMENTATION                        ; OFF      ; Untyped             ;
-+------------------------------------------------+----------+---------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                                                                                                                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                                                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |Datapath|Memory:mem_module|RAM:RAM_inst|altsyncram:altsyncram_component|altsyncram_50s3:auto_generated|sld_mod_ram_rom:mgl_prim2|ram_rom_data_shift_cntr_reg[4]                                     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |Datapath|Memory:mem_module|RAM:RAM_inst|altsyncram:altsyncram_component|altsyncram_50s3:auto_generated|sld_mod_ram_rom:mgl_prim2|ram_rom_data_reg[30]                                               ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |Datapath|Memory:mem_module|RAM:RAM_inst|altsyncram:altsyncram_component|altsyncram_50s3:auto_generated|sld_mod_ram_rom:mgl_prim2|ram_rom_addr_reg[7]                                                ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |Datapath|Memory:mem_module|RAM:RAM_inst|altsyncram:altsyncram_component|altsyncram_50s3:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_rom_sr:\ram_rom_logic_gen:name_gen:info_rom_sr|word_counter[0] ;
+; 32:1               ; 32 bits   ; 672 LEs       ; 672 LEs              ; 0 LEs                  ; Yes        ; |Datapath|Registerfile:regfile|rd_data1[3]                                                                                                                                                           ;
+; 32:1               ; 32 bits   ; 672 LEs       ; 672 LEs              ; 0 LEs                  ; Yes        ; |Datapath|Registerfile:regfile|rd_data0[19]                                                                                                                                                          ;
+; 26:1               ; 4 bits    ; 68 LEs        ; 48 LEs               ; 20 LEs                 ; Yes        ; |Datapath|Memory:mem_module|RAM:RAM_inst|altsyncram:altsyncram_component|altsyncram_50s3:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_rom_sr:\ram_rom_logic_gen:name_gen:info_rom_sr|WORD_SR[1]      ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |Datapath|Memory:mem_module|temp_data_out[13]                                                                                                                                                        ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |Datapath|Mux2to1:regfile_writedata_mux|y[21]                                                                                                                                                        ;
+; 12:1               ; 14 bits   ; 112 LEs       ; 0 LEs                ; 112 LEs                ; No         ; |Datapath|ALU:alu_main|Mux6                                                                                                                                                                          ;
+; 12:1               ; 8 bits    ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; No         ; |Datapath|ALU:alu_main|Mux21                                                                                                                                                                         ;
+; 13:1               ; 4 bits    ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; No         ; |Datapath|ALU:alu_main|Mux25                                                                                                                                                                         ;
+; 14:1               ; 2 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; No         ; |Datapath|ALU:alu_main|Mux28                                                                                                                                                                         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for Memory:mem_module|RAM:RAM_inst|altsyncram:altsyncram_component|altsyncram_50s3:auto_generated|altsyncram_kcp2:altsyncram1 ;
++---------------------------------+--------------------+------+------------------------------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                                                 ;
++---------------------------------+--------------------+------+------------------------------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                                                  ;
++---------------------------------+--------------------+------+------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Parameter Settings for User Entity Instance: Reg:pc ;
++----------------+-------+----------------------------+
+; Parameter Name ; Value ; Type                       ;
++----------------+-------+----------------------------+
+; width          ; 32    ; Signed Integer             ;
++----------------+-------+----------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Mux2to1:mem_mux ;
++----------------+-------+-------------------------------------+
+; Parameter Name ; Value ; Type                                ;
++----------------+-------+-------------------------------------+
+; width          ; 32    ; Signed Integer                      ;
++----------------+-------+-------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Memory:mem_module|RAM:RAM_inst|altsyncram:altsyncram_component ;
++------------------------------------+----------------------+-------------------------------------------------+
+; Parameter Name                     ; Value                ; Type                                            ;
++------------------------------------+----------------------+-------------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                         ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                      ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                                    ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                                    ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                                  ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                         ;
+; OPERATION_MODE                     ; SINGLE_PORT          ; Untyped                                         ;
+; WIDTH_A                            ; 32                   ; Signed Integer                                  ;
+; WIDTHAD_A                          ; 8                    ; Signed Integer                                  ;
+; NUMWORDS_A                         ; 256                  ; Signed Integer                                  ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                         ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                         ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                         ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                         ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                         ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                         ;
+; WIDTH_B                            ; 1                    ; Signed Integer                                  ;
+; WIDTHAD_B                          ; 1                    ; Signed Integer                                  ;
+; NUMWORDS_B                         ; 0                    ; Signed Integer                                  ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                                         ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                         ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                         ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                                         ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                         ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                         ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                         ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                         ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                         ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                         ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                         ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                         ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                                  ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Signed Integer                                  ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                         ;
+; BYTE_SIZE                          ; 8                    ; Signed Integer                                  ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                         ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                         ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                         ;
+; INIT_FILE                          ;                      ; Untyped                                         ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                         ;
+; MAXIMUM_DEPTH                      ; 0                    ; Signed Integer                                  ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                                         ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                         ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                                         ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                         ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                         ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                         ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                         ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                         ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Signed Integer                                  ;
+; DEVICE_FAMILY                      ; MAX 10               ; Untyped                                         ;
+; CBXI_PARAMETER                     ; altsyncram_50s3      ; Untyped                                         ;
++------------------------------------+----------------------+-------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
 +---------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: lpm_mult:Mult1                 ;
-+------------------------------------------------+----------+---------------------+
-; Parameter Name                                 ; Value    ; Type                ;
-+------------------------------------------------+----------+---------------------+
-; AUTO_CARRY_CHAINS                              ; ON       ; AUTO_CARRY          ;
-; IGNORE_CARRY_BUFFERS                           ; OFF      ; IGNORE_CARRY        ;
-; AUTO_CASCADE_CHAINS                            ; ON       ; AUTO_CASCADE        ;
-; IGNORE_CASCADE_BUFFERS                         ; OFF      ; IGNORE_CASCADE      ;
-; LPM_WIDTHA                                     ; 32       ; Untyped             ;
-; LPM_WIDTHB                                     ; 32       ; Untyped             ;
-; LPM_WIDTHP                                     ; 64       ; Untyped             ;
-; LPM_WIDTHR                                     ; 64       ; Untyped             ;
-; LPM_WIDTHS                                     ; 1        ; Untyped             ;
-; LPM_REPRESENTATION                             ; UNSIGNED ; Untyped             ;
-; LPM_PIPELINE                                   ; 0        ; Untyped             ;
-; LATENCY                                        ; 0        ; Untyped             ;
-; INPUT_A_IS_CONSTANT                            ; NO       ; Untyped             ;
-; INPUT_B_IS_CONSTANT                            ; NO       ; Untyped             ;
-; USE_EAB                                        ; OFF      ; Untyped             ;
-; MAXIMIZE_SPEED                                 ; 5        ; Untyped             ;
-; DEVICE_FAMILY                                  ; MAX 10   ; Untyped             ;
-; CARRY_CHAIN                                    ; MANUAL   ; Untyped             ;
-; APEX20K_TECHNOLOGY_MAPPER                      ; LUT      ; TECH_MAPPER_APEX20K ;
-; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO     ; Untyped             ;
-; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0        ; Untyped             ;
-; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0        ; Untyped             ;
-; CBXI_PARAMETER                                 ; mult_tns ; Untyped             ;
-; INPUT_A_FIXED_VALUE                            ; Bx       ; Untyped             ;
-; INPUT_B_FIXED_VALUE                            ; Bx       ; Untyped             ;
-; USE_AHDL_IMPLEMENTATION                        ; OFF      ; Untyped             ;
-+------------------------------------------------+----------+---------------------+
+; Parameter Settings for User Entity Instance: Memory:mem_module|Reg:inport0_inst ;
++----------------+-------+--------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                   ;
++----------------+-------+--------------------------------------------------------+
+; width          ; 32    ; Signed Integer                                         ;
++----------------+-------+--------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Memory:mem_module|Reg:inport1_inst ;
++----------------+-------+--------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                   ;
++----------------+-------+--------------------------------------------------------+
+; width          ; 32    ; Signed Integer                                         ;
++----------------+-------+--------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Memory:mem_module|Reg:outport_inst ;
++----------------+-------+--------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                   ;
++----------------+-------+--------------------------------------------------------+
+; width          ; 32    ; Signed Integer                                         ;
++----------------+-------+--------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------+
+; Parameter Settings for User Entity Instance: Reg:ir ;
++----------------+-------+----------------------------+
+; Parameter Name ; Value ; Type                       ;
++----------------+-------+----------------------------+
+; width          ; 32    ; Signed Integer             ;
++----------------+-------+----------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Reg:mem_data_reg ;
++----------------+-------+--------------------------------------+
+; Parameter Name ; Value ; Type                                 ;
++----------------+-------+--------------------------------------+
+; width          ; 32    ; Signed Integer                       ;
++----------------+-------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Mux2to1:regfile_writereg_mux ;
++----------------+-------+--------------------------------------------------+
+; Parameter Name ; Value ; Type                                             ;
++----------------+-------+--------------------------------------------------+
+; width          ; 5     ; Signed Integer                                   ;
++----------------+-------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Mux2to1:regfile_writedata_mux ;
++----------------+-------+---------------------------------------------------+
+; Parameter Name ; Value ; Type                                              ;
++----------------+-------+---------------------------------------------------+
+; width          ; 32    ; Signed Integer                                    ;
++----------------+-------+---------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
 +--------------------------------------------------------+
-; lpm_mult Parameter Settings by Entity Instance         ;
-+---------------------------------------+----------------+
-; Name                                  ; Value          ;
-+---------------------------------------+----------------+
-; Number of entity instances            ; 2              ;
-; Entity Instance                       ; lpm_mult:Mult0 ;
-;     -- LPM_WIDTHA                     ; 32             ;
-;     -- LPM_WIDTHB                     ; 32             ;
-;     -- LPM_WIDTHP                     ; 64             ;
-;     -- LPM_REPRESENTATION             ; SIGNED         ;
-;     -- INPUT_A_IS_CONSTANT            ; NO             ;
-;     -- INPUT_B_IS_CONSTANT            ; NO             ;
-;     -- USE_EAB                        ; OFF            ;
-;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO           ;
-;     -- INPUT_A_FIXED_VALUE            ; Bx             ;
-;     -- INPUT_B_FIXED_VALUE            ; Bx             ;
-; Entity Instance                       ; lpm_mult:Mult1 ;
-;     -- LPM_WIDTHA                     ; 32             ;
-;     -- LPM_WIDTHB                     ; 32             ;
-;     -- LPM_WIDTHP                     ; 64             ;
-;     -- LPM_REPRESENTATION             ; UNSIGNED       ;
-;     -- INPUT_A_IS_CONSTANT            ; NO             ;
-;     -- INPUT_B_IS_CONSTANT            ; NO             ;
-;     -- USE_EAB                        ; OFF            ;
-;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO           ;
-;     -- INPUT_A_FIXED_VALUE            ; Bx             ;
-;     -- INPUT_B_FIXED_VALUE            ; Bx             ;
-+---------------------------------------+----------------+
+; Parameter Settings for User Entity Instance: Reg:reg_a ;
++----------------+-------+-------------------------------+
+; Parameter Name ; Value ; Type                          ;
++----------------+-------+-------------------------------+
+; width          ; 32    ; Signed Integer                ;
++----------------+-------+-------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Reg:reg_b ;
++----------------+-------+-------------------------------+
+; Parameter Name ; Value ; Type                          ;
++----------------+-------+-------------------------------+
+; width          ; 32    ; Signed Integer                ;
++----------------+-------+-------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Mux2to1:alu_mux0 ;
++----------------+-------+--------------------------------------+
+; Parameter Name ; Value ; Type                                 ;
++----------------+-------+--------------------------------------+
+; width          ; 32    ; Signed Integer                       ;
++----------------+-------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Mux4to1:alu_mux1 ;
++----------------+-------+--------------------------------------+
+; Parameter Name ; Value ; Type                                 ;
++----------------+-------+--------------------------------------+
+; width          ; 32    ; Signed Integer                       ;
++----------------+-------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Reg:alu_out_reg ;
++----------------+-------+-------------------------------------+
+; Parameter Name ; Value ; Type                                ;
++----------------+-------+-------------------------------------+
+; width          ; 32    ; Signed Integer                      ;
++----------------+-------+-------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Reg:lo_reg ;
++----------------+-------+--------------------------------+
+; Parameter Name ; Value ; Type                           ;
++----------------+-------+--------------------------------+
+; width          ; 32    ; Signed Integer                 ;
++----------------+-------+--------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Reg:hi_reg ;
++----------------+-------+--------------------------------+
+; Parameter Name ; Value ; Type                           ;
++----------------+-------+--------------------------------+
+; width          ; 32    ; Signed Integer                 ;
++----------------+-------+--------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Mux3to1:alu_out_mux ;
++----------------+-------+-----------------------------------------+
+; Parameter Name ; Value ; Type                                    ;
++----------------+-------+-----------------------------------------+
+; width          ; 32    ; Signed Integer                          ;
++----------------+-------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Mux3to1:pc_mux ;
++----------------+-------+------------------------------------+
+; Parameter Name ; Value ; Type                               ;
++----------------+-------+------------------------------------+
+; width          ; 32    ; Signed Integer                     ;
++----------------+-------+------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ShiftLeft2:sign_ext_sl ;
++----------------+-------+--------------------------------------------+
+; Parameter Name ; Value ; Type                                       ;
++----------------+-------+--------------------------------------------+
+; width          ; 32    ; Signed Integer                             ;
++----------------+-------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ShiftLeft2:ir_sl ;
++----------------+-------+--------------------------------------+
+; Parameter Name ; Value ; Type                                 ;
++----------------+-------+--------------------------------------+
+; width          ; 28    ; Signed Integer                       ;
++----------------+-------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                                           ;
++-------------------------------------------+----------------------------------------------------------------+
+; Name                                      ; Value                                                          ;
++-------------------------------------------+----------------------------------------------------------------+
+; Number of entity instances                ; 1                                                              ;
+; Entity Instance                           ; Memory:mem_module|RAM:RAM_inst|altsyncram:altsyncram_component ;
+;     -- OPERATION_MODE                     ; SINGLE_PORT                                                    ;
+;     -- WIDTH_A                            ; 32                                                             ;
+;     -- NUMWORDS_A                         ; 256                                                            ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                   ;
+;     -- WIDTH_B                            ; 1                                                              ;
+;     -- NUMWORDS_B                         ; 0                                                              ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                         ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                   ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                           ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                      ;
++-------------------------------------------+----------------------------------------------------------------+
+
+
++-------------------------------------------------+
+; Port Connectivity Checks: "ShiftLeft2:ir_sl"    ;
++---------------+-------+----------+--------------+
+; Port          ; Type  ; Severity ; Details      ;
++---------------+-------+----------+--------------+
+; input[27..26] ; Input ; Info     ; Stuck at GND ;
++---------------+-------+----------+--------------+
+
+
++---------------------------------------------+
+; Port Connectivity Checks: "Reg:alu_out_reg" ;
++------+-------+----------+-------------------+
+; Port ; Type  ; Severity ; Details           ;
++------+-------+----------+-------------------+
+; en   ; Input ; Info     ; Stuck at VCC      ;
++------+-------+----------+-------------------+
+
+
++----------------------------------------------+
+; Port Connectivity Checks: "Mux4to1:alu_mux1" ;
++----------+-------+----------+----------------+
+; Port     ; Type  ; Severity ; Details        ;
++----------+-------+----------+----------------+
+; b[31..3] ; Input ; Info     ; Stuck at GND   ;
+; b[1..0]  ; Input ; Info     ; Stuck at GND   ;
+; b[2]     ; Input ; Info     ; Stuck at VCC   ;
++----------+-------+----------+----------------+
+
+
++----------------------------------------+
+; Port Connectivity Checks: "Reg:reg_b"  ;
++------+-------+----------+--------------+
+; Port ; Type  ; Severity ; Details      ;
++------+-------+----------+--------------+
+; en   ; Input ; Info     ; Stuck at VCC ;
++------+-------+----------+--------------+
+
+
++----------------------------------------+
+; Port Connectivity Checks: "Reg:reg_a"  ;
++------+-------+----------+--------------+
+; Port ; Type  ; Severity ; Details      ;
++------+-------+----------+--------------+
+; en   ; Input ; Info     ; Stuck at VCC ;
++------+-------+----------+--------------+
+
+
++--------------------------------------------------+
+; Port Connectivity Checks: "Registerfile:regfile" ;
++-------------+-------+----------+-----------------+
+; Port        ; Type  ; Severity ; Details         ;
++-------------+-------+----------+-----------------+
+; pc_4        ; Input ; Info     ; Stuck at GND    ;
+; jumpandlink ; Input ; Info     ; Stuck at GND    ;
++-------------+-------+----------+-----------------+
+
+
++----------------------------------------------+
+; Port Connectivity Checks: "Reg:mem_data_reg" ;
++------+-------+----------+--------------------+
+; Port ; Type  ; Severity ; Details            ;
++------+-------+----------+--------------------+
+; en   ; Input ; Info     ; Stuck at VCC       ;
++------+-------+----------+--------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Reg:ir"                                                                                  ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; q[31..26] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------+
+; Port Connectivity Checks: "Memory:mem_module|Reg:outport_inst" ;
++------+-------+----------+--------------------------------------+
+; Port ; Type  ; Severity ; Details                              ;
++------+-------+----------+--------------------------------------+
+; rst  ; Input ; Info     ; Stuck at GND                         ;
++------+-------+----------+--------------------------------------+
+
+
++----------------------------------------------------------------+
+; Port Connectivity Checks: "Memory:mem_module|Reg:inport1_inst" ;
++------+-------+----------+--------------------------------------+
+; Port ; Type  ; Severity ; Details                              ;
++------+-------+----------+--------------------------------------+
+; rst  ; Input ; Info     ; Stuck at GND                         ;
++------+-------+----------+--------------------------------------+
+
+
++----------------------------------------------------------------+
+; Port Connectivity Checks: "Memory:mem_module|Reg:inport0_inst" ;
++------+-------+----------+--------------------------------------+
+; Port ; Type  ; Severity ; Details                              ;
++------+-------+----------+--------------------------------------+
+; rst  ; Input ; Info     ; Stuck at GND                         ;
++------+-------+----------+--------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; In-System Memory Content Editor Settings                                                                                                                  ;
++----------------+-------------+-------+-------+------------+-----------------------------------------------------------------------------------------------+
+; Instance Index ; Instance ID ; Width ; Depth ; Mode       ; Hierarchy Location                                                                            ;
++----------------+-------------+-------+-------+------------+-----------------------------------------------------------------------------------------------+
+; 0              ; ORAM        ; 32    ; 256   ; Read/Write ; Memory:mem_module|RAM:RAM_inst|altsyncram:altsyncram_component|altsyncram_50s3:auto_generated ;
++----------------+-------------+-------+-------+------------+-----------------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------+
@@ -389,22 +1148,26 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 139                         ;
-; cycloneiii_lcell_comb ; 667                         ;
-;     arith             ; 230                         ;
-;         2 data inputs ; 39                          ;
-;         3 data inputs ; 191                         ;
-;     normal            ; 437                         ;
-;         0 data inputs ; 2                           ;
-;         1 data inputs ; 1                           ;
-;         2 data inputs ; 85                          ;
-;         3 data inputs ; 101                         ;
-;         4 data inputs ; 248                         ;
-; cycloneiii_mac_mult   ; 8                           ;
-; cycloneiii_mac_out    ; 8                           ;
+; boundary_port         ; 145                         ;
+; cycloneiii_ff         ; 1162                        ;
+;     CLR               ; 72                          ;
+;     ENA               ; 68                          ;
+;     ENA CLR           ; 1009                        ;
+;     ENA CLR SLD       ; 8                           ;
+;     ENA SCLR          ; 5                           ;
+; cycloneiii_lcell_comb ; 883                         ;
+;     arith             ; 16                          ;
+;         2 data inputs ; 16                          ;
+;     normal            ; 867                         ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 3                           ;
+;         2 data inputs ; 38                          ;
+;         3 data inputs ; 102                         ;
+;         4 data inputs ; 723                         ;
+; cycloneiii_ram_block  ; 32                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 9.00                        ;
-; Average LUT depth     ; 5.43                        ;
+; Max LUT depth         ; 7.00                        ;
+; Average LUT depth     ; 4.46                        ;
 +-----------------------+-----------------------------+
 
 
@@ -413,7 +1176,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:02     ;
+; Top            ; 00:00:03     ;
 +----------------+--------------+
 
 
@@ -423,10 +1186,34 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Tue Dec 03 19:36:26 2024
+    Info: Processing started: Wed Dec 04 20:42:23 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off MIPS -c MIPS
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file registerfile.vhd
+    Info (12022): Found design unit 1: Registerfile-sync_read File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Registerfile.vhd Line: 28
+    Info (12023): Found entity 1: Registerfile File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Registerfile.vhd Line: 8
+Info (12021): Found 2 design units, including 1 entities, in source file reg.vhd
+    Info (12022): Found design unit 1: Reg-bhv File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Reg.vhd Line: 21
+    Info (12023): Found entity 1: Reg File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Reg.vhd Line: 8
+Info (12021): Found 6 design units, including 3 entities, in source file mux.vhd
+    Info (12022): Found design unit 1: Mux2to1-bhv File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Mux.vhd Line: 20
+    Info (12022): Found design unit 2: Mux3to1-bhv File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Mux.vhd Line: 42
+    Info (12022): Found design unit 3: Mux4to1-bhv File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Mux.vhd Line: 67
+    Info (12023): Found entity 1: Mux2to1 File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Mux.vhd Line: 8
+    Info (12023): Found entity 2: Mux3to1 File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Mux.vhd Line: 29
+    Info (12023): Found entity 3: Mux4to1 File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Mux.vhd Line: 53
+Info (12021): Found 10 design units, including 5 entities, in source file datapath.vhd
+    Info (12022): Found design unit 1: Datapath-str File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 36
+    Info (12022): Found design unit 2: ZeroExtend-bhv File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 393
+    Info (12022): Found design unit 3: SignExtend-bhv File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 412
+    Info (12022): Found design unit 4: ShiftLeft2-bhv File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 433
+    Info (12022): Found design unit 5: Concat-bhv File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 452
+    Info (12023): Found entity 1: Datapath File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 8
+    Info (12023): Found entity 2: ZeroExtend File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 386
+    Info (12023): Found entity 3: SignExtend File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 404
+    Info (12023): Found entity 4: ShiftLeft2 File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 423
+    Info (12023): Found entity 5: Concat File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 444
 Info (12021): Found 2 design units, including 1 entities, in source file memory.vhd
     Info (12022): Found design unit 1: Memory-bhv File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Memory.vhd Line: 24
     Info (12023): Found entity 1: Memory File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Memory.vhd Line: 8
@@ -436,52 +1223,288 @@ Info (12021): Found 2 design units, including 1 entities, in source file alu.vhd
 Info (12021): Found 2 design units, including 1 entities, in source file ram.vhd
     Info (12022): Found design unit 1: ram-SYN File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/RAM.vhd Line: 56
     Info (12023): Found entity 1: RAM File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/RAM.vhd Line: 43
-Info (12127): Elaborating entity "ALU" for the top level hierarchy
-Info (278001): Inferred 2 megafunctions from design logic
-    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "Mult0" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/ALU.vhd Line: 49
-    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "Mult1" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/ALU.vhd Line: 53
-Info (12130): Elaborated megafunction instantiation "lpm_mult:Mult0" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/ALU.vhd Line: 49
-Info (12133): Instantiated megafunction "lpm_mult:Mult0" with the following parameter: File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/ALU.vhd Line: 49
-    Info (12134): Parameter "LPM_WIDTHA" = "32"
-    Info (12134): Parameter "LPM_WIDTHB" = "32"
-    Info (12134): Parameter "LPM_WIDTHP" = "64"
-    Info (12134): Parameter "LPM_WIDTHR" = "64"
-    Info (12134): Parameter "LPM_WIDTHS" = "1"
-    Info (12134): Parameter "LPM_REPRESENTATION" = "SIGNED"
-    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
-    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "NO"
-    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
-Info (12021): Found 1 design units, including 1 entities, in source file db/mult_qgs.tdf
-    Info (12023): Found entity 1: mult_qgs File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/db/mult_qgs.tdf Line: 31
-Info (12130): Elaborated megafunction instantiation "lpm_mult:Mult1" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/ALU.vhd Line: 53
-Info (12133): Instantiated megafunction "lpm_mult:Mult1" with the following parameter: File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/ALU.vhd Line: 53
-    Info (12134): Parameter "LPM_WIDTHA" = "32"
-    Info (12134): Parameter "LPM_WIDTHB" = "32"
-    Info (12134): Parameter "LPM_WIDTHP" = "64"
-    Info (12134): Parameter "LPM_WIDTHR" = "64"
-    Info (12134): Parameter "LPM_WIDTHS" = "1"
-    Info (12134): Parameter "LPM_REPRESENTATION" = "UNSIGNED"
-    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
-    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "NO"
-    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
-Info (12021): Found 1 design units, including 1 entities, in source file db/mult_tns.tdf
-    Info (12023): Found entity 1: mult_tns File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/db/mult_tns.tdf Line: 31
-Info (13014): Ignored 470 buffer(s)
-    Info (13019): Ignored 470 SOFT buffer(s)
-Info (286030): Timing-Driven Synthesis is running
+Info (12127): Elaborating entity "Datapath" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at Datapath.vhd(193): object "ir31_26" assigned a value but never read File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 193
+Info (12128): Elaborating entity "Reg" for hierarchy "Reg:pc" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 226
+Info (12128): Elaborating entity "Mux2to1" for hierarchy "Mux2to1:mem_mux" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 230
+Info (12128): Elaborating entity "Memory" for hierarchy "Memory:mem_module" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 234
+Info (10041): Inferred latch for "temp_data_out[0]" at Memory.vhd(100) File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Memory.vhd Line: 100
+Info (10041): Inferred latch for "temp_data_out[1]" at Memory.vhd(100) File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Memory.vhd Line: 100
+Info (10041): Inferred latch for "temp_data_out[2]" at Memory.vhd(100) File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Memory.vhd Line: 100
+Info (10041): Inferred latch for "temp_data_out[3]" at Memory.vhd(100) File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Memory.vhd Line: 100
+Info (10041): Inferred latch for "temp_data_out[4]" at Memory.vhd(100) File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Memory.vhd Line: 100
+Info (10041): Inferred latch for "temp_data_out[5]" at Memory.vhd(100) File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Memory.vhd Line: 100
+Info (10041): Inferred latch for "temp_data_out[6]" at Memory.vhd(100) File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Memory.vhd Line: 100
+Info (10041): Inferred latch for "temp_data_out[7]" at Memory.vhd(100) File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Memory.vhd Line: 100
+Info (10041): Inferred latch for "temp_data_out[8]" at Memory.vhd(100) File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Memory.vhd Line: 100
+Info (10041): Inferred latch for "temp_data_out[9]" at Memory.vhd(100) File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Memory.vhd Line: 100
+Info (10041): Inferred latch for "temp_data_out[10]" at Memory.vhd(100) File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Memory.vhd Line: 100
+Info (10041): Inferred latch for "temp_data_out[11]" at Memory.vhd(100) File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Memory.vhd Line: 100
+Info (10041): Inferred latch for "temp_data_out[12]" at Memory.vhd(100) File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Memory.vhd Line: 100
+Info (10041): Inferred latch for "temp_data_out[13]" at Memory.vhd(100) File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Memory.vhd Line: 100
+Info (10041): Inferred latch for "temp_data_out[14]" at Memory.vhd(100) File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Memory.vhd Line: 100
+Info (10041): Inferred latch for "temp_data_out[15]" at Memory.vhd(100) File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Memory.vhd Line: 100
+Info (10041): Inferred latch for "temp_data_out[16]" at Memory.vhd(100) File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Memory.vhd Line: 100
+Info (10041): Inferred latch for "temp_data_out[17]" at Memory.vhd(100) File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Memory.vhd Line: 100
+Info (10041): Inferred latch for "temp_data_out[18]" at Memory.vhd(100) File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Memory.vhd Line: 100
+Info (10041): Inferred latch for "temp_data_out[19]" at Memory.vhd(100) File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Memory.vhd Line: 100
+Info (10041): Inferred latch for "temp_data_out[20]" at Memory.vhd(100) File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Memory.vhd Line: 100
+Info (10041): Inferred latch for "temp_data_out[21]" at Memory.vhd(100) File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Memory.vhd Line: 100
+Info (10041): Inferred latch for "temp_data_out[22]" at Memory.vhd(100) File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Memory.vhd Line: 100
+Info (10041): Inferred latch for "temp_data_out[23]" at Memory.vhd(100) File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Memory.vhd Line: 100
+Info (10041): Inferred latch for "temp_data_out[24]" at Memory.vhd(100) File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Memory.vhd Line: 100
+Info (10041): Inferred latch for "temp_data_out[25]" at Memory.vhd(100) File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Memory.vhd Line: 100
+Info (10041): Inferred latch for "temp_data_out[26]" at Memory.vhd(100) File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Memory.vhd Line: 100
+Info (10041): Inferred latch for "temp_data_out[27]" at Memory.vhd(100) File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Memory.vhd Line: 100
+Info (10041): Inferred latch for "temp_data_out[28]" at Memory.vhd(100) File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Memory.vhd Line: 100
+Info (10041): Inferred latch for "temp_data_out[29]" at Memory.vhd(100) File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Memory.vhd Line: 100
+Info (10041): Inferred latch for "temp_data_out[30]" at Memory.vhd(100) File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Memory.vhd Line: 100
+Info (10041): Inferred latch for "temp_data_out[31]" at Memory.vhd(100) File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Memory.vhd Line: 100
+Info (12128): Elaborating entity "RAM" for hierarchy "Memory:mem_module|RAM:RAM_inst" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Memory.vhd Line: 60
+Warning (10296): VHDL warning at RAM.vhd(67): ignored assignment of value to null range File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/RAM.vhd Line: 67
+Info (12128): Elaborating entity "altsyncram" for hierarchy "Memory:mem_module|RAM:RAM_inst|altsyncram:altsyncram_component" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/RAM.vhd Line: 63
+Info (12130): Elaborated megafunction instantiation "Memory:mem_module|RAM:RAM_inst|altsyncram:altsyncram_component" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/RAM.vhd Line: 63
+Info (12133): Instantiated megafunction "Memory:mem_module|RAM:RAM_inst|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/RAM.vhd Line: 63
+    Info (12134): Parameter "address_aclr_a" = "UNUSED"
+    Info (12134): Parameter "address_aclr_b" = "NONE"
+    Info (12134): Parameter "address_reg_b" = "CLOCK1"
+    Info (12134): Parameter "byte_size" = "8"
+    Info (12134): Parameter "byteena_aclr_a" = "UNUSED"
+    Info (12134): Parameter "byteena_aclr_b" = "NONE"
+    Info (12134): Parameter "byteena_reg_b" = "CLOCK1"
+    Info (12134): Parameter "clock_enable_core_a" = "USE_INPUT_CLKEN"
+    Info (12134): Parameter "clock_enable_core_b" = "USE_INPUT_CLKEN"
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_input_b" = "NORMAL"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_b" = "NORMAL"
+    Info (12134): Parameter "intended_device_family" = "MAX 10"
+    Info (12134): Parameter "ecc_pipeline_stage_enabled" = "FALSE"
+    Info (12134): Parameter "enable_ecc" = "FALSE"
+    Info (12134): Parameter "implement_in_les" = "OFF"
+    Info (12134): Parameter "indata_aclr_a" = "UNUSED"
+    Info (12134): Parameter "indata_aclr_b" = "NONE"
+    Info (12134): Parameter "indata_reg_b" = "CLOCK1"
+    Info (12134): Parameter "init_file" = ""
+    Info (12134): Parameter "init_file_layout" = "PORT_A"
+    Info (12134): Parameter "maximum_depth" = "0"
+    Info (12134): Parameter "numwords_a" = "256"
+    Info (12134): Parameter "numwords_b" = "0"
+    Info (12134): Parameter "operation_mode" = "SINGLE_PORT"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_aclr_b" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "UNREGISTERED"
+    Info (12134): Parameter "outdata_reg_b" = "UNREGISTERED"
+    Info (12134): Parameter "power_up_uninitialized" = "FALSE"
+    Info (12134): Parameter "ram_block_type" = "AUTO"
+    Info (12134): Parameter "rdcontrol_aclr_b" = "NONE"
+    Info (12134): Parameter "rdcontrol_reg_b" = "CLOCK1"
+    Info (12134): Parameter "read_during_write_mode_mixed_ports" = "DONT_CARE"
+    Info (12134): Parameter "read_during_write_mode_port_a" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "read_during_write_mode_port_b" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "stratixiv_m144k_allow_dual_clocks" = "ON"
+    Info (12134): Parameter "width_a" = "32"
+    Info (12134): Parameter "width_b" = "1"
+    Info (12134): Parameter "width_byteena_a" = "1"
+    Info (12134): Parameter "width_byteena_b" = "1"
+    Info (12134): Parameter "width_eccstatus" = "3"
+    Info (12134): Parameter "widthad_a" = "8"
+    Info (12134): Parameter "widthad_b" = "1"
+    Info (12134): Parameter "wrcontrol_aclr_a" = "UNUSED"
+    Info (12134): Parameter "wrcontrol_aclr_b" = "NONE"
+    Info (12134): Parameter "wrcontrol_wraddress_reg_b" = "CLOCK1"
+    Info (12134): Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=YES,INSTANCE_NAME=ORAM"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_50s3.tdf
+    Info (12023): Found entity 1: altsyncram_50s3 File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/db/altsyncram_50s3.tdf Line: 28
+Info (12128): Elaborating entity "altsyncram_50s3" for hierarchy "Memory:mem_module|RAM:RAM_inst|altsyncram:altsyncram_component|altsyncram_50s3:auto_generated" File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_kcp2.tdf
+    Info (12023): Found entity 1: altsyncram_kcp2 File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/db/altsyncram_kcp2.tdf Line: 28
+Info (12128): Elaborating entity "altsyncram_kcp2" for hierarchy "Memory:mem_module|RAM:RAM_inst|altsyncram:altsyncram_component|altsyncram_50s3:auto_generated|altsyncram_kcp2:altsyncram1" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/db/altsyncram_50s3.tdf Line: 38
+Info (12128): Elaborating entity "sld_mod_ram_rom" for hierarchy "Memory:mem_module|RAM:RAM_inst|altsyncram:altsyncram_component|altsyncram_50s3:auto_generated|sld_mod_ram_rom:mgl_prim2" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/db/altsyncram_50s3.tdf Line: 39
+Info (12130): Elaborated megafunction instantiation "Memory:mem_module|RAM:RAM_inst|altsyncram:altsyncram_component|altsyncram_50s3:auto_generated|sld_mod_ram_rom:mgl_prim2" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/db/altsyncram_50s3.tdf Line: 39
+Info (12133): Instantiated megafunction "Memory:mem_module|RAM:RAM_inst|altsyncram:altsyncram_component|altsyncram_50s3:auto_generated|sld_mod_ram_rom:mgl_prim2" with the following parameter: File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/db/altsyncram_50s3.tdf Line: 39
+    Info (12134): Parameter "CVALUE" = "00000000000000000000000000000000"
+    Info (12134): Parameter "IS_DATA_IN_RAM" = "1"
+    Info (12134): Parameter "IS_READABLE" = "1"
+    Info (12134): Parameter "NODE_NAME" = "1330790733"
+    Info (12134): Parameter "NUMWORDS" = "256"
+    Info (12134): Parameter "SHIFT_COUNT_BITS" = "6"
+    Info (12134): Parameter "WIDTH_WORD" = "32"
+    Info (12134): Parameter "WIDTHAD" = "8"
+Info (12128): Elaborating entity "sld_jtag_endpoint_adapter" for hierarchy "Memory:mem_module|RAM:RAM_inst|altsyncram:altsyncram_component|altsyncram_50s3:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_jtag_endpoint_adapter:jtag_signal_adapter" File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/sld_mod_ram_rom.vhd Line: 302
+Info (12128): Elaborating entity "sld_jtag_endpoint_adapter_impl" for hierarchy "Memory:mem_module|RAM:RAM_inst|altsyncram:altsyncram_component|altsyncram_50s3:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_jtag_endpoint_adapter:jtag_signal_adapter|sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst" File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/sld_jtag_endpoint_adapter.vhd Line: 232
+Info (12128): Elaborating entity "sld_rom_sr" for hierarchy "Memory:mem_module|RAM:RAM_inst|altsyncram:altsyncram_component|altsyncram_50s3:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_rom_sr:\ram_rom_logic_gen:name_gen:info_rom_sr" File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/sld_mod_ram_rom.vhd Line: 828
+Info (12128): Elaborating entity "Mux2to1" for hierarchy "Mux2to1:regfile_writereg_mux" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 265
+Info (12128): Elaborating entity "Registerfile" for hierarchy "Registerfile:regfile" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 274
+Info (12128): Elaborating entity "Mux4to1" for hierarchy "Mux4to1:alu_mux1" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 301
+Info (12128): Elaborating entity "ALU" for hierarchy "ALU:alu_main" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 310
+Info (12128): Elaborating entity "Mux3to1" for hierarchy "Mux3to1:alu_out_mux" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 333
+Info (12128): Elaborating entity "SignExtend" for hierarchy "SignExtend:sign_ext" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 341
+Warning (10541): VHDL Signal Declaration warning at Datapath.vhd(408): used implicit default value for signal "output" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 408
+Info (12128): Elaborating entity "ShiftLeft2" for hierarchy "ShiftLeft2:sign_ext_sl" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 343
+Warning (10541): VHDL Signal Declaration warning at Datapath.vhd(429): used implicit default value for signal "output" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 429
+Info (12128): Elaborating entity "ShiftLeft2" for hierarchy "ShiftLeft2:ir_sl" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 348
+Warning (10541): VHDL Signal Declaration warning at Datapath.vhd(429): used implicit default value for signal "output" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 429
+Info (12128): Elaborating entity "Concat" for hierarchy "Concat:ir_concat" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 352
+Warning (10541): VHDL Signal Declaration warning at Datapath.vhd(448): used implicit default value for signal "output" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 448
+Warning (12125): Using design file alucontrol.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info (12022): Found design unit 1: ALUControl-bhv File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/alucontrol.vhd Line: 19
+    Info (12023): Found entity 1: ALUControl File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/alucontrol.vhd Line: 8
+Info (12128): Elaborating entity "ALUControl" for hierarchy "ALUControl:alu_control" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 355
+Warning (10541): VHDL Signal Declaration warning at alucontrol.vhd(12): used implicit default value for signal "opsel" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/alucontrol.vhd Line: 12
+Warning (10541): VHDL Signal Declaration warning at alucontrol.vhd(13): used implicit default value for signal "hi_en" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/alucontrol.vhd Line: 13
+Warning (10541): VHDL Signal Declaration warning at alucontrol.vhd(14): used implicit default value for signal "lo_en" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/alucontrol.vhd Line: 14
+Warning (10541): VHDL Signal Declaration warning at alucontrol.vhd(15): used implicit default value for signal "alu_lo_hi" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/alucontrol.vhd Line: 15
+Info (11170): Starting IP generation for the debug fabric: alt_sld_fab.
+Info (11172): 2024.12.04.20:42:36 Progress: Loading sld4b378a6e/alt_sld_fab_wrapper_hw.tcl
+Info (11172): Alt_sld_fab.alt_sld_fab: SLD fabric agents which did not specify prefer_host were connected to JTAG
+Info (11172): Alt_sld_fab: Generating alt_sld_fab "alt_sld_fab" for QUARTUS_SYNTH
+Info (11172): Alt_sld_fab: "alt_sld_fab" instantiated alt_sld_fab "alt_sld_fab"
+Info (11172): Presplit: "alt_sld_fab" instantiated altera_super_splitter "presplit"
+Info (11172): Splitter: "alt_sld_fab" instantiated altera_sld_splitter "splitter"
+Info (11172): Sldfabric: "alt_sld_fab" instantiated altera_sld_jtag_hub "sldfabric"
+Info (11172): Ident: "alt_sld_fab" instantiated altera_connection_identification_hub "ident"
+Info (11172): Alt_sld_fab: Done "alt_sld_fab" with 6 modules, 6 files
+Info (11171): Finished IP generation for the debug fabric: alt_sld_fab.
+Info (12021): Found 1 design units, including 1 entities, in source file db/ip/sld4b378a6e/alt_sld_fab.v
+    Info (12023): Found entity 1: alt_sld_fab File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/db/ip/sld4b378a6e/alt_sld_fab.v Line: 9
+Info (12021): Found 1 design units, including 1 entities, in source file db/ip/sld4b378a6e/submodules/alt_sld_fab_alt_sld_fab.v
+    Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/db/ip/sld4b378a6e/submodules/alt_sld_fab_alt_sld_fab.v Line: 9
+Info (12021): Found 1 design units, including 1 entities, in source file db/ip/sld4b378a6e/submodules/alt_sld_fab_alt_sld_fab_ident.sv
+    Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab_ident File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/db/ip/sld4b378a6e/submodules/alt_sld_fab_alt_sld_fab_ident.sv Line: 33
+Info (12021): Found 1 design units, including 1 entities, in source file db/ip/sld4b378a6e/submodules/alt_sld_fab_alt_sld_fab_presplit.sv
+    Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab_presplit File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/db/ip/sld4b378a6e/submodules/alt_sld_fab_alt_sld_fab_presplit.sv Line: 3
+Info (12021): Found 2 design units, including 1 entities, in source file db/ip/sld4b378a6e/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd
+    Info (12022): Found design unit 1: alt_sld_fab_alt_sld_fab_sldfabric-rtl File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/db/ip/sld4b378a6e/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd Line: 102
+    Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab_sldfabric File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/db/ip/sld4b378a6e/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd Line: 11
+Info (12021): Found 1 design units, including 1 entities, in source file db/ip/sld4b378a6e/submodules/alt_sld_fab_alt_sld_fab_splitter.sv
+    Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab_splitter File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/db/ip/sld4b378a6e/submodules/alt_sld_fab_alt_sld_fab_splitter.sv Line: 3
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "outport[0]" is stuck at GND File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 31
+    Warning (13410): Pin "outport[1]" is stuck at GND File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 31
+    Warning (13410): Pin "outport[2]" is stuck at GND File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 31
+    Warning (13410): Pin "outport[3]" is stuck at GND File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 31
+    Warning (13410): Pin "outport[4]" is stuck at GND File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 31
+    Warning (13410): Pin "outport[5]" is stuck at GND File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 31
+    Warning (13410): Pin "outport[6]" is stuck at GND File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 31
+    Warning (13410): Pin "outport[7]" is stuck at GND File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 31
+    Warning (13410): Pin "outport[8]" is stuck at GND File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 31
+    Warning (13410): Pin "outport[9]" is stuck at GND File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 31
+    Warning (13410): Pin "outport[10]" is stuck at GND File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 31
+    Warning (13410): Pin "outport[11]" is stuck at GND File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 31
+    Warning (13410): Pin "outport[12]" is stuck at GND File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 31
+    Warning (13410): Pin "outport[13]" is stuck at GND File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 31
+    Warning (13410): Pin "outport[14]" is stuck at GND File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 31
+    Warning (13410): Pin "outport[15]" is stuck at GND File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 31
+    Warning (13410): Pin "outport[16]" is stuck at GND File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 31
+    Warning (13410): Pin "outport[17]" is stuck at GND File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 31
+    Warning (13410): Pin "outport[18]" is stuck at GND File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 31
+    Warning (13410): Pin "outport[19]" is stuck at GND File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 31
+    Warning (13410): Pin "outport[20]" is stuck at GND File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 31
+    Warning (13410): Pin "outport[21]" is stuck at GND File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 31
+    Warning (13410): Pin "outport[22]" is stuck at GND File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 31
+    Warning (13410): Pin "outport[23]" is stuck at GND File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 31
+    Warning (13410): Pin "outport[24]" is stuck at GND File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 31
+    Warning (13410): Pin "outport[25]" is stuck at GND File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 31
+    Warning (13410): Pin "outport[26]" is stuck at GND File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 31
+    Warning (13410): Pin "outport[27]" is stuck at GND File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 31
+    Warning (13410): Pin "outport[28]" is stuck at GND File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 31
+    Warning (13410): Pin "outport[29]" is stuck at GND File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 31
+    Warning (13410): Pin "outport[30]" is stuck at GND File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 31
+    Warning (13410): Pin "outport[31]" is stuck at GND File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 31
+Info (286031): Timing-Driven Synthesis is running on partition "Top"
+Info (17049): 146 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 1 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "opsel[4]" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/ALU.vhd Line: 12
-Info (21057): Implemented 822 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 74 input pins
-    Info (21059): Implemented 65 output pins
-    Info (21061): Implemented 667 logic cells
-    Info (21062): Implemented 16 DSP elements
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 3 warnings
-    Info: Peak virtual memory: 4794 megabytes
-    Info: Processing ended: Tue Dec 03 19:36:49 2024
-    Info: Elapsed time: 00:00:23
-    Info: Total CPU time (on all processors): 00:00:24
+Warning (21074): Design contains 78 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "JumpAndLink" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 19
+    Warning (15610): No output dependent on input pin "IsSigned" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 20
+    Warning (15610): No output dependent on input pin "ALUOp[0]" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 22
+    Warning (15610): No output dependent on input pin "ALUOp[1]" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 22
+    Warning (15610): No output dependent on input pin "IorD" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 14
+    Warning (15610): No output dependent on input pin "inport1_in[10]" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 29
+    Warning (15610): No output dependent on input pin "inport1_en" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 30
+    Warning (15610): No output dependent on input pin "inport0_in[10]" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 27
+    Warning (15610): No output dependent on input pin "inport0_en" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 28
+    Warning (15610): No output dependent on input pin "inport1_in[9]" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 29
+    Warning (15610): No output dependent on input pin "inport0_in[9]" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 27
+    Warning (15610): No output dependent on input pin "inport1_in[8]" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 29
+    Warning (15610): No output dependent on input pin "inport0_in[8]" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 27
+    Warning (15610): No output dependent on input pin "inport1_in[7]" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 29
+    Warning (15610): No output dependent on input pin "inport0_in[7]" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 27
+    Warning (15610): No output dependent on input pin "inport1_in[6]" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 29
+    Warning (15610): No output dependent on input pin "inport0_in[6]" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 27
+    Warning (15610): No output dependent on input pin "inport1_in[20]" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 29
+    Warning (15610): No output dependent on input pin "inport0_in[20]" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 27
+    Warning (15610): No output dependent on input pin "inport1_in[19]" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 29
+    Warning (15610): No output dependent on input pin "inport0_in[19]" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 27
+    Warning (15610): No output dependent on input pin "inport1_in[18]" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 29
+    Warning (15610): No output dependent on input pin "inport0_in[18]" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 27
+    Warning (15610): No output dependent on input pin "inport1_in[17]" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 29
+    Warning (15610): No output dependent on input pin "inport0_in[17]" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 27
+    Warning (15610): No output dependent on input pin "inport1_in[16]" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 29
+    Warning (15610): No output dependent on input pin "inport0_in[16]" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 27
+    Warning (15610): No output dependent on input pin "inport1_in[0]" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 29
+    Warning (15610): No output dependent on input pin "inport0_in[0]" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 27
+    Warning (15610): No output dependent on input pin "inport1_in[15]" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 29
+    Warning (15610): No output dependent on input pin "inport0_in[15]" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 27
+    Warning (15610): No output dependent on input pin "inport1_in[14]" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 29
+    Warning (15610): No output dependent on input pin "inport0_in[14]" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 27
+    Warning (15610): No output dependent on input pin "inport1_in[13]" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 29
+    Warning (15610): No output dependent on input pin "inport0_in[13]" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 27
+    Warning (15610): No output dependent on input pin "inport1_in[12]" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 29
+    Warning (15610): No output dependent on input pin "inport0_in[12]" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 27
+    Warning (15610): No output dependent on input pin "inport1_in[11]" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 29
+    Warning (15610): No output dependent on input pin "inport0_in[11]" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 27
+    Warning (15610): No output dependent on input pin "inport1_in[25]" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 29
+    Warning (15610): No output dependent on input pin "inport0_in[25]" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 27
+    Warning (15610): No output dependent on input pin "inport1_in[24]" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 29
+    Warning (15610): No output dependent on input pin "inport0_in[24]" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 27
+    Warning (15610): No output dependent on input pin "inport1_in[23]" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 29
+    Warning (15610): No output dependent on input pin "inport0_in[23]" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 27
+    Warning (15610): No output dependent on input pin "inport1_in[22]" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 29
+    Warning (15610): No output dependent on input pin "inport0_in[22]" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 27
+    Warning (15610): No output dependent on input pin "inport1_in[21]" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 29
+    Warning (15610): No output dependent on input pin "inport0_in[21]" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 27
+    Warning (15610): No output dependent on input pin "inport1_in[1]" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 29
+    Warning (15610): No output dependent on input pin "inport0_in[1]" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 27
+    Warning (15610): No output dependent on input pin "inport1_in[2]" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 29
+    Warning (15610): No output dependent on input pin "inport0_in[2]" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 27
+    Warning (15610): No output dependent on input pin "inport1_in[3]" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 29
+    Warning (15610): No output dependent on input pin "inport0_in[3]" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 27
+    Warning (15610): No output dependent on input pin "inport1_in[4]" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 29
+    Warning (15610): No output dependent on input pin "inport0_in[4]" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 27
+    Warning (15610): No output dependent on input pin "inport1_in[5]" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 29
+    Warning (15610): No output dependent on input pin "inport0_in[5]" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 27
+    Warning (15610): No output dependent on input pin "inport1_in[26]" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 29
+    Warning (15610): No output dependent on input pin "inport0_in[26]" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 27
+    Warning (15610): No output dependent on input pin "inport1_in[27]" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 29
+    Warning (15610): No output dependent on input pin "inport0_in[27]" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 27
+    Warning (15610): No output dependent on input pin "inport1_in[28]" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 29
+    Warning (15610): No output dependent on input pin "inport0_in[28]" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 27
+    Warning (15610): No output dependent on input pin "inport1_in[29]" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 29
+    Warning (15610): No output dependent on input pin "inport0_in[29]" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 27
+    Warning (15610): No output dependent on input pin "inport1_in[30]" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 29
+    Warning (15610): No output dependent on input pin "inport0_in[30]" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 27
+    Warning (15610): No output dependent on input pin "inport1_in[31]" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 29
+    Warning (15610): No output dependent on input pin "inport0_in[31]" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 27
+    Warning (15610): No output dependent on input pin "ALUSrcA" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 24
+    Warning (15610): No output dependent on input pin "ALUSrcB[0]" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 23
+    Warning (15610): No output dependent on input pin "ALUSrcB[1]" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 23
+    Warning (15610): No output dependent on input pin "PCSource[0]" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 21
+    Warning (15610): No output dependent on input pin "PCSource[1]" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 21
+    Warning (15610): No output dependent on input pin "PCWriteCond" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 12
+    Warning (15610): No output dependent on input pin "PCWrite" File: C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd Line: 13
+Info (21057): Implemented 2261 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 89 input pins
+    Info (21059): Implemented 33 output pins
+    Info (21061): Implemented 2106 logic cells
+    Info (21064): Implemented 32 RAM segments
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 124 warnings
+    Info: Peak virtual memory: 4833 megabytes
+    Info: Processing ended: Wed Dec 04 20:42:49 2024
+    Info: Elapsed time: 00:00:26
+    Info: Total CPU time (on all processors): 00:00:50
 
 

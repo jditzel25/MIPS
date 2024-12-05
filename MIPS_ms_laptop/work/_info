@@ -14,7 +14,7 @@ Z0 w1733271596
 Z1 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
 Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z3 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
-!i122 10
+!i122 295
 Z4 dC:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/MIPS_ms_laptop
 Z5 8C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/ALU.vhd
 Z6 FC:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/ALU.vhd
@@ -24,9 +24,9 @@ VW>G7RR?4<Q<Y>U^PT;MaP0
 !s100 aS?9T4A5Tl?Ek`19TJD0V1
 Z7 OV;C;2020.1;71
 32
-Z8 !s110 1733272988
+Z8 !s110 1733362231
 !i10b 1
-Z9 !s108 1733272988.000000
+Z9 !s108 1733362231.000000
 Z10 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/ALU.vhd|
 Z11 !s107 C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/ALU.vhd|
 !i113 1
@@ -37,7 +37,7 @@ R1
 R2
 R3
 DEx4 work 3 alu 0 22 W>G7RR?4<Q<Y>U^PT;MaP0
-!i122 10
+!i122 295
 l31
 L20 68
 VDCLC[EPkIYHDe7[moDBAD0
@@ -57,7 +57,7 @@ Z14 w1733267264
 R1
 R2
 R3
-!i122 11
+!i122 296
 R4
 Z15 8C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/ALU_tb.vhd
 Z16 FC:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/ALU_tb.vhd
@@ -67,11 +67,11 @@ VAMHC7X7z?;MSCged1E;7D3
 !s100 b@@Ac23M4X7dCb2d2mjnb0
 R7
 32
-Z17 !s110 1733272989
+R8
 !i10b 1
-Z18 !s108 1733272989.000000
-Z19 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/ALU_tb.vhd|
-Z20 !s107 C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/ALU_tb.vhd|
+R9
+Z17 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/ALU_tb.vhd|
+Z18 !s107 C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/ALU_tb.vhd|
 !i113 1
 R12
 R13
@@ -80,41 +80,41 @@ R1
 R2
 R3
 DEx4 work 6 alu_tb 0 22 AMHC7X7z?;MSCged1E;7D3
-!i122 11
+!i122 296
 l28
 L11 106
 VBa;`T=:jfc2S538ZUFofY0
 !s100 ZeN>M5USXi>J4IVHEN9WL1
 R7
 32
-R17
+R8
 !i10b 1
+R9
+R17
 R18
-R19
-R20
 !i113 1
 R12
 R13
-Ememory
-Z21 w1733272971
+Ealucontrol
+Z19 w1733360582
 R1
 R2
 R3
-!i122 12
+!i122 229
 R4
-Z22 8C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Memory.vhd
-Z23 FC:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Memory.vhd
+Z20 8C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd
+Z21 FC:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd
 l0
-L8 1
-VMJI[c<ohz3CYi75azS5[V1
-!s100 HQ>me1`04IMg]E9]L7YY00
+L435 1
+VEP@oUFYG2PIY8WJCLhH^S0
+!s100 69RhWmH6T0A_cm_>gSM:A3
 R7
 32
-R17
+Z22 !s110 1733360592
 !i10b 1
-R18
-Z24 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Memory.vhd|
-Z25 !s107 C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Memory.vhd|
+Z23 !s108 1733360592.000000
+Z24 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd|
+Z25 !s107 C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Datapath.vhd|
 !i113 1
 R12
 R13
@@ -122,62 +122,621 @@ Abhv
 R1
 R2
 R3
-DEx4 work 6 memory 0 22 MJI[c<ohz3CYi75azS5[V1
-!i122 12
-l38
-L24 29
-VNQ<GO827n7:FH]GP5PK5W0
-!s100 L[6_mG267GIUflQWYdcXM0
+DEx4 work 10 alucontrol 0 22 EP@oUFYG2PIY8WJCLhH^S0
+!i122 229
+l447
+L446 4
+V6fDEEKkI;hzcWWGl41bh;0
+!s100 VUZT15PekZFYJVihao_9]2
 R7
 32
-R17
+R22
 !i10b 1
-R18
+R23
 R24
 R25
 !i113 1
 R12
 R13
-Eram
-Z26 w1733272268
-Z27 DPx9 altera_mf 20 altera_mf_components 0 22 BN6nPmY:UEbXa[^5b@FTW1
+Econcat
+Z26 w1733362228
+R1
 R2
 R3
-!i122 13
+!i122 301
 R4
-Z28 8C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/RAM.vhd
-Z29 FC:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/RAM.vhd
+R20
+R21
+l0
+L443 1
+Vf2<gd3cbk6G:156Va05z73
+!s100 4jXb0iI6R4Cg>;h:Rbdn41
+R7
+32
+Z27 !s110 1733362232
+!i10b 1
+Z28 !s108 1733362232.000000
+R24
+R25
+!i113 1
+R12
+R13
+Abhv
+R1
+R2
+R3
+DEx4 work 6 concat 0 22 f2<gd3cbk6G:156Va05z73
+!i122 301
+l452
+L451 4
+V:chRJWOhHAKJ6BFkH]YY[3
+!s100 cm7HP1W9692Ujh_eLElgM1
+R7
+32
+R27
+!i10b 1
+R28
+R24
+R25
+!i113 1
+R12
+R13
+Edatapath
+R26
+R1
+R2
+R3
+!i122 301
+R4
+R20
+R21
+l0
+L8 1
+V6^NSPGeiAgUHSOc:6_^oK1
+!s100 mH_9<m;1S?<CAc57MH;B@0
+R7
+32
+R27
+!i10b 1
+R28
+R24
+R25
+!i113 1
+R12
+R13
+Astr
+R1
+R2
+R3
+DEx4 work 8 datapath 0 22 6^NSPGeiAgUHSOc:6_^oK1
+!i122 301
+l220
+L35 330
+V@n<[CiS<W>^BlUeOEHE[V3
+!s100 2WL4dFQZjWT?8diha[em;1
+R7
+32
+R27
+!i10b 1
+R28
+R24
+R25
+!i113 1
+R12
+R13
+Ememory
+Z29 w1733295664
+R1
+R2
+R3
+!i122 297
+R4
+Z30 8C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Memory.vhd
+Z31 FC:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Memory.vhd
+l0
+L8 1
+VK:VJ;EIc=LEfdG?M^aaoc2
+!s100 28DMjfkKX@Xn3W50]P78^1
+R7
+32
+R8
+!i10b 1
+R9
+Z32 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Memory.vhd|
+Z33 !s107 C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Memory.vhd|
+!i113 1
+R12
+R13
+Abhv
+R1
+R2
+R3
+DEx4 work 6 memory 0 22 K:VJ;EIc=LEfdG?M^aaoc2
+!i122 297
+l56
+L24 86
+VNRSHAPlOjQTdU67>F@Xe]0
+!s100 gzfd_3=VA9:`=GK?i^ULN1
+R7
+32
+R8
+!i10b 1
+R9
+R32
+R33
+!i113 1
+R12
+R13
+Ememory_tb
+R29
+R1
+R2
+R3
+!i122 299
+R4
+Z34 8C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Memory_tb.vhd
+Z35 FC:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Memory_tb.vhd
+l0
+L8 1
+Vi4i?P_SGQA77X`;KC?^:`2
+!s100 3U>CZC5TFHbXn[kCf0oUB3
+R7
+32
+R27
+!i10b 1
+R28
+Z36 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Memory_tb.vhd|
+Z37 !s107 C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Memory_tb.vhd|
+!i113 1
+R12
+R13
+Atest
+R1
+R2
+R3
+DEx4 work 9 memory_tb 0 22 i4i?P_SGQA77X`;KC?^:`2
+!i122 299
+l43
+L11 145
+VR0FIGz6afIL5G0I0oJh5Z1
+!s100 9Xo<[0R:9>`MkF:2z^S4o1
+R7
+32
+R27
+!i10b 1
+R28
+R36
+R37
+!i113 1
+R12
+R13
+Emux2to1
+Z38 w1733352012
+R1
+R2
+R3
+!i122 302
+R4
+Z39 8C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Mux.vhd
+Z40 FC:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Mux.vhd
+l0
+L8 1
+Vg:hncz8BTN]C7Q3N7VzTL2
+!s100 RRzXX8Qd=Fc<oC`zA89Pn1
+R7
+32
+R27
+!i10b 1
+R28
+Z41 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Mux.vhd|
+Z42 !s107 C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Mux.vhd|
+!i113 1
+R12
+R13
+Abhv
+R1
+R2
+R3
+DEx4 work 7 mux2to1 0 22 g:hncz8BTN]C7Q3N7VzTL2
+!i122 302
+l21
+L20 4
+V1?Q90c4k<;BQl1k9hQW6A1
+!s100 ^X=?VEOiFQkTJ[L[PYzlR2
+R7
+32
+R27
+!i10b 1
+R28
+R41
+R42
+!i113 1
+R12
+R13
+Emux3to1
+R38
+R1
+R2
+R3
+!i122 302
+R4
+R39
+R40
+l0
+L29 1
+VQi>Vg6N1_V^@U@C[1>7]a2
+!s100 Q2eN@M:Hz0Q>2^]F3OOe40
+R7
+32
+R27
+!i10b 1
+R28
+R41
+R42
+!i113 1
+R12
+R13
+Abhv
+R1
+R2
+R3
+DEx4 work 7 mux3to1 0 22 Qi>Vg6N1_V^@U@C[1>7]a2
+!i122 302
+l43
+L42 6
+VJ<Gg7cJoGH0`^Rk1J9]9i3
+!s100 Yb3Y_a8MZG6?SfMI=`>Q13
+R7
+32
+R27
+!i10b 1
+R28
+R41
+R42
+!i113 1
+R12
+R13
+Emux4to1
+R38
+R1
+R2
+R3
+!i122 302
+R4
+R39
+R40
+l0
+L53 1
+VOP@<PAU1Z8B__3G_W^1=`2
+!s100 NDHz_D_oUBSfR?c[oY?X[3
+R7
+32
+R27
+!i10b 1
+R28
+R41
+R42
+!i113 1
+R12
+R13
+Abhv
+R1
+R2
+R3
+DEx4 work 7 mux4to1 0 22 OP@<PAU1Z8B__3G_W^1=`2
+!i122 302
+l68
+L67 7
+V8PM3O82?>TRG0bX<R?o<Z2
+!s100 Gm<i2LZGO4BDQ2VXAEQR?2
+R7
+32
+R27
+!i10b 1
+R28
+R41
+R42
+!i113 1
+R12
+R13
+Eram
+Z43 w1733272268
+Z44 DPx9 altera_mf 20 altera_mf_components 0 22 BN6nPmY:UEbXa[^5b@FTW1
+R2
+R3
+!i122 298
+R4
+Z45 8C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/RAM.vhd
+Z46 FC:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/RAM.vhd
 l0
 L43 1
 V0[bR@eMK46A>DXMQDf@kZ0
 !s100 :cQa6hIo_BcBGA^UjzmQE3
 R7
 32
-R17
+R8
 !i10b 1
-R18
-Z30 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/RAM.vhd|
-Z31 !s107 C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/RAM.vhd|
+R9
+Z47 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/RAM.vhd|
+Z48 !s107 C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/RAM.vhd|
 !i113 1
 R12
 R13
 Asyn
-R27
+R44
 R2
 R3
-Z32 DEx4 work 3 ram 0 22 0[bR@eMK46A>DXMQDf@kZ0
-!i122 13
+DEx4 work 3 ram 0 22 0[bR@eMK46A>DXMQDf@kZ0
+!i122 298
 l60
-Z33 L56 37
-Z34 VHAk8R9MJ0TR7nkzm4Q=QY3
-Z35 !s100 URFW5ILW?d`DcKc02G]UN1
+L56 37
+VHAk8R9MJ0TR7nkzm4Q=QY3
+!s100 URFW5ILW?d`DcKc02G]UN1
 R7
 32
-R17
+R8
 !i10b 1
-R18
-R30
-R31
+R9
+R47
+R48
+!i113 1
+R12
+R13
+Ereg
+Z49 w1733351732
+R1
+R2
+R3
+!i122 300
+R4
+Z50 8C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Reg.vhd
+Z51 FC:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Reg.vhd
+l0
+L8 1
+V?RSkon72zC=Eh6L[cU8Kh3
+!s100 zJ@TNVEC[IoM[JHWb1_8L2
+R7
+32
+R27
+!i10b 1
+R28
+Z52 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Reg.vhd|
+Z53 !s107 C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Reg.vhd|
+!i113 1
+R12
+R13
+Abhv
+R1
+R2
+R3
+DEx4 work 3 reg 0 22 ?RSkon72zC=Eh6L[cU8Kh3
+!i122 300
+l22
+L21 11
+Vc[n?PTR7Dn1;00Jb@LiD93
+!s100 e^EBJ;NO2_WzHENM>2;0@2
+R7
+32
+R27
+!i10b 1
+R28
+R52
+R53
+!i113 1
+R12
+R13
+Eregisterfile
+Z54 w1733343170
+R1
+R2
+R3
+!i122 303
+R4
+Z55 8C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Registerfile.vhd
+Z56 FC:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Registerfile.vhd
+l0
+L8 1
+V>YJFmgaEOT:Ok_OTZQfbz1
+!s100 ]bYTgWbk`Djf65=nNCl810
+R7
+32
+R27
+!i10b 1
+R28
+Z57 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Registerfile.vhd|
+Z58 !s107 C:/Users/jditz/OneDrive/Desktop/Quartus/MIPS/Registerfile.vhd|
+!i113 1
+R12
+R13
+Async_read
+R1
+R2
+R3
+Z59 DEx4 work 12 registerfile 0 22 >YJFmgaEOT:Ok_OTZQfbz1
+!i122 303
+l32
+Z60 L28 25
+Z61 VO_>Qzmc_;SI0KS5i`i;ON2
+Z62 !s100 931^HFaHdc]lLTO0NoLai1
+R7
+32
+R27
+!i10b 1
+R28
+R57
+R58
+!i113 1
+R12
+R13
+Eshiftleft
+Z63 w1733358372
+R1
+R2
+R3
+!i122 202
+R4
+R20
+R21
+l0
+L395 1
+V<PdZQbfAN@PezbQP3Eckh1
+!s100 bVgo[YTKK[GKamPidQ[zS2
+R7
+32
+Z64 !s110 1733358380
+!i10b 1
+Z65 !s108 1733358380.000000
+R24
+R25
+!i113 1
+R12
+R13
+Abhv
+R1
+R2
+R3
+DEx4 work 9 shiftleft 0 22 <PdZQbfAN@PezbQP3Eckh1
+!i122 202
+l403
+L402 4
+V=0e4LA8<iRGU;[zh]1E?z2
+!s100 HGT5=F5h=AP:XJlA_JWnJ1
+R7
+32
+R64
+!i10b 1
+R65
+R24
+R25
+!i113 1
+R12
+R13
+Eshiftleft2
+R26
+R1
+R2
+R3
+!i122 301
+R4
+R20
+R21
+l0
+L422 1
+VcKKZ>7Z`IVJ]7Hk4WYc[Q2
+!s100 OWTW2:MmCkRjSlj5GH_ce0
+R7
+32
+R27
+!i10b 1
+R28
+R24
+R25
+!i113 1
+R12
+R13
+Abhv
+R1
+R2
+R3
+DEx4 work 10 shiftleft2 0 22 cKKZ>7Z`IVJ]7Hk4WYc[Q2
+!i122 301
+l433
+L432 4
+VIdF>6H4BXFPLTn3M:Z6K23
+!s100 @LV[LQ1WMdBRcafM_V<?n0
+R7
+32
+R27
+!i10b 1
+R28
+R24
+R25
+!i113 1
+R12
+R13
+Esignextend
+R26
+R1
+R2
+R3
+!i122 301
+R4
+R20
+R21
+l0
+L403 1
+V:jKcPe0Qf8`icB86alnC51
+!s100 JDfeHF3@c;CdXb]HaXY5E1
+R7
+32
+R27
+!i10b 1
+R28
+R24
+R25
+!i113 1
+R12
+R13
+Abhv
+R1
+R2
+R3
+DEx4 work 10 signextend 0 22 :jKcPe0Qf8`icB86alnC51
+!i122 301
+l412
+L411 4
+VVd4e[fBKX2TkE1M11BaXO2
+!s100 ]KO7b4UBXSh`ZOM<@8eV>3
+R7
+32
+R27
+!i10b 1
+R28
+R24
+R25
+!i113 1
+R12
+R13
+Ezeroextend
+R26
+R1
+R2
+R3
+!i122 301
+R4
+R20
+R21
+l0
+L385 1
+Vg765hK99OhmojN`<IRB;J2
+!s100 UMYZ_b[@Xk[B=bAZc2JN_0
+R7
+32
+R27
+!i10b 1
+R28
+R24
+R25
+!i113 1
+R12
+R13
+Abhv
+R1
+R2
+R3
+DEx4 work 10 zeroextend 0 22 g765hK99OhmojN`<IRB;J2
+!i122 301
+l393
+L392 4
+V6Q^1o6FOE06S^IAhilEHQ0
+!s100 OKZPziCNmh]Gz0aHEB;?m3
+R7
+32
+R27
+!i10b 1
+R28
+R24
+R25
 !i113 1
 R12
 R13

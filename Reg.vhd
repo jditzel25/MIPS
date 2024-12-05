@@ -13,8 +13,8 @@ entity Reg is
         clk : in std_logic;                            
         rst : in std_logic;                              
         en  : in std_logic;                             
-        d   : in std_logic_vector(WIDTH-1 downto 0);  
-        q   : out std_logic_vector(WIDTH-1 downto 0) 
+        d   : in std_logic_vector(WIDTH - 1 downto 0);  
+        q   : out std_logic_vector(WIDTH - 1 downto 0) 
     );
 end Reg;
 
