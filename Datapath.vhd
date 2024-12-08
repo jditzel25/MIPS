@@ -28,19 +28,13 @@ entity Datapath is
         inport0_en: in std_logic;
         inport1_in: in std_logic_vector(31 downto 0);
         inport1_en: in std_logic;
+        controller_in: out std_logic_vector(5 downto 0);
         outport:    out std_logic_vector(31 downto 0)
     );
 end Datapath;
 
 -- Datapath structural architecture
 architecture str of Datapath is
-
-    component ZeroExtend is
-        port (
-            switches : in std_logic_vector(9 downto 0);
-            inport : out std_logic_vector(31 downto 0)
-        );
-    end component;
 
     component SignExtend is
         port (
@@ -222,6 +216,7 @@ begin
 
     pc_en <= (PCWrite or (branch_taken and PCWriteCond));
     pc31_28 <= pc_out(31 downto 28);
+    controller_in <= ir31_26;
 
     pc: Reg 
         generic map (WIDTH => 32)
@@ -270,7 +265,6 @@ begin
         generic map (WIDTH => 32)
         port map (a => alu_mux_out, b => memreg_out, sel => MemToReg, y => regfile_writedata);
 
-    -- FIXME
     regfile: Registerfile
         port map (
             clk => clk,
@@ -369,38 +363,10 @@ end str;
 
 
 
-
-
-
-
-
-
-
-
-
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
--- Zero Extend Entity
-entity ZeroExtend is
-    port (
-        switches : in std_logic_vector(9 downto 0);
-        inport : out std_logic_vector(31 downto 0)
-    );
-end ZeroExtend;
-
-architecture bhv of ZeroExtend is
-begin
-
-end bhv;
-
-
-library ieee;
-use ieee.std_logic_1164.all;
-use ieee.numeric_std.all;
-
--- Sign Extend Entity
 entity SignExtend is
     port (
         input : in std_logic_vector(15 downto 0);
@@ -411,7 +377,8 @@ end SignExtend;
 
 architecture bhv of SignExtend is
 begin
-    
+    output <= std_logic_vector(resize(unsigned(input), 32)) when is_signed = '0' else
+              std_logic_vector(resize(signed(input), 32));
 end bhv;
 
 
@@ -419,7 +386,6 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
--- Shift Left Entity
 entity ShiftLeft2 is
     generic (
         WIDTH : integer := 32
@@ -432,7 +398,7 @@ end ShiftLeft2;
 
 architecture bhv of ShiftLeft2 is
 begin
-        
+    output <= input(WIDTH - 3 downto 0) & "00";
 end bhv;
 
 
@@ -440,7 +406,6 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
--- Concat Entity
 entity Concat is
     port (
         input : in std_logic_vector(27 downto 0);
@@ -451,6 +416,6 @@ end Concat;
 
 architecture bhv of Concat is
 begin
-            
+    output <= pc & input;
 end bhv;
 

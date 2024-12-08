@@ -1,11 +1,15 @@
-C:/Users/jditz/Desktop/Quartus/MIPS/ALU.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/jditz/Desktop/Quartus/MIPS/ALU.vhd
+C:/Users/jditz/Desktop/Quartus/MIPS/Mux.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/jditz/Desktop/Quartus/MIPS/Mux.vhd
 Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
 -- Loading package NUMERIC_STD
--- Compiling entity ALU
--- Compiling architecture bhv of ALU
+-- Compiling entity Mux2to1
+-- Compiling architecture bhv of Mux2to1
+-- Compiling entity Mux3to1
+-- Compiling architecture bhv of Mux3to1
+-- Compiling entity Mux4to1
+-- Compiling architecture bhv of Mux4to1
 
 } {} {}} C:/Users/jditz/Desktop/Quartus/MIPS/Reg.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/jditz/Desktop/Quartus/MIPS/Reg.vhd
 Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
@@ -16,14 +20,14 @@ Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 
 -- Compiling entity Reg
 -- Compiling architecture bhv of Reg
 
-} {} {}} C:/Users/jditz/Desktop/Quartus/MIPS/Memory_tb.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/jditz/Desktop/Quartus/MIPS/Memory_tb.vhd
+} {} {}} C:/Users/jditz/Desktop/Quartus/MIPS/ALU.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/jditz/Desktop/Quartus/MIPS/ALU.vhd
 Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
 -- Loading package NUMERIC_STD
--- Compiling entity Memory_tb
--- Compiling architecture test of Memory_tb
+-- Compiling entity ALU
+-- Compiling architecture bhv of ALU
 
 } {} {}} C:/Users/jditz/Desktop/Quartus/MIPS/Datapath.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/jditz/Desktop/Quartus/MIPS/Datapath.vhd
 Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
@@ -33,25 +37,48 @@ Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 
 -- Loading package NUMERIC_STD
 -- Compiling entity Datapath
 -- Compiling architecture str of Datapath
--- Compiling entity ZeroExtend
--- Compiling architecture bhv of ZeroExtend
 -- Compiling entity SignExtend
 -- Compiling architecture bhv of SignExtend
--- Compiling entity ShiftLeft
--- Compiling architecture bhv of ShiftLeft
--- Compiling entity ALUControl
--- Compiling architecture bhv of ALUControl
+-- Compiling entity ShiftLeft2
+-- Compiling architecture bhv of ShiftLeft2
 -- Compiling entity Concat
 -- Compiling architecture bhv of Concat
 
-} {} {}} C:/Users/jditz/Desktop/Quartus/MIPS/ALU_tb.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/jditz/Desktop/Quartus/MIPS/ALU_tb.vhd
+} {} {}} C:/Users/jditz/Desktop/Quartus/MIPS/TopLevel.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/jditz/Desktop/Quartus/MIPS/TopLevel.vhd
 Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
 -- Loading package NUMERIC_STD
--- Compiling entity ALU_tb
--- Compiling architecture tb of ALU_tb
+-- Compiling entity TopLevel
+-- Compiling architecture str of TopLevel
+
+} {} {}} C:/Users/jditz/Desktop/Quartus/MIPS/ALUControl.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/jditz/Desktop/Quartus/MIPS/ALUControl.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity ALUControl
+-- Compiling architecture bhv of ALUControl
+
+} {} {}} C:/Users/jditz/Desktop/Quartus/MIPS/Test.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/jditz/Desktop/Quartus/MIPS/Test.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity tb
+-- Compiling architecture behavior of tb
+
+} {} {}} C:/Users/jditz/Desktop/Quartus/MIPS/Controller.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/jditz/Desktop/Quartus/MIPS/Controller.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity Controller
+-- Compiling architecture bhv of Controller
 
 } {} {}} C:/Users/jditz/Desktop/Quartus/MIPS/RAM.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/jditz/Desktop/Quartus/MIPS/RAM.vhd
 Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
@@ -61,6 +88,15 @@ Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 
 -- Loading package altera_mf_components
 -- Compiling entity RAM
 -- Compiling architecture SYN of ram
+
+} {} {}} C:/Users/jditz/Desktop/Quartus/MIPS/Registerfile.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/jditz/Desktop/Quartus/MIPS/Registerfile.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity Registerfile
+-- Compiling architecture sync_read of Registerfile
 
 } {} {}} C:/Users/jditz/Desktop/Quartus/MIPS/Memory.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/jditz/Desktop/Quartus/MIPS/Memory.vhd
 Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020

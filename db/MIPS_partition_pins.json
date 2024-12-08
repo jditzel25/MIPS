@@ -4,35 +4,7 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "MemWrite",
-					"strict" : false
-				},
-				{
-					"name" : "MemRead",
-					"strict" : false
-				},
-				{
 					"name" : "clk",
-					"strict" : false
-				},
-				{
-					"name" : "rst",
-					"strict" : false
-				},
-				{
-					"name" : "MemToReg",
-					"strict" : false
-				},
-				{
-					"name" : "RegDst",
-					"strict" : false
-				},
-				{
-					"name" : "RegWrite",
-					"strict" : false
-				},
-				{
-					"name" : "IRWrite",
 					"strict" : false
 				},
 				{

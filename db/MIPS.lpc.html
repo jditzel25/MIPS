@@ -16,7 +16,23 @@
 <TH>Output only Bidir</TH>
 </TR>
 <TR >
-<TD >alu_control</TD>
+<TD >controller_inst</TD>
+<TD >8</TD>
+<TD >0</TD>
+<TD >8</TD>
+<TD >0</TD>
+<TD >18</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+</TR>
+<TR >
+<TD >datapath_inst|alu_control</TD>
 <TD >8</TD>
 <TD >0</TD>
 <TD >8</TD>
@@ -32,10 +48,10 @@
 <TD >0</TD>
 </TR>
 <TR >
-<TD >ir_concat</TD>
+<TD >datapath_inst|ir_concat</TD>
 <TD >32</TD>
 <TD >0</TD>
-<TD >32</TD>
+<TD >0</TD>
 <TD >0</TD>
 <TD >32</TD>
 <TD >0</TD>
@@ -48,12 +64,28 @@
 <TD >0</TD>
 </TR>
 <TR >
-<TD >ir_sl</TD>
+<TD >datapath_inst|ir_sl</TD>
 <TD >28</TD>
-<TD >2</TD>
-<TD >26</TD>
-<TD >2</TD>
+<TD >4</TD>
+<TD >0</TD>
+<TD >4</TD>
 <TD >28</TD>
+<TD >4</TD>
+<TD >4</TD>
+<TD >4</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+</TR>
+<TR >
+<TD >datapath_inst|sign_ext_sl</TD>
+<TD >32</TD>
+<TD >2</TD>
+<TD >2</TD>
+<TD >2</TD>
+<TD >32</TD>
 <TD >2</TD>
 <TD >2</TD>
 <TD >2</TD>
@@ -64,26 +96,10 @@
 <TD >0</TD>
 </TR>
 <TR >
-<TD >sign_ext_sl</TD>
-<TD >32</TD>
-<TD >0</TD>
-<TD >32</TD>
-<TD >0</TD>
-<TD >32</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-</TR>
-<TR >
-<TD >sign_ext</TD>
+<TD >datapath_inst|sign_ext</TD>
 <TD >17</TD>
 <TD >0</TD>
-<TD >17</TD>
+<TD >0</TD>
 <TD >0</TD>
 <TD >32</TD>
 <TD >0</TD>
@@ -96,7 +112,7 @@
 <TD >0</TD>
 </TR>
 <TR >
-<TD >pc_mux</TD>
+<TD >datapath_inst|pc_mux</TD>
 <TD >98</TD>
 <TD >0</TD>
 <TD >0</TD>
@@ -112,7 +128,7 @@
 <TD >0</TD>
 </TR>
 <TR >
-<TD >alu_out_mux</TD>
+<TD >datapath_inst|alu_out_mux</TD>
 <TD >98</TD>
 <TD >0</TD>
 <TD >0</TD>
@@ -128,7 +144,7 @@
 <TD >0</TD>
 </TR>
 <TR >
-<TD >hi_reg</TD>
+<TD >datapath_inst|hi_reg</TD>
 <TD >35</TD>
 <TD >0</TD>
 <TD >0</TD>
@@ -144,7 +160,7 @@
 <TD >0</TD>
 </TR>
 <TR >
-<TD >lo_reg</TD>
+<TD >datapath_inst|lo_reg</TD>
 <TD >35</TD>
 <TD >0</TD>
 <TD >0</TD>
@@ -160,7 +176,7 @@
 <TD >0</TD>
 </TR>
 <TR >
-<TD >alu_out_reg</TD>
+<TD >datapath_inst|alu_out_reg</TD>
 <TD >35</TD>
 <TD >1</TD>
 <TD >0</TD>
@@ -176,7 +192,7 @@
 <TD >0</TD>
 </TR>
 <TR >
-<TD >alu_main</TD>
+<TD >datapath_inst|alu_main</TD>
 <TD >74</TD>
 <TD >0</TD>
 <TD >1</TD>
@@ -192,7 +208,7 @@
 <TD >0</TD>
 </TR>
 <TR >
-<TD >alu_mux1</TD>
+<TD >datapath_inst|alu_mux1</TD>
 <TD >130</TD>
 <TD >32</TD>
 <TD >0</TD>
@@ -208,7 +224,7 @@
 <TD >0</TD>
 </TR>
 <TR >
-<TD >alu_mux0</TD>
+<TD >datapath_inst|alu_mux0</TD>
 <TD >65</TD>
 <TD >0</TD>
 <TD >0</TD>
@@ -224,7 +240,7 @@
 <TD >0</TD>
 </TR>
 <TR >
-<TD >reg_b</TD>
+<TD >datapath_inst|reg_b</TD>
 <TD >35</TD>
 <TD >1</TD>
 <TD >0</TD>
@@ -240,7 +256,7 @@
 <TD >0</TD>
 </TR>
 <TR >
-<TD >reg_a</TD>
+<TD >datapath_inst|reg_a</TD>
 <TD >35</TD>
 <TD >1</TD>
 <TD >0</TD>
@@ -256,7 +272,7 @@
 <TD >0</TD>
 </TR>
 <TR >
-<TD >regfile</TD>
+<TD >datapath_inst|regfile</TD>
 <TD >83</TD>
 <TD >33</TD>
 <TD >0</TD>
@@ -272,7 +288,7 @@
 <TD >0</TD>
 </TR>
 <TR >
-<TD >regfile_writedata_mux</TD>
+<TD >datapath_inst|regfile_writedata_mux</TD>
 <TD >65</TD>
 <TD >0</TD>
 <TD >0</TD>
@@ -288,7 +304,7 @@
 <TD >0</TD>
 </TR>
 <TR >
-<TD >regfile_writereg_mux</TD>
+<TD >datapath_inst|regfile_writereg_mux</TD>
 <TD >11</TD>
 <TD >0</TD>
 <TD >0</TD>
@@ -304,7 +320,7 @@
 <TD >0</TD>
 </TR>
 <TR >
-<TD >mem_data_reg</TD>
+<TD >datapath_inst|mem_data_reg</TD>
 <TD >35</TD>
 <TD >1</TD>
 <TD >0</TD>
@@ -320,15 +336,15 @@
 <TD >0</TD>
 </TR>
 <TR >
-<TD >ir</TD>
+<TD >datapath_inst|ir</TD>
 <TD >35</TD>
-<TD >6</TD>
 <TD >0</TD>
-<TD >6</TD>
+<TD >0</TD>
+<TD >0</TD>
 <TD >32</TD>
-<TD >6</TD>
-<TD >6</TD>
-<TD >6</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
 <TD >0</TD>
 <TD >0</TD>
 <TD >0</TD>
@@ -336,23 +352,7 @@
 <TD >0</TD>
 </TR>
 <TR >
-<TD >mem_module|outport_inst</TD>
-<TD >35</TD>
-<TD >1</TD>
-<TD >0</TD>
-<TD >1</TD>
-<TD >32</TD>
-<TD >1</TD>
-<TD >1</TD>
-<TD >1</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-<TD >0</TD>
-</TR>
-<TR >
-<TD >mem_module|inport1_inst</TD>
+<TD >datapath_inst|mem_module|outport_inst</TD>
 <TD >35</TD>
 <TD >1</TD>
 <TD >0</TD>
@@ -368,7 +368,7 @@
 <TD >0</TD>
 </TR>
 <TR >
-<TD >mem_module|inport0_inst</TD>
+<TD >datapath_inst|mem_module|inport1_inst</TD>
 <TD >35</TD>
 <TD >1</TD>
 <TD >0</TD>
@@ -384,7 +384,23 @@
 <TD >0</TD>
 </TR>
 <TR >
-<TD >mem_module|RAM_inst|altsyncram_component|auto_generated|altsyncram1</TD>
+<TD >datapath_inst|mem_module|inport0_inst</TD>
+<TD >35</TD>
+<TD >1</TD>
+<TD >0</TD>
+<TD >1</TD>
+<TD >32</TD>
+<TD >1</TD>
+<TD >1</TD>
+<TD >1</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+</TR>
+<TR >
+<TD >datapath_inst|mem_module|RAM_inst|altsyncram_component|auto_generated|altsyncram1</TD>
 <TD >85</TD>
 <TD >0</TD>
 <TD >0</TD>
@@ -400,7 +416,7 @@
 <TD >0</TD>
 </TR>
 <TR >
-<TD >mem_module|RAM_inst|altsyncram_component|auto_generated</TD>
+<TD >datapath_inst|mem_module|RAM_inst|altsyncram_component|auto_generated</TD>
 <TD >43</TD>
 <TD >0</TD>
 <TD >0</TD>
@@ -416,7 +432,7 @@
 <TD >0</TD>
 </TR>
 <TR >
-<TD >mem_module|RAM_inst</TD>
+<TD >datapath_inst|mem_module|RAM_inst</TD>
 <TD >43</TD>
 <TD >0</TD>
 <TD >0</TD>
@@ -432,7 +448,7 @@
 <TD >0</TD>
 </TR>
 <TR >
-<TD >mem_module</TD>
+<TD >datapath_inst|mem_module</TD>
 <TD >133</TD>
 <TD >0</TD>
 <TD >0</TD>
@@ -448,7 +464,7 @@
 <TD >0</TD>
 </TR>
 <TR >
-<TD >mem_mux</TD>
+<TD >datapath_inst|mem_mux</TD>
 <TD >65</TD>
 <TD >0</TD>
 <TD >0</TD>
@@ -464,12 +480,28 @@
 <TD >0</TD>
 </TR>
 <TR >
-<TD >pc</TD>
+<TD >datapath_inst|pc</TD>
 <TD >35</TD>
 <TD >0</TD>
 <TD >0</TD>
 <TD >0</TD>
 <TD >32</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+<TD >0</TD>
+</TR>
+<TR >
+<TD >datapath_inst</TD>
+<TD >86</TD>
+<TD >0</TD>
+<TD >1</TD>
+<TD >0</TD>
+<TD >38</TD>
 <TD >0</TD>
 <TD >0</TD>
 <TD >0</TD>

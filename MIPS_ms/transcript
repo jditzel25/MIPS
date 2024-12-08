@@ -1,40 +1,262 @@
 # Compile of ALU.vhd was successful.
-# Compile of ALU_tb.vhd was successful.
 # Compile of Memory.vhd was successful.
 # Compile of RAM.vhd was successful.
 # Compile of Reg.vhd was successful.
-# Compile of Memory_tb.vhd was successful.
-# Compile of Datapath.vhd failed with 3 errors.
-# 7 compiles, 1 failed with 3 errors.
-# Compile of ALU.vhd was successful.
-# Compile of ALU_tb.vhd was successful.
-# Compile of Memory.vhd was successful.
-# Compile of RAM.vhd was successful.
-# Compile of Reg.vhd was successful.
-# Compile of Memory_tb.vhd was successful.
-# Compile of Datapath.vhd failed with 1 errors.
-# 7 compiles, 1 failed with 1 error.
-# Compile of ALU.vhd was successful.
-# Compile of ALU_tb.vhd was successful.
-# Compile of Memory.vhd was successful.
-# Compile of RAM.vhd was successful.
-# Compile of Reg.vhd was successful.
-# Compile of Memory_tb.vhd was successful.
-# Compile of Datapath.vhd failed with 4 errors.
-# 7 compiles, 1 failed with 4 errors.
-# Compile of ALU.vhd was successful.
-# Compile of ALU_tb.vhd was successful.
-# Compile of Memory.vhd was successful.
-# Compile of RAM.vhd was successful.
-# Compile of Reg.vhd was successful.
-# Compile of Memory_tb.vhd was successful.
-# Compile of Datapath.vhd failed with 1 errors.
-# 7 compiles, 1 failed with 1 error.
-# Compile of ALU.vhd was successful.
-# Compile of ALU_tb.vhd was successful.
-# Compile of Memory.vhd was successful.
-# Compile of RAM.vhd was successful.
-# Compile of Reg.vhd was successful.
-# Compile of Memory_tb.vhd was successful.
 # Compile of Datapath.vhd was successful.
-# 7 compiles, 0 failed with no errors.
+# Compile of ALUControl.vhd was successful.
+# Compile of Mux.vhd was successful.
+# Compile of Registerfile.vhd was successful.
+# Compile of Controller.vhd was successful.
+# Compile of Test.vhd was successful.
+# Compile of TopLevel.vhd was successful.
+# 11 compiles, 0 failed with no errors.
+vsim -gui work.tb
+# vsim -gui work.tb 
+# Start time: 02:17:25 on Dec 08,2024
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tb(bhv)
+# Loading work.signextend(bhv)
+add wave -position end  sim:/tb/input
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: jditz  Hostname: DESKTOP-4B18S38  ProcessID: 24236
+#           Attempting to use alternate WLF file "./wlft2i2edw".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlft2i2edw
+add wave -position end  sim:/tb/is_signed
+add wave -position end  sim:/tb/output
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+run
+# Compile of ALU.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of RAM.vhd was successful.
+# Compile of Reg.vhd was successful.
+# Compile of Datapath.vhd failed with 1 errors.
+# Compile of ALUControl.vhd was successful.
+# Compile of Mux.vhd was successful.
+# Compile of Registerfile.vhd was successful.
+# Compile of Controller.vhd was successful.
+# Compile of Test.vhd was successful.
+# Compile of TopLevel.vhd was successful.
+# 11 compiles, 1 failed with 1 error.
+# Compile of ALU.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of RAM.vhd was successful.
+# Compile of Reg.vhd was successful.
+# Compile of Datapath.vhd failed with 1 errors.
+# Compile of ALUControl.vhd was successful.
+# Compile of Mux.vhd was successful.
+# Compile of Registerfile.vhd was successful.
+# Compile of Controller.vhd was successful.
+# Compile of Test.vhd was successful.
+# Compile of TopLevel.vhd was successful.
+# 11 compiles, 1 failed with 1 error.
+# Compile of ALU.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of RAM.vhd was successful.
+# Compile of Reg.vhd was successful.
+# Compile of Datapath.vhd failed with 1 errors.
+# Compile of ALUControl.vhd was successful.
+# Compile of Mux.vhd was successful.
+# Compile of Registerfile.vhd was successful.
+# Compile of Controller.vhd was successful.
+# Compile of Test.vhd was successful.
+# Compile of TopLevel.vhd was successful.
+# 11 compiles, 1 failed with 1 error.
+# Compile of ALU.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of RAM.vhd was successful.
+# Compile of Reg.vhd was successful.
+# Compile of Datapath.vhd failed with 1 errors.
+# Compile of ALUControl.vhd was successful.
+# Compile of Mux.vhd was successful.
+# Compile of Registerfile.vhd was successful.
+# Compile of Controller.vhd was successful.
+# Compile of Test.vhd was successful.
+# Compile of TopLevel.vhd was successful.
+# 11 compiles, 1 failed with 1 error.
+# Compile of ALU.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of RAM.vhd was successful.
+# Compile of Reg.vhd was successful.
+# Compile of Datapath.vhd failed with 1 errors.
+# Compile of ALUControl.vhd was successful.
+# Compile of Mux.vhd was successful.
+# Compile of Registerfile.vhd was successful.
+# Compile of Controller.vhd was successful.
+# Compile of Test.vhd was successful.
+# Compile of TopLevel.vhd was successful.
+# 11 compiles, 1 failed with 1 error.
+# Compile of ALU.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of RAM.vhd was successful.
+# Compile of Reg.vhd was successful.
+# Compile of Datapath.vhd failed with 1 errors.
+# Compile of ALUControl.vhd was successful.
+# Compile of Mux.vhd was successful.
+# Compile of Registerfile.vhd was successful.
+# Compile of Controller.vhd was successful.
+# Compile of Test.vhd was successful.
+# Compile of TopLevel.vhd was successful.
+# 11 compiles, 1 failed with 1 error.
+# Compile of ALU.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of RAM.vhd was successful.
+# Compile of Reg.vhd was successful.
+# Compile of Datapath.vhd was successful.
+# Compile of ALUControl.vhd was successful.
+# Compile of Mux.vhd was successful.
+# Compile of Registerfile.vhd was successful.
+# Compile of Controller.vhd was successful.
+# Compile of Test.vhd was successful.
+# Compile of TopLevel.vhd was successful.
+# 11 compiles, 0 failed with no errors.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.tb(bhv)
+# Loading work.signextend(bhv)
+run
+# Compile of ALU.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of RAM.vhd was successful.
+# Compile of Reg.vhd was successful.
+# Compile of Datapath.vhd was successful.
+# Compile of ALUControl.vhd was successful.
+# Compile of Mux.vhd was successful.
+# Compile of Registerfile.vhd was successful.
+# Compile of Controller.vhd was successful.
+# Compile of Test.vhd was successful.
+# Compile of TopLevel.vhd was successful.
+# 11 compiles, 0 failed with no errors.
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.tb(bhv)
+# Loading work.signextend(bhv)
+run
+quit -sim
+# End time: 02:24:28 on Dec 08,2024, Elapsed time: 0:07:03
+# Errors: 0, Warnings: 1
+# Compile of ALU.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of RAM.vhd was successful.
+# Compile of Reg.vhd was successful.
+# Compile of Datapath.vhd was successful.
+# Compile of ALUControl.vhd was successful.
+# Compile of Mux.vhd was successful.
+# Compile of Registerfile.vhd was successful.
+# Compile of Controller.vhd was successful.
+# Compile of Test.vhd was successful.
+# Compile of TopLevel.vhd was successful.
+# 11 compiles, 0 failed with no errors.
+vsim -gui work.tb
+# vsim -gui work.tb 
+# Start time: 02:26:40 on Dec 08,2024
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tb(bhv)
+# Loading work.shiftleft2(bhv)
+add wave -position end  sim:/tb/input
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: jditz  Hostname: DESKTOP-4B18S38  ProcessID: 24236
+#           Attempting to use alternate WLF file "./wlftdxhdi5".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftdxhdi5
+add wave -position end  sim:/tb/output
+run
+quit -sim
+# End time: 02:29:37 on Dec 08,2024, Elapsed time: 0:02:57
+# Errors: 0, Warnings: 4
+vsim -gui work.tb
+# vsim -gui work.tb 
+# Start time: 02:29:44 on Dec 08,2024
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tb(bhv)
+# Loading work.shiftleft2(bhv)
+quit -sim
+# End time: 02:30:09 on Dec 08,2024, Elapsed time: 0:00:25
+# Errors: 0, Warnings: 1
+# Compile of ALU.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of RAM.vhd was successful.
+# Compile of Reg.vhd was successful.
+# Compile of Datapath.vhd was successful.
+# Compile of ALUControl.vhd was successful.
+# Compile of Mux.vhd was successful.
+# Compile of Registerfile.vhd was successful.
+# Compile of Controller.vhd was successful.
+# Compile of Test.vhd was successful.
+# Compile of TopLevel.vhd was successful.
+# 11 compiles, 0 failed with no errors.
+vsim -gui work.tb
+# vsim -gui work.tb 
+# Start time: 02:30:20 on Dec 08,2024
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tb(behavior)
+# Loading work.concat(bhv)
+# ** Fatal: (vsim-3817) Port "input" of entity "concat" is not in the component being instantiated.
+#    Time: 0 ps  Iteration: 0  Instance: /tb/uut File: C:/Users/jditz/Desktop/Quartus/MIPS/Datapath.vhd Line: 411
+# FATAL ERROR while loading design
+# Error loading design
+# End time: 02:30:20 on Dec 08,2024, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 2
+# Compile of ALU.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of RAM.vhd was successful.
+# Compile of Reg.vhd was successful.
+# Compile of Datapath.vhd was successful.
+# Compile of ALUControl.vhd was successful.
+# Compile of Mux.vhd was successful.
+# Compile of Registerfile.vhd was successful.
+# Compile of Controller.vhd was successful.
+# Compile of Test.vhd was successful.
+# Compile of TopLevel.vhd was successful.
+# 11 compiles, 0 failed with no errors.
+vsim -gui work.tb
+# vsim -gui work.tb 
+# Start time: 02:32:21 on Dec 08,2024
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.tb(behavior)
+# Loading work.concat(bhv)
+add wave -position end  sim:/tb/input
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: jditz  Hostname: DESKTOP-4B18S38  ProcessID: 24236
+#           Attempting to use alternate WLF file "./wlft4bqyke".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlft4bqyke
+add wave -position end  sim:/tb/pc
+add wave -position end  sim:/tb/output
+# Compile of ALU.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of RAM.vhd was successful.
+# Compile of Reg.vhd was successful.
+# Compile of Datapath.vhd was successful.
+# Compile of ALUControl.vhd was successful.
+# Compile of Mux.vhd was successful.
+# Compile of Registerfile.vhd was successful.
+# Compile of Controller.vhd was successful.
+# Compile of Test.vhd was successful.
+# Compile of TopLevel.vhd was successful.
+# 11 compiles, 0 failed with no errors.
+run
+# ** Error: Test Case 3 Failed
+#    Time: 30 ns  Iteration: 0  Instance: /tb
+# ** Error: Test Case 4 Failed
+#    Time: 40 ns  Iteration: 0  Instance: /tb
+# ** Error: Test Case 5 Failed
+#    Time: 50 ns  Iteration: 0  Instance: /tb
+# End time: 02:35:13 on Dec 08,2024, Elapsed time: 0:02:52
+# Errors: 3, Warnings: 5

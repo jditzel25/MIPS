@@ -1,0 +1,36 @@
+-- Jack Ditzel
+-- Section: 11610
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity Controller is
+    port (
+        clk : in std_logic;
+        rst : in std_logic;
+        ir_select: in std_logic_vector(5 downto 0); -- from Datapath
+        PCWriteCond : out std_logic;
+        PCWrite : out std_logic; 
+        IorD : out std_logic; 
+        MemRead : out std_logic; 
+        MemWrite : out std_logic; 
+        MemToReg : out std_logic; 
+        IRWrite : out std_logic; 
+        JumpAndLink : out std_logic; 
+        IsSigned : out std_logic; 
+        PCSource : out std_logic_vector(1 downto 0); 
+        ALUOp : out std_logic_vector(1 downto 0);
+        ALUSrcB : out std_logic_vector(1 downto 0); 
+        ALUSrcA : out std_logic; 
+        RegWrite : out std_logic; 
+        RegDst : out std_logic
+    );
+end Controller;
+
+architecture bhv of Controller is
+    
+begin
+
+
+end bhv;
