@@ -29,7 +29,8 @@ entity Datapath is
         inport1_in: in std_logic_vector(31 downto 0);
         inport1_en: in std_logic;
         controller_in: out std_logic_vector(5 downto 0);
-        outport:    out std_logic_vector(31 downto 0)
+        outport:    out std_logic_vector(31 downto 0);
+        ir_addr: out std_logic_vector(15 downto 0)
     );
 end Datapath;
 
@@ -157,66 +158,67 @@ architecture str of Datapath is
     end component;
 
     component ALUControl is 
-        port (
-            ALUOp : in std_logic_vector(1 downto 0);
-            ir : in std_logic_vector(5 downto 0);
-            opsel : out std_logic_vector(4 downto 0);
-            hi_en : out std_logic;
-            lo_en : out std_logic;
-            alu_lo_hi : out std_logic_vector(1 downto 0)
-        );
+    port (
+        ALUOp : in std_logic_vector(1 downto 0);
+        rtype_ir : in std_logic_vector(5 downto 0);
+        itype_ir : in std_logic_vector(5 downto 0);
+        opsel : out std_logic_vector(4 downto 0);
+        hi_en : out std_logic;
+        lo_en : out std_logic;
+        alu_lo_hi : out std_logic_vector(1 downto 0)
+    );
     end component;
 
-    signal pc_in : std_logic_vector(31 downto 0);
-    signal pc_out : std_logic_vector(31 downto 0);
-    signal pc_en : std_logic;
-    signal mem_baddr : std_logic_vector(31 downto 0);
+    signal pc_in : std_logic_vector(31 downto 0) := (others => '0');
+    signal pc_out : std_logic_vector(31 downto 0) := (others => '0');
+    signal pc_en : std_logic := '0';
+    signal mem_baddr : std_logic_vector(31 downto 0) := (others => '0');
 
-    signal rega_in : std_logic_vector(31 downto 0);
-    signal regb_in : std_logic_vector(31 downto 0);
-    signal rega_out : std_logic_vector(31 downto 0);
-    signal regb_out : std_logic_vector(31 downto 0);
-    signal alu_out : std_logic_vector(31 downto 0);
-    signal lo_out : std_logic_vector(31 downto 0);
-    signal hi_out : std_logic_vector(31 downto 0);
-    signal hi_en : std_logic;
-    signal lo_en : std_logic;
-    signal alu_lo_hi : std_logic_vector(1 downto 0);
+    signal rega_in : std_logic_vector(31 downto 0) := (others => '0');
+    signal regb_in : std_logic_vector(31 downto 0) := (others => '0');
+    signal rega_out : std_logic_vector(31 downto 0) := (others => '0');
+    signal regb_out : std_logic_vector(31 downto 0) := (others => '0');
+    signal alu_out : std_logic_vector(31 downto 0) := (others => '0');
+    signal lo_out : std_logic_vector(31 downto 0) := (others => '0');
+    signal hi_out : std_logic_vector(31 downto 0) := (others => '0');
+    signal hi_en : std_logic := '0';
+    signal lo_en : std_logic := '0';
+    signal alu_lo_hi : std_logic_vector(1 downto 0) := (others => '0');
     
-    signal ir25_0 : std_logic_vector(25 downto 0);
-    signal ir31_26 : std_logic_vector(5 downto 0);
-    signal ir25_21 : std_logic_vector(4 downto 0);
-    signal ir20_16 : std_logic_vector(4 downto 0);
-    signal ir15_11 : std_logic_vector(4 downto 0);
-    signal ir15_0 : std_logic_vector(15 downto 0);
-    signal ir5_0 : std_logic_vector(5 downto 0);
-    signal ir10_6 : std_logic_vector(4 downto 0);
-    signal ir_out : std_logic_vector(31 downto 0);
-    signal pc31_28 : std_logic_vector(3 downto 0);
+    signal ir25_0 : std_logic_vector(25 downto 0) := (others => '0');
+    signal ir31_26 : std_logic_vector(5 downto 0) := (others => '0');
+    signal ir25_21 : std_logic_vector(4 downto 0) := (others => '0');
+    signal ir20_16 : std_logic_vector(4 downto 0) := (others => '0');
+    signal ir15_11 : std_logic_vector(4 downto 0) := (others => '0');
+    signal ir15_0 : std_logic_vector(15 downto 0) := (others => '0');
+    signal ir5_0 : std_logic_vector(5 downto 0) := (others => '0');
+    signal ir10_6 : std_logic_vector(4 downto 0) := (others => '0');
+    signal ir_out : std_logic_vector(31 downto 0) := (others => '0');
+    signal pc31_28 : std_logic_vector(3 downto 0) := (others => '0');
 
-    signal mem_out : std_logic_vector(31 downto 0);
-    signal memreg_out : std_logic_vector(31 downto 0);
-    signal opsel : std_logic_vector(4 downto 0);
-    signal alu_res : std_logic_vector(31 downto 0);
-    signal alu_res_hi : std_logic_vector(31 downto 0);
-    signal branch_taken : std_logic;
+    signal mem_out : std_logic_vector(31 downto 0) := (others => '0');
+    signal memreg_out : std_logic_vector(31 downto 0) := (others => '0');
+    signal opsel : std_logic_vector(4 downto 0) := (others => '0');
+    signal alu_res : std_logic_vector(31 downto 0) := (others => '0');
+    signal alu_res_hi : std_logic_vector(31 downto 0) := (others => '0');
+    signal branch_taken : std_logic := '0';
 
-    signal regfile_writereg : std_logic_vector(4 downto 0);
-    signal regfile_writedata : std_logic_vector(31 downto 0);
-    signal alu_mux_out : std_logic_vector(31 downto 0);
-    signal sl_out : std_logic_vector(27 downto 0);
-    signal ir_sl_input : std_logic_vector(27 downto 0);
-    signal concat_out : std_logic_vector(31 downto 0);
-    signal signex_out : std_logic_vector(31 downto 0);
-    signal signex_sl_out : std_logic_vector(31 downto 0);
-    signal alu_a : std_logic_vector(31 downto 0);
-    signal alu_b : std_logic_vector(31 downto 0);
-
+    signal regfile_writereg : std_logic_vector(4 downto 0) := (others => '0');
+    signal regfile_writedata : std_logic_vector(31 downto 0) := (others => '0');
+    signal alu_mux_out : std_logic_vector(31 downto 0) := (others => '0');
+    signal sl_out : std_logic_vector(27 downto 0) := (others => '0');
+    signal ir_sl_input : std_logic_vector(27 downto 0) := (others => '0');
+    signal concat_out : std_logic_vector(31 downto 0) := (others => '0');
+    signal signex_out : std_logic_vector(31 downto 0) := (others => '0');
+    signal signex_sl_out : std_logic_vector(31 downto 0) := (others => '0');
+    signal alu_a : std_logic_vector(31 downto 0) := (others => '0');
+    signal alu_b : std_logic_vector(31 downto 0) := (others => '0');
 begin
 
     pc_en <= (PCWrite or (branch_taken and PCWriteCond));
     pc31_28 <= pc_out(31 downto 28);
     controller_in <= ir31_26;
+    ir_addr <= ir15_0;
 
     pc: Reg 
         generic map (WIDTH => 32)
@@ -349,7 +351,8 @@ begin
     alu_control: ALUControl
         port map (
             ALUOp => ALUOp,
-            ir => ir5_0,
+            rtype_ir => ir5_0,
+            itype_ir => ir31_26,
             opsel => opsel,
             hi_en => hi_en,
             lo_en => lo_en,

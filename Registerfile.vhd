@@ -31,19 +31,21 @@ architecture sync_read of Registerfile is
     
 begin
     process (clk, rst) is
-    begin
+        begin
         if (rst = '1') then
             for i in regs'range loop
                 regs(i) <= (others => '0');
+                rd_data0 <= (others => '0');
+                rd_data1 <= (others => '0');
             end loop;
         elsif (rising_edge(clk)) then
             if (wr_en = '1') then
                 regs(to_integer(unsigned(wr_addr))) <= wr_data;
 					 regs(0) <= (others => '0');
             end if;
-	    if(JumpAndLink = '1') then
-		regs(31) <= PC_4;
-	    end if;
+	        if(JumpAndLink = '1') then
+		        regs(31) <= PC_4;
+	        end if;
             rd_data0 <= regs(to_integer(unsigned(rd_addr0)));
             rd_data1 <= regs(to_integer(unsigned(rd_addr1)));
         end if;

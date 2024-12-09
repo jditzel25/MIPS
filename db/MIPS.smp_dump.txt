@@ -1,0 +1,6 @@
+
+State Machine - |TopLevel|Controller:controller_inst|curr_state
+Name curr_state.decode curr_state.fetch curr_state.init 
+curr_state.init 0 0 0 
+curr_state.fetch 0 1 1 
+curr_state.decode 1 0 1 

@@ -9,6 +9,7 @@ entity TopLevel is
     port (
         clk: in std_logic;
         rst: in std_logic;
+        start: in std_logic;
         inport0_in: in std_logic_vector(31 downto 0);
         inport0_en: in std_logic;
         inport1_in: in std_logic_vector(31 downto 0);
@@ -19,16 +20,19 @@ end TopLevel;
 
 architecture str of TopLevel is
 
-    signal PCWriteCond_s, PCWrite_s, IorD_s, MemRead_s, MemWrite_s, MemToReg_s: std_logic;
-    signal IRWrite_s, JumpAndLink_s, IsSigned_s, ALUSrcA_s, RegWrite_s, RegDst_s: std_logic;
-    signal PCSource_s, ALUOp_s, ALUSrcB_s: std_logic_vector(1 downto 0);
-    signal ir_select_s: std_logic_vector(5 downto 0);
+    signal PCWriteCond_s, PCWrite_s, IorD_s, MemRead_s, MemWrite_s, MemToReg_s: std_logic := '0';
+    signal IRWrite_s, JumpAndLink_s, IsSigned_s, ALUSrcA_s, RegWrite_s, RegDst_s: std_logic := '0';
+    signal PCSource_s, ALUOp_s, ALUSrcB_s: std_logic_vector(1 downto 0) := "00";
+    signal ir_select_s: std_logic_vector(5 downto 0) := (others => '0');
+    signal ir_addr_s: std_logic_vector(15 downto 0) := (others => '0');
 
     component Controller is
         port (
             clk : in std_logic;
             rst : in std_logic;
-            ir_select: in std_logic_vector(5 downto 0); -- from Datapath
+            start : in std_logic;
+            ir_select: in std_logic_vector(5 downto 0);
+            ir_addr: in std_logic_vector(15 downto 0);
             PCWriteCond : out std_logic;
             PCWrite : out std_logic; 
             IorD : out std_logic; 
@@ -71,7 +75,8 @@ architecture str of TopLevel is
             inport1_in: in std_logic_vector(31 downto 0);
             inport1_en: in std_logic;
             controller_in: out std_logic_vector(5 downto 0);
-            outport:    out std_logic_vector(31 downto 0)
+            outport:    out std_logic_vector(31 downto 0);
+            ir_addr: out std_logic_vector(15 downto 0)
         );
     end component;
 
@@ -101,7 +106,8 @@ begin
             inport1_in => inport1_in,
             inport1_en => inport1_en,
             controller_in => ir_select_s,  -- Output to Controller
-            outport => outport            -- Top-level output
+            outport => outport,            -- Top-level output
+            ir_addr => ir_addr_s
         );
 
     -- Instantiate Controller
@@ -109,6 +115,8 @@ begin
         port map (
             clk => clk,
             rst => rst,
+            ir_addr => ir_addr_s,
+            start => start,
             ir_select => ir_select_s,  -- Input from Datapath
             PCWriteCond => PCWriteCond_s,
             PCWrite => PCWrite_s,
